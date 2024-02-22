@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Game/Assets/Scripts/Missile.cs.meta
+guid: f5c0065c7f64d234aaf48df1de948774
+========
+guid: acd1d9b3d7ce08b4793608ad276f435a
+>>>>>>>> feature/PSI-37-HighScore:Game/Assets/Scripts/ClockManager.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
