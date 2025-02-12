@@ -19,12 +19,18 @@ public class PlayerInventory : MonoBehaviour
     void Start()
     {
         var i = SelectedItems.selectedItems;
-        slot1 = Instantiate(i[0], transform.position + new Vector3(0.3f, 0.3f, -1), Quaternion.identity) as GameObject;
-        slot1.transform.parent = transform;
-        slot2 = Instantiate(i[1], transform.position + new Vector3(0.3f, 0.3f, -1), Quaternion.identity) as GameObject;
-        slot2.transform.parent = transform;
-        slot3 = Instantiate(i[2], transform.position + new Vector3(0.3f, 0.3f, -1), Quaternion.identity) as GameObject;
-        slot3.transform.parent = transform;
+        if (i is not null)
+        {
+            slot1 =
+                Instantiate(i[0], transform.position + new Vector3(0.3f, 0.3f, -1), Quaternion.identity) as GameObject;
+            slot1.transform.parent = transform;
+            slot2 =
+                Instantiate(i[1], transform.position + new Vector3(0.3f, 0.3f, -1), Quaternion.identity) as GameObject;
+            slot2.transform.parent = transform;
+            slot3 =
+                Instantiate(i[2], transform.position + new Vector3(0.3f, 0.3f, -1), Quaternion.identity) as GameObject;
+            slot3.transform.parent = transform;
+        }
 
 
 
@@ -52,21 +58,22 @@ public class PlayerInventory : MonoBehaviour
         items[current].go.SetActive(false);
         items[item].go.SetActive(true);
         current = item;
+        if (itemSlots is null) return;
         itemSlots.selectSlot(item);
     }
     void Reload()
     {
-        if (!canReload) { Debug.Log("no"); return; } 
+        if (!canReload) return; 
         if (!items[current].isGun) return;
         StartCoroutine(ReloadTimer());
     }
 
     IEnumerator ReloadTimer()
     {
-        reloadBar.gameObject.SetActive(true);
-        reloadBar.FillInTime(items[current].reload);
+        reloadBar?.gameObject.SetActive(true);
+        reloadBar?.FillInTime(items[current].reload);
         yield return new WaitForSeconds(items[current].reload);
-        reloadBar.gameObject.SetActive(false);
+        reloadBar?.gameObject.SetActive(false);
         items[current].go.GetComponent<Shoot>().ammoCount = items[current].ammo;
     }
 }

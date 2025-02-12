@@ -14,7 +14,7 @@ public class Explode : MonoBehaviour
         Collider2D myCollider = gameObject.GetComponent<Collider2D>();
         List<Collider2D> colliders = new List<Collider2D>();
         ContactFilter2D contactFilter = new ContactFilter2D();
-        int colliderCount = myCollider.OverlapCollider(contactFilter, colliders);
+        int colliderCount = myCollider.Overlap(contactFilter, colliders);
         Debug.Log("Collision count : " + colliderCount);
         for (int i = 0; i < colliderCount; i++)
         {

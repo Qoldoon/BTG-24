@@ -26,7 +26,7 @@ public class Shoot : MonoBehaviour
         transform.eulerAngles = euler;
 
         GameObject projectile = Instantiate(bullet, transform.position, transform.rotation);
-        projectile.GetComponent<Rigidbody2D>().velocity = transform.rotation * Vector2.up * bulletSpeed;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.rotation * Vector2.up * bulletSpeed;
 
         ammoCount--;
         time = Time.time + fireRate;

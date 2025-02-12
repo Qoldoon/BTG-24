@@ -27,7 +27,7 @@ public class Throw : MonoBehaviour
         transform.eulerAngles = euler;
 
         GameObject projectile = Instantiate(grenade, transform.position, transform.rotation);
-        projectile.GetComponent<Rigidbody2D>().velocity = transform.rotation * Vector2.up * grenadeSpeed;
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.rotation * Vector2.up * grenadeSpeed;
 
         grenadeCount--;
         time = Time.time + fireRate;

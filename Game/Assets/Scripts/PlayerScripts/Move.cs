@@ -33,7 +33,7 @@ public class Move : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 moveDir = Vector2.ClampMagnitude(new Vector2(x, y), 1);
-        rb.velocity = moveDir * speed;
+        rb.linearVelocity = moveDir * speed;
     }
     IEnumerator Dodge()
     {

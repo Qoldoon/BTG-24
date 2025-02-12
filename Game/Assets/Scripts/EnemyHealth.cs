@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (GetComponent<ItemDrop>() != null)
             GetComponent<ItemDrop>().DropItem();
-        ScoreManager.instance.AddPointForMeleeKill(gameObject.tag);
+        //ScoreManager.instance.AddPointForMeleeKill(gameObject.tag);
         Destroy(gameObject);
     }
 }
