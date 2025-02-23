@@ -11,8 +11,9 @@ public class LevelExit : MonoBehaviour
         {
             if(collision.GetComponent<PlayerInventory>().hasKey)
             {
+                var controller = collision.GetComponent<PlayerController>();
                 Destroy(GameObject.Find("SelectedItems"));
-                PlayerStats.SetSpeed(5f);
+                controller.speed = 5f;
                /* ScoreManager.instance.FinalHighScore();*/
                 SceneManager.LoadScene("MenuScene");
             }

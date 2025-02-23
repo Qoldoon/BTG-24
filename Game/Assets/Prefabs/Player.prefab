@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6303139778220925599}
   - component: {fileID: 6244862658317576965}
-  - component: {fileID: 6483779548981405791}
+  - component: {fileID: 1139352707925001070}
   - component: {fileID: 3889858511794740940}
-  - component: {fileID: 571349137244700657}
   - component: {fileID: 706361898572122092}
   - component: {fileID: 1621175782447770177}
   - component: {fileID: 209558630825167776}
@@ -93,7 +92,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6483779548981405791
+--- !u!114 &1139352707925001070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,10 +101,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2304290828060156450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22789a8d31d1eba40b32f760228fa452, type: 3}
+  m_Script: {fileID: 11500000, guid: 952d0bb89b48a4a71898d7dd39a253ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoints: 1
+  speedMult: 1
+  speed: 5
   rb: {fileID: 1621175782447770177}
+  parryDuration: 0.2
 --- !u!114 &3889858511794740940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,18 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 6303139778220925599}
---- !u!114 &571349137244700657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2304290828060156450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4316e08b062369144baa5e1acd35ddb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &706361898572122092
 MonoBehaviour:
   m_ObjectHideFlags: 0

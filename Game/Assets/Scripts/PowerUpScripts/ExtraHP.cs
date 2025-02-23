@@ -8,7 +8,8 @@ public class ExtraHP : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            PlayerStats.AddHitPoint();
+            var controller = collision.GetComponent<PlayerController>();
+            controller.hitPoints++;
             Destroy(gameObject);
         }
     }

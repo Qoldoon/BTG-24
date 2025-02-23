@@ -8,7 +8,7 @@ public class ShootingEnemyAI : MonoBehaviour
     public GameObject Bullet;
     public GameObject Shooter;
     public float ShootingRange;
-    public Transform target;
+    private Transform target;
     private float fireRate = 1f;
     private float nextFireTime;
     public bool followEnabled = true;
@@ -18,7 +18,9 @@ public class ShootingEnemyAI : MonoBehaviour
     private AIPath path;
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         setter = GetComponent<AIDestinationSetter>();
+        setter.target = target;
         path = GetComponent<AIPath>();
     }
     void Update()

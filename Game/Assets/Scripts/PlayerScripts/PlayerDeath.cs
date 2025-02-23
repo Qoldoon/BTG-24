@@ -10,12 +10,12 @@ public class PlayerDeath : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerStats.SubtractHitPoint();
-            if (PlayerStats.GetHitPoints() < 1)
+            var controller = collision.GetComponent<PlayerController>();
+            controller.hitPoints--;
+            if (controller.hitPoints < 1)
             {
                 /*ScoreManager.instance.FinalHighScore();*/
-                PlayerStats.Die(mainmenu);
-
+                controller.Die(mainmenu);
             }
         }
     }

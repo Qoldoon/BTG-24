@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3271172853860695982}
   - component: {fileID: 7138366069539386934}
   - component: {fileID: 1886746174235649090}
+  - component: {fileID: 5291493318652371357}
   - component: {fileID: 5711482600392254962}
   - component: {fileID: 8066663896493756181}
   m_Layer: 0
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 3744773112264494366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9134, y: -4.4134, z: 0}
-  m_LocalScale: {x: 0.3331889, y: 0.3331889, z: 0.3331889}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,6 +117,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5291493318652371357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3744773112264494366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b2bcfbeb59e4664853c314fb8d3a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 0}
+  startColor: {r: 1, g: 0.8228265, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 0}
+  trailTime: 0.6
+  startWidth: 0.2
+  endWidth: 0
+  trailMaterial: {fileID: 2100000, guid: 123f02547d21a4e45bc371a14bf4c23c, type: 2}
 --- !u!114 &5711482600392254962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5355122b1a361ae4ea99f25ed4c7411c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  bulletTrail: {fileID: 0}
+  speed: 30
   mainmenu: 0
 --- !u!58 &8066663896493756181
 CircleCollider2D:
@@ -137,7 +158,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3744773112264494366}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}

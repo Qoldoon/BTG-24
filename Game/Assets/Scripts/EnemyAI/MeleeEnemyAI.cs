@@ -25,15 +25,14 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            PlayerStats.SubtractHitPoint();
+            var controller = collision.GetComponent<PlayerController>();
+            controller.hitPoints--;
 
-            if (PlayerStats.GetHitPoints() < 1)
+            if (controller.hitPoints < 1)
             {
-                PlayerStats.Die(mainmenu);
-
+                controller.Die(mainmenu);
             }
             Destroy(gameObject);
-
         }
     }
 }
