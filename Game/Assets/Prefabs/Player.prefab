@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 6303139778220925599}
   - component: {fileID: 6244862658317576965}
   - component: {fileID: 1139352707925001070}
-  - component: {fileID: 3889858511794740940}
   - component: {fileID: 706361898572122092}
   - component: {fileID: 1621175782447770177}
   - component: {fileID: 209558630825167776}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -109,19 +108,6 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 1621175782447770177}
   parryDuration: 0.2
---- !u!114 &3889858511794740940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2304290828060156450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa5cafb944d81cf4f93018395d4c0d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 6303139778220925599}
 --- !u!114 &706361898572122092
 MonoBehaviour:
   m_ObjectHideFlags: 0

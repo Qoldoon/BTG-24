@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         AttackHandler();
         dodgeHandler();
         moveHandler();
+        Look();
     }
     private void Look()
     {

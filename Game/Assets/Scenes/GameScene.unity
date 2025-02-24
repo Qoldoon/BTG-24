@@ -959,13 +959,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2304290828060156450, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6303139778220925599, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9877143
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6303139778220925599, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9388013
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6303139778220925599, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1304,10 +1308,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Revolver
       objectReference: {fileID: 0}
+    - target: {fileID: 2906454164144597299, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360739913842537850, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}
     - target: {fileID: 4360739913842537850, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 2426489873650583619, guid: 7ecdc9eba7212834a8252682056f611c, type: 3}
+      objectReference: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}
     - target: {fileID: 4360739913842537850, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
       propertyPath: fireRate
       value: 0.1
@@ -1318,11 +1330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4360739913842537850, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
       propertyPath: bulletSpeed
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4360739913842537850, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
       propertyPath: bulletSpread
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7672285112985619751, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
       propertyPath: m_LocalPosition.x

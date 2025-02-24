@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,52 +5,75 @@ public class BulletScript : MonoBehaviour
 {
     GameObject target;
     public TrailRenderer bulletTrail;
-    public float speed = 30f;
-    private bool hasBeenParried = false;
-    Rigidbody2D bulletRB;
-    private Vector2 direction;
+    [SerializeField] public float speed = 30f;
+    public int damage = 50;
+    private Vector2 previousPosition;
+    private Vector2 newPosition;
+    public Vector2 direction;
+    public bool forEnemy = false;
     public int mainmenu;
-    // Start is called before the first frame update
+    private LayerMask collisionMask;
+
     void Start()
     {
-        bulletRB = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        previousPosition = transform.position;
+        
         
         if (bulletTrail == null && TryGetComponent<TrailRenderer>(out TrailRenderer trail))
         {
             bulletTrail = trail;
         }
         
-        direction = (target.transform.position - transform.position).normalized * speed;
-        bulletRB.linearVelocity = new Vector2(direction.x, direction.y);
+        collisionMask = Physics2D.AllLayers & ~(1 << gameObject.layer);
+        
         Destroy(this.gameObject, 5f);
     }
-    public void Parry()
+
+    void Update()
     {
-        if (hasBeenParried) return;
+        newPosition = (Vector2)transform.position + direction * speed * Time.deltaTime;
+            
+        float movementDistance = Vector2.Distance(previousPosition, newPosition);
         
-        hasBeenParried = true;
-        bulletRB.linearVelocity = -direction * (speed * 2f);
+        RaycastHit2D hit = Physics2D.Raycast(previousPosition, direction, movementDistance, collisionMask);
+            
+        if (hit.collider != null)
+        {
+            HandleCollision(hit);
+        }
+        
+        if (this != null)
+        {
+            transform.position = newPosition;
+        }
+
+        previousPosition = transform.position;
+    }
+    public void Parry(RaycastHit2D hit)
+    {
+        if (forEnemy) return;
+        
+        forEnemy = true;
+        direction = -direction;
+        newPosition = newPosition + direction * Vector2.Distance(hit.point, newPosition);
         
         if (bulletTrail != null)
         {
+            bulletTrail.Clear();
             bulletTrail.startColor = Color.blue;
             bulletTrail.endColor = Color.cyan;
         }
-        
-        gameObject.layer = LayerMask.NameToLayer("ParriedProjectile");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void HandleCollision(RaycastHit2D hit)
     {
-        if (collision.tag == "Player")
+        if (hit.collider.CompareTag("Player") && !forEnemy)
         {
-            PlayerController playerController = collision.GetComponent<PlayerController>();
+            PlayerController playerController = hit.collider.GetComponent<PlayerController>();
             if (playerController != null && playerController.IsParrying())
             {
-                Parry();
+                Parry(hit);
                 return;
             }
-            //playerController.hitPoints--;
 
             if (playerController.hitPoints < 1)
             {
@@ -60,14 +81,20 @@ public class BulletScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        if (collision.tag == "Walls")
+        else if (hit.collider.CompareTag("Enemy") && forEnemy)
+        {
+            Debug.Log("diedd");
+            hit.collider.GetComponent<EnemyHealth>().Hit(damage);
+            Destroy(gameObject);
+        }
+        else if (hit.collider.CompareTag("Walls"))
         {
             Destroy(gameObject);
             return;
         }
-        if (collision.tag == "Glass")
+        else if (hit.collider.CompareTag("Glass"))
         {
-            Destroy(collision.gameObject);
+            Destroy(hit.collider.gameObject);
         }
     }
 }

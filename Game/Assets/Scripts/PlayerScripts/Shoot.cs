@@ -6,10 +6,11 @@ public class Shoot : MonoBehaviour
 {
     public int ammoCount = 6;
     public float fireRate = 1;
-    public float bulletSpeed = 100;
+    public float bulletSpeed = 30;
+    public int bulletDamage = 50;
     public float bulletSpread = 0;
     public float reloadTime = 1;
-    public GameObject bullet;
+    public GameObject Bullet;
     float time;
     private void Start()
     {
@@ -24,10 +25,13 @@ public class Shoot : MonoBehaviour
         var o = euler;
         euler.z = Random.Range(euler.z - bulletSpread, euler.z + bulletSpread);
         transform.eulerAngles = euler;
-
-        GameObject projectile = Instantiate(bullet, transform.position, transform.rotation);
-        projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.rotation * Vector2.up * bulletSpeed;
-
+        
+        var bullet = Instantiate(Bullet, transform.position, Quaternion.identity).GetComponent<BulletScript>();
+        bullet.direction = (transform.rotation * Vector2.up).normalized;
+        bullet.speed = bulletSpeed;
+        bullet.damage = bulletDamage;
+        bullet.forEnemy = true;
+        
         ammoCount--;
         time = Time.time + fireRate;
         transform.eulerAngles = o;
