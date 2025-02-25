@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6af275f2f0a6674fba4ea5f6e298df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCount: 2
+  ammoCount: 6
   fireRate: 1
-  bulletSpeed: 50
+  bulletSpeed: 30
+  bulletDamage: 50
   bulletSpread: 1
   reloadTime: 0.6
-  bullet: {fileID: 2426489873650583619, guid: 2da1cc87f795bcc4fa83d961e6b79296, type: 3}
+  Bullet: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}
