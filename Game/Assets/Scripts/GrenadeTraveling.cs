@@ -1,49 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrenadeTraveling : MonoBehaviour
 {
-    public float explosionDistance = 5;
-    public GameObject explosion;
-    public float radius = 10;
-    Vector3 startPosition;
-    float distance;
-    // Start is called before the first frame update
+    public TrailRenderer bulletTrail;
+    [SerializeField] public float speed = 30f;
+    public int damage = 50;
+    public Rigidbody2D rb;
+    public Vector2 direction;
+    private bool emp = true;
+    public bool forEnemy = false;
+    public float detonationTime;
+    [SerializeField] private GameObject explosion;
+
     void Start()
     {
-        startPosition = transform.position;
-    }
+        rb = GetComponent<Rigidbody2D>();
 
-    // Update is called once per frame
+        rb.linearVelocity = direction * speed;
+        rb.angularVelocity = 300;
+        if (bulletTrail == null && TryGetComponent(out TrailRenderer trail))
+        {
+            bulletTrail = trail;
+        }
+        
+        detonationTime = Time.time + 1;
+    }
     void Update()
     {
-        distance = (transform.position - startPosition).magnitude;
-        if (distance >= explosionDistance)
-        {
-            Explode();
-            Destroy(gameObject);
-        }
+        if(Time.time >= detonationTime) Explode();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Explode()
     {
-        if (collision.tag == "Player") return;
-
-        if (collision.tag == "Walls") 
-        {
-            Explode();
-            Destroy(gameObject); 
-            return; 
-        }
-
-        if (collision.GetComponent<EnemyHealth>() == null) return;
-        Explode();
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
-
-    }
-    private void Explode()
-    {
-        GameObject projectile = Instantiate(explosion, transform.position, transform.rotation);
-        projectile.transform.localScale = new Vector3(radius, radius, 0);
     }
 }

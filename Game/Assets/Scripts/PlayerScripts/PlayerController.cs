@@ -31,25 +31,22 @@ public class PlayerController : MonoBehaviour
     {
         mouse_pos = Input.mousePosition;
         object_pos = Camera.main.WorldToScreenPoint(GetComponent<Transform>().position);
-        mouse_pos.x = mouse_pos.x - object_pos.x;
-        mouse_pos.y = mouse_pos.y - object_pos.y;
+        mouse_pos.x -= object_pos.x;
+        mouse_pos.y -= object_pos.y;
         angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
         GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
     }
     private void Parry()
     {
         if (!Input.GetMouseButtonDown(1)) return;
-        isParrying = true;
         // Add parry animation or effects here
-        Invoke("EndParry", parryDuration);
+        StartCoroutine(EndParry());
     }
     private void AttackHandler()
     {
         if (!Input.GetKey(KeyCode.Mouse0)) return;
-        var weapon = PlayerInventory.items[GetComponentInChildren<PlayerInventory>().current];
-        if (!weapon.isGun && !weapon.isGrenade) return;
-        if (weapon.isGun) weapon.go.GetComponent<Shoot>().Attack();
-        if (weapon.isGrenade) weapon.go.GetComponent<Throw>().Attack();
+        // ifGun
+        GetComponentInChildren<PlayerInventory>().GetCurrent().Attack();
     }
     private void dodgeHandler()
     {
@@ -63,7 +60,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 moveDir = Vector2.ClampMagnitude(new Vector2(x, y), 1);
-        rb.linearVelocity = moveDir * speed * speedMult;
+        rb.linearVelocity = moveDir * (speed * speedMult);
     }
     IEnumerator Dodge()
     {
@@ -72,9 +69,21 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.15f/speedMult);
         speed = orgSpeed;
     }
-    private void EndParry()
+    IEnumerator EndParry()
     {
+        isParrying = true;
+        yield return new WaitForSeconds(parryDuration);
         isParrying = false;
+    }
+
+    public void Hit(Vector2 direction)
+    {
+        // hitPoints--;
+        
+        if (hitPoints < 1)
+        {
+            Die(0);
+        }
     }
     public void Die(int scene)
     {

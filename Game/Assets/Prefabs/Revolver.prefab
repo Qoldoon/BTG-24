@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7672285112985619751}
   - component: {fileID: 4360739913842537851}
-  - component: {fileID: 4360739913842537850}
+  - component: {fileID: 8084581940043929743}
   m_Layer: 2
   m_Name: Revolver
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4360739913842537850
+--- !u!114 &8084581940043929743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,13 +97,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2906454164144597299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6af275f2f0a6674fba4ea5f6e298df0, type: 3}
+  m_Script: {fileID: 11500000, guid: f4a8c6d7040454eec8054b22b757085e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCount: 6
   fireRate: 1
   bulletSpeed: 30
   bulletDamage: 50
-  bulletSpread: 1
-  reloadTime: 0.6
+  bulletSpread: 0
+  reloadTime: 1
   Bullet: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}

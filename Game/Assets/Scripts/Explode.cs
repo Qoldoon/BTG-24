@@ -8,9 +8,13 @@ public class Explode : MonoBehaviour
     float time;
     public int damage;
     public bool emp;
+
+    private SpriteRenderer _spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         Collider2D myCollider = gameObject.GetComponent<Collider2D>();
         List<Collider2D> colliders = new List<Collider2D>();
         ContactFilter2D contactFilter = new ContactFilter2D();
@@ -38,7 +42,7 @@ public class Explode : MonoBehaviour
             time += 0.01f;
             color.a -= 0.01f;
             if (color.a > 0)
-                gameObject.GetComponent<SpriteRenderer>().color = color;
+                _spriteRenderer.color = color;
             else
             {
                 Destroy(gameObject);

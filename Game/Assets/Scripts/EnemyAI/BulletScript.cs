@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class BulletScript : MonoBehaviour
 {
-    GameObject target;
     public TrailRenderer bulletTrail;
     [SerializeField] public float speed = 30f;
     public int damage = 50;
@@ -19,19 +18,19 @@ public class BulletScript : MonoBehaviour
         previousPosition = transform.position;
         
         
-        if (bulletTrail == null && TryGetComponent<TrailRenderer>(out TrailRenderer trail))
+        if (bulletTrail == null && TryGetComponent(out TrailRenderer trail))
         {
             bulletTrail = trail;
         }
         
         collisionMask = Physics2D.AllLayers & ~(1 << gameObject.layer);
         
-        Destroy(this.gameObject, 5f);
+        Destroy(gameObject, 5f);
     }
 
     void Update()
     {
-        newPosition = (Vector2)transform.position + direction * speed * Time.deltaTime;
+        newPosition = (Vector2)transform.position + direction * (speed * Time.deltaTime);
             
         float movementDistance = Vector2.Distance(previousPosition, newPosition);
         
@@ -69,21 +68,18 @@ public class BulletScript : MonoBehaviour
         if (hit.collider.CompareTag("Player") && !forEnemy)
         {
             PlayerController playerController = hit.collider.GetComponent<PlayerController>();
-            if (playerController != null && playerController.IsParrying())
+            if (playerController.IsParrying())
             {
                 Parry(hit);
                 return;
             }
 
-            if (playerController.hitPoints < 1)
-            {
-                playerController.Die(mainmenu);
-            }
+            playerController.Hit(direction);
+            
             Destroy(gameObject);
         }
         else if (hit.collider.CompareTag("Enemy") && forEnemy)
         {
-            Debug.Log("diedd");
             hit.collider.GetComponent<EnemyHealth>().Hit(damage);
             Destroy(gameObject);
         }

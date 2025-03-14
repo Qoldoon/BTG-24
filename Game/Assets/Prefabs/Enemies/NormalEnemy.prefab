@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -951408655661427748}
   - component: {fileID: -3793248027553596788}
   - component: {fileID: -7608111301228071309}
-  - component: {fileID: 8772119754748614957}
   m_Layer: 0
   m_Name: NormalEnemy
   m_TagString: NormalEnemy
@@ -245,19 +244,3 @@ MonoBehaviour:
   ShootingRange: 5.01
   followEnabled: 1
   activateDistance: 20
---- !u!114 &8772119754748614957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2319015951207541753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f37755bb6c015459aafd5e3dc6bfaa48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pixelParticlePrefab: {fileID: 3901223736667289759, guid: ada196f24fc0f4515b7f09ca1aafceff, type: 3}
-  particleLifetime: 1
-  scatterForce: 2
-  particleSize: 0.1

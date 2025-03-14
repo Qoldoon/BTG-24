@@ -17,20 +17,20 @@ public class Throw : MonoBehaviour
     }
     public void Attack()
     {
-        if (grenadeCount == 0) return;
-        if (Time.time < time) return;
-
-        grenade.GetComponentInChildren<GrenadeTraveling>().explosionDistance = throwDistance;
-
-        Vector3 euler = transform.eulerAngles;
-        var o = euler;
-        transform.eulerAngles = euler;
-
-        GameObject projectile = Instantiate(grenade, transform.position, transform.rotation);
-        projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.rotation * Vector2.up * grenadeSpeed;
-
-        grenadeCount--;
-        time = Time.time + fireRate;
-        transform.eulerAngles = o;
+        // if (grenadeCount == 0) return;
+        // if (Time.time < time) return;
+        //
+        // // grenade.GetComponentInChildren<GrenadeTraveling>().explosionDistance = throwDistance;
+        //
+        // Vector3 euler = transform.eulerAngles;
+        // var o = euler;
+        // transform.eulerAngles = euler;
+        //
+        // GameObject projectile = Instantiate(grenade, transform.position, transform.rotation);
+        // projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.rotation * Vector2.up * grenadeSpeed;
+        //
+        // grenadeCount--;
+        // time = Time.time + fireRate;
+        // transform.eulerAngles = o;
     }
 }
