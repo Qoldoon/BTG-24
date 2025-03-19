@@ -115,7 +115,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &4109105882636277241
 MonoBehaviour:
@@ -135,7 +135,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   direction: {x: 0, y: 0}
   forEnemy: 0
-  detonationTime: 0
+  detonationTime: 1
   explosion: {fileID: 8122276191842634254, guid: 6ff64496293f78f48a74616fd528a8f7, type: 3}
 --- !u!58 &-4681873876350423840
 CircleCollider2D:

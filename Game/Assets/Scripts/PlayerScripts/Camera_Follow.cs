@@ -9,6 +9,14 @@ public class Camera_Follow : MonoBehaviour
     Vector3 velocity = new Vector3(0, 0, 0);
     Vector3 mouse_pos;
     Vector3 object_pos;
+
+    void Start()
+    {
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+    }
     void FixedUpdate()
     {
         mouse_pos = Input.mousePosition;

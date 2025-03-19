@@ -13,8 +13,13 @@ public class PlayerInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach (var item in SelectedItems.selectedItems)
+        {
+            Add(item.gameObject);
+        }
+        
         Equip(current);
-        canReload = slots[0].tag == "AmmoPouch" || slots[1].tag == "AmmoPouch" || slots[2].tag == "AmmoPouch";
+        // canReload = slots[0].tag == "AmmoPouch" || slots[1].tag == "AmmoPouch" || slots[2].tag == "AmmoPouch";
     }
 
     // Update is called once per frame

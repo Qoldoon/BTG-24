@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,23 @@ public class MeleeEnemyAI : MonoBehaviour
     public Transform target;
     public bool followEnabled = true;
     public float activateDistance = 20f;
-    private Path path;
+    private AIPath path;
     public int mainmenu;
+    private AIDestinationSetter setter;
+
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        setter = GetComponent<AIDestinationSetter>();
+        setter.target = target;
+        path = GetComponent<AIPath>();
+    }
+
     void Update()
     {
         if (TargetInDistance())
         {
-            GetComponent<AIDestinationSetter>().enabled = true;
+            setter.enabled = true;
         }
     }
     private bool TargetInDistance()
@@ -26,12 +37,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if (collision.tag == "Player")
         {
             var controller = collision.GetComponent<PlayerController>();
-            controller.hitPoints--;
-
-            if (controller.hitPoints < 1)
-            {
-                controller.Die(mainmenu);
-            }
+            controller.Hit();
             Destroy(gameObject);
         }
     }

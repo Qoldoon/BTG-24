@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,17 @@ public class PlayerController : MonoBehaviour
     Vector3 mouse_pos;
     Vector3 object_pos;
     float angle;
+    private Animator animator;
     public bool IsParrying()
     {
         return isParrying;
     }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
         Parry();
@@ -30,11 +38,11 @@ public class PlayerController : MonoBehaviour
     private void Look()
     {
         mouse_pos = Input.mousePosition;
-        object_pos = Camera.main.WorldToScreenPoint(GetComponent<Transform>().position);
+        object_pos = Camera.main.WorldToScreenPoint(transform.position);
         mouse_pos.x -= object_pos.x;
         mouse_pos.y -= object_pos.y;
         angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
-        GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
     }
     private void Parry()
     {
@@ -46,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.Mouse0)) return;
         // ifGun
-        GetComponentInChildren<PlayerInventory>().GetCurrent().Attack();
+        GetComponent<PlayerInventory>().GetCurrent().Attack();
     }
     private void dodgeHandler()
     {
@@ -76,7 +84,7 @@ public class PlayerController : MonoBehaviour
         isParrying = false;
     }
 
-    public void Hit(Vector2 direction)
+    public void Hit()
     {
         // hitPoints--;
         

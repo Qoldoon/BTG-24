@@ -74,7 +74,7 @@ public class BulletScript : MonoBehaviour
                 return;
             }
 
-            playerController.Hit(direction);
+            playerController.Hit();
             
             Destroy(gameObject);
         }

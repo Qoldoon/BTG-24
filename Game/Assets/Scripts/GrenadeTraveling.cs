@@ -8,9 +8,9 @@ public class GrenadeTraveling : MonoBehaviour
     public int damage = 50;
     public Rigidbody2D rb;
     public Vector2 direction;
-    private bool emp = true;
+    private bool emp = false;
     public bool forEnemy = false;
-    public float detonationTime;
+    public float detonationTime = 1f;
     [SerializeField] private GameObject explosion;
 
     void Start()
@@ -19,20 +19,31 @@ public class GrenadeTraveling : MonoBehaviour
 
         rb.linearVelocity = direction * speed;
         rb.angularVelocity = 300;
-        if (bulletTrail == null && TryGetComponent(out TrailRenderer trail))
-        {
-            bulletTrail = trail;
-        }
         
-        detonationTime = Time.time + 1;
+        Destroy(gameObject, detonationTime);
     }
     void Update()
     {
-        if(Time.time >= detonationTime) Explode();
     }
-    void Explode()
+    void OnDestroy()
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (explosion != null)
+        {
+            GameObject effect = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(effect, 1f); 
+        }
+        
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 4);
+        
+        foreach (Collider2D hit in hitObjects)
+        {
+            if (hit.GetComponent<EnemyHealth>() != null)
+                hit.GetComponent<EnemyHealth>().Hit(damage, emp);
+            if (hit.tag == "Glass" && !emp)
+            {
+                Destroy(hit.gameObject);
+                AstarPath.active.Scan();
+            }  
+        }
     }
 }

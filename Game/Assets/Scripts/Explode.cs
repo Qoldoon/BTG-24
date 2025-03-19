@@ -15,21 +15,6 @@ public class Explode : MonoBehaviour
     void Start()
     {
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        Collider2D myCollider = gameObject.GetComponent<Collider2D>();
-        List<Collider2D> colliders = new List<Collider2D>();
-        ContactFilter2D contactFilter = new ContactFilter2D();
-        int colliderCount = myCollider.Overlap(contactFilter, colliders);
-        Debug.Log("Collision count : " + colliderCount);
-        for (int i = 0; i < colliderCount; i++)
-        {
-            if (colliders[i].GetComponent<EnemyHealth>() != null)
-                colliders[i].GetComponent<EnemyHealth>().Hit(damage, emp);
-            if (colliders[i].tag == "Glass" && !emp)
-            {
-                Destroy(colliders[i].gameObject);
-                AstarPath.active.Scan();
-            }   
-        }
         color = gameObject.GetComponent<SpriteRenderer>().color;
         time = Time.time;
     }
