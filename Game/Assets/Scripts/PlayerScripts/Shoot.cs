@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
         bullet.direction = (transform.rotation * Vector2.up).normalized;
         bullet.speed = bulletSpeed;
         bullet.damage = bulletDamage;
-        bullet.forEnemy = true;
+        bullet.target = 1;
         
         ammoCount--;
         time = Time.time + fireRate;

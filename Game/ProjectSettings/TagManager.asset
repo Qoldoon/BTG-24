@@ -13,6 +13,7 @@ TagManager:
   - KeyEnemy
   - LightEnemy
   - Enemy
+  - Reflect
   layers:
   - Default
   - TransparentFX

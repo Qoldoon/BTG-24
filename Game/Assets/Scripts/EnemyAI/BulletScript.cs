@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour
     private Vector2 previousPosition;
     private Vector2 newPosition;
     public Vector2 direction;
-    public bool forEnemy = false;
+    public int target;
     public int mainmenu;
     private LayerMask collisionMask;
 
@@ -50,9 +50,9 @@ public class BulletScript : MonoBehaviour
     }
     public void Parry(RaycastHit2D hit)
     {
-        if (forEnemy) return;
+        if (target == 1) return;
         
-        forEnemy = true;
+        target = 1;
         direction = -direction;
         newPosition = newPosition + direction * Vector2.Distance(hit.point, newPosition);
         
@@ -65,32 +65,38 @@ public class BulletScript : MonoBehaviour
     }
     void HandleCollision(RaycastHit2D hit)
     {
-        if (hit.collider.CompareTag("Player") && !forEnemy)
+        Debug.Log(hit.collider.gameObject.name);
+        var e = hit.collider.gameObject.GetComponent<IDamagable>();
+        if (e != null)
         {
-            PlayerController playerController = hit.collider.GetComponent<PlayerController>();
-            if (playerController.IsParrying())
-            {
-                Parry(hit);
-                return;
-            }
-
-            playerController.Hit();
-            
-            Destroy(gameObject);
+            if(e.Hit(damage, target))
+                Destroy(gameObject);
         }
-        else if (hit.collider.CompareTag("Enemy") && forEnemy)
-        {
-            hit.collider.GetComponent<EnemyHealth>().Hit(damage);
-            Destroy(gameObject);
-        }
-        else if (hit.collider.CompareTag("Walls"))
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else if (hit.collider.CompareTag("Glass"))
-        {
-            Destroy(hit.collider.gameObject);
-        }
+        // if (hit.collider.CompareTag("Player") && !forEnemy)
+        // {
+        //     PlayerController playerController = hit.collider.GetComponent<PlayerController>();
+        //     
+        //     playerController.Hit();
+        //     
+        //     Destroy(gameObject);
+        // }
+        // else if (hit.collider.CompareTag("Reflect"))
+        // {
+        //     Parry(hit);
+        // }
+        // else if (hit.collider.CompareTag("Enemy") && forEnemy)
+        // {
+        //     hit.collider.GetComponent<EnemyHealth>().Hit(damage);
+        //     Destroy(gameObject);
+        // }
+        // else if (hit.collider.CompareTag("Walls"))
+        // {
+        //     hit.collider.GetComponent<WallState>().Hit(damage);
+        //     Destroy(gameObject);
+        // }
+        // else if (hit.collider.CompareTag("Glass"))
+        // {
+        //     Destroy(hit.collider.gameObject);
+        // }
     }
 }

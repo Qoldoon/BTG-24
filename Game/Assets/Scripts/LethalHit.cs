@@ -14,7 +14,7 @@ public class LethalHit : MonoBehaviour
 
         if (collision.GetComponent<EnemyHealth>() == null) return;
         
-        collision.GetComponent<EnemyHealth>().Hit(damage);
+        collision.GetComponent<EnemyHealth>().Hit(damage, 1);
       
 
         Destroy(gameObject);

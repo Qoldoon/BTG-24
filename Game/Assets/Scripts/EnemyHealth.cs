@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDamagable
 {
 
     public int health;
     public bool Shield = false;
 
-    public void Hit(int damage, bool emp = false)
+    public bool Hit(float damage, int target, bool emp = false)
     {
-        if (emp) { Shield = false; return; }
+        if (target != 1) return false;
+        if (emp) { Shield = false; return true; }
         if (!Shield && health <= damage)
         {
             Die();
+            return true;
         }
+        return false;
     }
     public void Die()
     {

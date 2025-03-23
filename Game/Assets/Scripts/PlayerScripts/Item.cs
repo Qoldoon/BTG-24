@@ -26,13 +26,13 @@ public class Item : MonoBehaviour
         euler.z = Random.Range(euler.z - bulletSpread, euler.z + bulletSpread);
         transform.eulerAngles = euler;
 
-        var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+        var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, Quaternion.identity);
         if (bullet.TryGetComponent(out BulletScript bscript))
         {
             bscript.direction = (transform.rotation * Vector2.up).normalized;
             bscript.speed = bulletSpeed;
             bscript.damage = bulletDamage;
-            bscript.forEnemy = true;
+            bscript.target = 1;
         }
         else if (bullet.TryGetComponent(out GrenadeTraveling gscript))
         {

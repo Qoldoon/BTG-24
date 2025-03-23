@@ -39,7 +39,7 @@ public class ShootingEnemyAI : MonoBehaviour
             path.enabled = false;
             if (nextFireTime < Time.time)
             {
-                var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+                var bullet = Instantiate(Bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
                 bullet.GetComponent<BulletScript>().direction = (target.transform.position - transform.position).normalized;
                 
                 nextFireTime = Time.time + fireRate;

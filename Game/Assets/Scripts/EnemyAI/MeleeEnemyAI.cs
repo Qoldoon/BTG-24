@@ -37,7 +37,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if (collision.tag == "Player")
         {
             var controller = collision.GetComponent<PlayerController>();
-            controller.Hit();
+            controller.Hit(20, 0);
             Destroy(gameObject);
         }
     }

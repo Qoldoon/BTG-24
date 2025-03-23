@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamagable
 {
     [SerializeField] public int hitPoints = 1;
     [SerializeField] public float speedMult = 1f;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     Vector3 mouse_pos;
     Vector3 object_pos;
     float angle;
-    private Animator animator;
+    public GameObject slash;
     public bool IsParrying()
     {
         return isParrying;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private void Parry()
     {
         if (!Input.GetMouseButtonDown(1)) return;
+        slash.GetComponent<SlashScript>().Slash();
         // Add parry animation or effects here
         StartCoroutine(EndParry());
     }
@@ -84,14 +85,16 @@ public class PlayerController : MonoBehaviour
         isParrying = false;
     }
 
-    public void Hit()
+    public bool Hit(float damage, int target, bool emp = false)
     {
+        if (target != 0) return false;
         // hitPoints--;
         
         if (hitPoints < 1)
         {
             Die(0);
         }
+        return true;
     }
     public void Die(int scene)
     {
