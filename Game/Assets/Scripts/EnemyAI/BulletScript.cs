@@ -5,7 +5,7 @@ public class BulletScript : MonoBehaviour
 {
     public TrailRenderer bulletTrail;
     [SerializeField] public float speed = 30f;
-    public int damage = 50;
+    public float damage = 50;
     private Vector2 previousPosition;
     private Vector2 newPosition;
     public Vector2 direction;
@@ -50,11 +50,8 @@ public class BulletScript : MonoBehaviour
     }
     public void Parry(RaycastHit2D hit)
     {
-        if (target == 1) return;
-        
-        target = 1;
         direction = -direction;
-        newPosition = newPosition + direction * Vector2.Distance(hit.point, newPosition);
+        newPosition += direction * Vector2.Distance(hit.point, newPosition);
         
         if (bulletTrail != null)
         {
@@ -65,11 +62,17 @@ public class BulletScript : MonoBehaviour
     }
     void HandleCollision(RaycastHit2D hit)
     {
-        Debug.Log(hit.collider.gameObject.name);
-        var e = hit.collider.gameObject.GetComponent<IDamagable>();
-        if (e != null)
+        var damagable = hit.collider.gameObject.GetComponent<IDamagable>();
+        if (damagable != null)
         {
-            if(e.Hit(damage, target))
+            HitResponse response = damagable.Hit(hit.point, damage, target);
+            damage = response.damage;
+            target = response.target;
+            if (response.reflect)
+            {
+                Parry(hit);
+            }
+            if(response.destroy)
                 Destroy(gameObject);
         }
         // if (hit.collider.CompareTag("Player") && !forEnemy)

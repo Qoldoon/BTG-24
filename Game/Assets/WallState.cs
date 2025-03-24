@@ -10,16 +10,12 @@ public class WallState : MonoBehaviour,  IDamagable
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
     {
-        
-    }
-
-    public bool Hit(float damage, int target, bool emp = false)
-    {
-        if(damage <= 50f) return true;
+        HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target).Destroy();
+        if(damage <= 50f) return hb.Build();
         spriteRenderer.sprite = damagedsprite;
         GetComponent<Collider2D>().enabled = false;
-        return true;
+        return hb.Build();
     }
 }

@@ -37,7 +37,10 @@ public class GrenadeTraveling : MonoBehaviour
         
         foreach (Collider2D hit in hitObjects)
         {
-            hit.gameObject.GetComponent<IDamagable>().Hit(damage, 3, emp);
+            if (hit.gameObject.TryGetComponent(out IDamagable damagable))
+            {
+                damagable.Hit(hit.transform.position ,damage, 2, emp);
+            }
             // if (hit.GetComponent<EnemyHealth>() != null)
             //     hit.GetComponent<EnemyHealth>().Hit(damage, emp);
             // if (hit.tag == "Glass" && !emp)

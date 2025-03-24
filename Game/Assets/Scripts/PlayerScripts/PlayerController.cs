@@ -85,16 +85,17 @@ public class PlayerController : MonoBehaviour, IDamagable
         isParrying = false;
     }
 
-    public bool Hit(float damage, int target, bool emp = false)
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
     {
-        if (target != 0) return false;
+        HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
+        if (target == 1) return hb.Build();
         // hitPoints--;
         
         if (hitPoints < 1)
         {
             Die(0);
         }
-        return true;
+        return hb.Destroy().Build();
     }
     public void Die(int scene)
     {

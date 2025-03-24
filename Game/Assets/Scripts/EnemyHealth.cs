@@ -8,16 +8,17 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     public int health;
     public bool Shield = false;
 
-    public bool Hit(float damage, int target, bool emp = false)
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
     {
-        if (target != 1) return false;
-        if (emp) { Shield = false; return true; }
+        HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
+        if (target == 0) return hb.Build();
+        if (emp) { Shield = false; return hb.Destroy().Build(); }
         if (!Shield && health <= damage)
         {
             Die();
-            return true;
+            return hb.Destroy().Build();
         }
-        return false;
+        return hb.Build();
     }
     public void Die()
     {
