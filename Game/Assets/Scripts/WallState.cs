@@ -16,6 +16,7 @@ public class WallState : MonoBehaviour,  IDamagable
         if(damage <= 50f) return hb.Build();
         spriteRenderer.sprite = damagedsprite;
         GetComponent<Collider2D>().enabled = false;
+        AstarPath.active.Scan();
         return hb.Build();
     }
 }

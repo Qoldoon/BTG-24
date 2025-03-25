@@ -27,19 +27,12 @@ public class Item : MonoBehaviour
         transform.eulerAngles = euler;
 
         var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, Quaternion.identity);
-        if (bullet.TryGetComponent(out BulletScript bscript))
+        if (bullet.TryGetComponent(out Projectile projectile))
         {
-            bscript.direction = (transform.rotation * Vector2.up).normalized;
-            bscript.speed = bulletSpeed;
-            bscript.damage = bulletDamage;
-            bscript.target = 1;
-        }
-        else if (bullet.TryGetComponent(out GrenadeTraveling gscript))
-        {
-            gscript.direction = (transform.rotation * Vector2.up).normalized;
-            gscript.speed = bulletSpeed;
-            gscript.damage = bulletDamage;
-            gscript.forEnemy = true;
+            projectile.direction = (transform.rotation * Vector2.up).normalized;
+            projectile.speed = bulletSpeed;
+            projectile.damage = bulletDamage;
+            projectile.target = 1;
         }
         
         ammoCount--;

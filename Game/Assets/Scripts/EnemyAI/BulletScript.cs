@@ -1,16 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BulletScript : MonoBehaviour
+public class BulletScript : Projectile
 {
     public TrailRenderer bulletTrail;
-    [SerializeField] public float speed = 30f;
-    public float damage = 50;
     private Vector2 previousPosition;
     private Vector2 newPosition;
-    public Vector2 direction;
-    public int target;
-    public int mainmenu;
     private LayerMask collisionMask;
 
     void Start()
@@ -75,31 +70,5 @@ public class BulletScript : MonoBehaviour
             if(response.destroy)
                 Destroy(gameObject);
         }
-        // if (hit.collider.CompareTag("Player") && !forEnemy)
-        // {
-        //     PlayerController playerController = hit.collider.GetComponent<PlayerController>();
-        //     
-        //     playerController.Hit();
-        //     
-        //     Destroy(gameObject);
-        // }
-        // else if (hit.collider.CompareTag("Reflect"))
-        // {
-        //     Parry(hit);
-        // }
-        // else if (hit.collider.CompareTag("Enemy") && forEnemy)
-        // {
-        //     hit.collider.GetComponent<EnemyHealth>().Hit(damage);
-        //     Destroy(gameObject);
-        // }
-        // else if (hit.collider.CompareTag("Walls"))
-        // {
-        //     hit.collider.GetComponent<WallState>().Hit(damage);
-        //     Destroy(gameObject);
-        // }
-        // else if (hit.collider.CompareTag("Glass"))
-        // {
-        //     Destroy(hit.collider.gameObject);
-        // }
     }
 }
