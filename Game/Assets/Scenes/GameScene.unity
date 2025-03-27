@@ -908,6 +908,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3080910766710390389, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667771888989304797, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6303139778220925599, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3

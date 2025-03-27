@@ -11,29 +11,31 @@ public class PlayerController : MonoBehaviour, IDamagable
     [SerializeField] public float speed = 5f;
     public Rigidbody2D rb;
     private float t;
-    private bool isParrying = false;
-    public float parryDuration = 0.2f;
     Vector3 mouse_pos;
     Vector3 object_pos;
     float angle;
+    private PlayerInventory playerInventory;
     public GameObject slash;
-    public bool IsParrying()
+
+    void Start()
     {
-        return isParrying;
+        playerInventory = GetComponent<PlayerInventory>();
     }
-
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
         Parry();
         AttackHandler();
-        dodgeHandler();
-        moveHandler();
+        DodgeHandler();
+        MoveHandler();
         Look();
+        Reload();
+    }
+
+    private void Reload()
+    {
+        if (!Input.GetKey(KeyCode.R)) return;
+        if(playerInventory.isUsable(out IUsable usableItem))
+            usableItem.SecondaryUse();
     }
     private void Look()
     {
@@ -48,23 +50,21 @@ public class PlayerController : MonoBehaviour, IDamagable
     {
         if (!Input.GetMouseButtonDown(1)) return;
         slash.GetComponent<SlashScript>().Slash();
-        // Add parry animation or effects here
-        StartCoroutine(EndParry());
     }
     private void AttackHandler()
     {
         if (!Input.GetKey(KeyCode.Mouse0)) return;
-        // ifGun
-        GetComponent<PlayerInventory>().GetCurrent().Attack();
+        if(playerInventory.isUsable(out IUsable usableItem))
+            usableItem.Use();
     }
-    private void dodgeHandler()
+    private void DodgeHandler()
     {
         if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
         if (Time.time < t) return;
         StartCoroutine(Dodge());
         t = Time.time + 1f;
     }
-    private void moveHandler()
+    private void MoveHandler()
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -78,13 +78,6 @@ public class PlayerController : MonoBehaviour, IDamagable
         yield return new WaitForSeconds(0.15f/speedMult);
         speed = orgSpeed;
     }
-    IEnumerator EndParry()
-    {
-        isParrying = true;
-        yield return new WaitForSeconds(parryDuration);
-        isParrying = false;
-    }
-
     public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
     {
         HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);

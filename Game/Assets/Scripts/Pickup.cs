@@ -5,12 +5,18 @@ using UnityEngine.UI;
 public class Pickup : MonoBehaviour
 {
     public GameObject item;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        var x = GetComponentInChildren<Item>();
-        if(x != null) 
-            item = x.gameObject;
+        if (item == null)
+        {
+            item = GetComponentInChildren<Item>()?.gameObject;
+        }
+        else if (GetComponentInChildren<Item>() == null)
+        {
+            Instantiate(item, transform);
+        }
+        if(item == null) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,11 +25,5 @@ public class Pickup : MonoBehaviour
         var inv = other.gameObject.GetComponent<PlayerInventory>();
         inv.Add(item);
         Destroy(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
