@@ -27,7 +27,9 @@ public class PlayerInventory : MonoBehaviour
     void Equip(int item)
     {
         if (slots.Count < item + 1) return;
+        slots[current].UnEquip();
         current = item; 
+        slots[current].Equip();
         Settle();
     }
 
@@ -59,7 +61,6 @@ public class PlayerInventory : MonoBehaviour
     {
         foreach (var slot in slots)
         {
-            slot.GetComponent<Weapon>()?.InterruptReload();
             slot.gameObject.SetActive(slots[current] == slot);
         }
     }

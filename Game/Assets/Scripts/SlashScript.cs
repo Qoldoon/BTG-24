@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SlashScript : MonoBehaviour, IDamagable
+public class SlashScript : MonoBehaviour, IDamageable
 {
     public bool isParrying = false;
 
@@ -19,7 +19,7 @@ public class SlashScript : MonoBehaviour, IDamagable
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
     {
         return new HitResponseBuilder().ForEnemy().Damage(damage).Reflect().Build();
     }

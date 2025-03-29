@@ -57,10 +57,10 @@ public class BulletScript : Projectile
     }
     void HandleCollision(RaycastHit2D hit)
     {
-        var damagable = hit.collider.gameObject.GetComponent<IDamagable>();
-        if (damagable != null)
+        var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            HitResponse response = damagable.Hit(hit.point, damage, target);
+            HitResponse response = damageable.Hit(hit.point, damage, target);
             damage = response.damage;
             target = response.target;
             if (response.reflect)

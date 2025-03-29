@@ -36,7 +36,7 @@ public class Weapon : Item, IUsable
         euler.z = Random.Range(euler.z - bulletSpread, euler.z + bulletSpread);
         transform.eulerAngles = euler;
 
-        var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, Quaternion.identity);
+        var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, transform.rotation);
         if (bullet.TryGetComponent(out Projectile projectile))
         {
             projectile.direction = (transform.rotation * Vector2.up).normalized;
@@ -54,6 +54,11 @@ public class Weapon : Item, IUsable
     {
         if(_isReloading) return;
         _reloadCoroutine = StartCoroutine(Reload());
+    }
+
+    public override void UnEquip()
+    {
+        InterruptReload();
     }
     public void InterruptReload()
     {

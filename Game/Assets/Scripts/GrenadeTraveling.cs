@@ -29,9 +29,9 @@ public class GrenadeTraveling : Projectile
         
         foreach (Collider2D hit in hitObjects)
         {
-            if (hit.gameObject.TryGetComponent(out IDamagable damagable))
+            if (hit.gameObject.TryGetComponent(out IDamageable damagable))
             {
-                damagable.Hit(hit.transform.position ,damage, target, emp);
+                damagable.Hit(transform.position ,damage, target, emp);
             }
         }
     }

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IDamagable
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
 
     public int health;
     public bool Shield = false;
 
-    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
     {
         HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
         if (target == 0) return hb.Build();

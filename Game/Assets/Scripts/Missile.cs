@@ -2,42 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour
+public class Missile : Projectile
 {
-    public float explosionDistance = 5;
+    public Rigidbody2D rb;
+    private bool emp = false;
     public GameObject explosion;
-    public float radius = 15;
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        rb.linearVelocity = direction * speed;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Parry()
     {
-
+        direction = -direction;
+        rb.linearVelocity = direction * speed;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") return;
-
-        if (collision.tag == "Walls" || collision.tag == "Glass")
+        var damageable = collision.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            Explode();
-            Destroy(gameObject);
-            return;
+            HitResponse response = damageable.Hit(transform.position, damage, target, emp, 2);
+            damage = response.damage;
+            target = response.target;
+            if (response.reflect)
+            {
+                Parry();
+            }
+            if(response.destroy)
+                Destroy(gameObject);
         }
-
-        if (collision.GetComponent<EnemyHealth>() == null) return;
-        Explode();
-        Destroy(gameObject);
-
     }
-    private void Explode()
+    void OnDestroy()
     {
-        GameObject projectile = Instantiate(explosion, transform.position, transform.rotation);
-        projectile.transform.localScale = new Vector3(radius, radius, 0);
+        if (explosion != null)
+        {
+            GameObject effect = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(effect, 1f); 
+        }
+        
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 2);
+        
+        foreach (Collider2D hit in hitObjects)
+        {
+            if (hit.gameObject.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.Hit(transform.position, damage, target, emp, 2);
+            }
+        }
     }
-
 }

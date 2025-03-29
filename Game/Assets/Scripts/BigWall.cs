@@ -1,35 +1,60 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class BigWall : MonoBehaviour, IDamagable
+public class BigWall : MonoBehaviour, IDamageable
 {
-    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
     {
-        WallState hitBlock = FindClosestBlock(hit);
-
-        if (hitBlock != null)
+        List<WallState> hitBlocks = FindClosestBlocks(hit, radius);
+        
+        if (hitBlocks.Count == 0)
         {
-            return hitBlock.Hit(hit, damage, target, emp);
+            return new HitResponseBuilder().Build();
+        }
+        if (radius == 0)
+        {
+            return hitBlocks[0].Hit(hit, damage, target, emp);
+        }
+        
+        HitResponse finalResponse = null;
+        foreach (var block in hitBlocks)
+        {
+            var response = block.Hit(hit, damage, target, emp);
+            finalResponse = response;
+        }
+        if (hitBlocks.Count > 0)
+        {
+            AstarPath.active?.Scan();
         }
 
-        throw new InvalidOperationException("No hit");
+        return finalResponse ?? new HitResponseBuilder().Destroy().Build();
     }
-    WallState FindClosestBlock(Vector2 hitPoint)
+    private List<WallState> FindClosestBlocks(Vector2 hitPoint, float radius)
     {
-        WallState closestBlock = null;
+        var closestBlocks = new List<WallState>();
+        WallState closestSingleBlock = null;
         float minDistance = float.MaxValue;
+        WallState[] wallBlocks = GetComponentsInChildren<WallState>();
         
-        foreach (WallState block in gameObject.GetComponentsInChildren<WallState>())
+        foreach (WallState block in wallBlocks)
         {
             float distance = Vector2.Distance(block.transform.position, hitPoint);
-            if (distance < minDistance)
+            if (radius > 0 && distance <= radius)
+            {
+                closestBlocks.Add(block);
+            }
+            if (radius == 0 && distance < minDistance)
             {
                 minDistance = distance;
-                closestBlock = block;
+                closestSingleBlock = block;
             }
         }
-
-        return closestBlock;
+        if (radius == 0 && closestSingleBlock != null)
+        {
+            closestBlocks.Add(closestSingleBlock);
+        }
+        return closestBlocks;
     }
 
 }

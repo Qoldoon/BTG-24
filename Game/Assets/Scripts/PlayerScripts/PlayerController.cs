@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour, IDamagable
+public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] public int hitPoints = 1;
     [SerializeField] public float speedMult = 1f;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         yield return new WaitForSeconds(0.15f/speedMult);
         speed = orgSpeed;
     }
-    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false)
+    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
     {
         HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
         if (target == 1) return hb.Build();

@@ -23,7 +23,7 @@ public class Indicator : MonoBehaviour
     public void Fill(float duration)
     {
         if(_isRunning) return;
-        Reset();
+        Settle();
         _image.enabled = true;
         _isRunning = true;
         _fillCoroutine = StartCoroutine(FillOverTime(duration));
@@ -70,7 +70,7 @@ public class Indicator : MonoBehaviour
         _image.color = _color;
     }
 
-    void Reset()
+    void Settle()
     {
         if(_fillCoroutine != null)
             StopCoroutine(_fillCoroutine);
