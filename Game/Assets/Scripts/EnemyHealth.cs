@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             Die();
             return hb.Destroy().Build();
         }
-        return hb.Build();
+        return hb.Destroy().Build();
     }
     public void Die()
     {

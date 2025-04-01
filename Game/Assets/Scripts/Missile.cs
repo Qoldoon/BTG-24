@@ -18,7 +18,6 @@ public class Missile : Projectile
     {
         direction = -direction;
         rb.linearVelocity = direction * speed;
-        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -40,7 +40,10 @@ public class ShootingEnemyAI : MonoBehaviour
             if (nextFireTime < Time.time)
             {
                 var bullet = Instantiate(Bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
-                bullet.GetComponent<BulletScript>().direction = (target.transform.position - transform.position).normalized;
+                var projectile = bullet.GetComponent<Projectile>();
+                projectile.speed = 30;
+                projectile.direction = (target.transform.position - transform.position).normalized;
+                projectile.damage = 50;
                 
                 nextFireTime = Time.time + fireRate;
             }

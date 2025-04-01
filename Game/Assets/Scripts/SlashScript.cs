@@ -21,7 +21,9 @@ public class SlashScript : MonoBehaviour, IDamageable
 
     public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
     {
-        return new HitResponseBuilder().ForEnemy().Damage(damage).Reflect().Build();
+        var hb = new HitResponseBuilder().Target(target).Damage(damage);
+        if (target == 1) return hb.Build();
+        return hb.ForEnemy().Reflect().Build();
     }
     public void Slash()
     {

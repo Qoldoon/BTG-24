@@ -6,9 +6,6 @@ public class Explode : MonoBehaviour
 {
     Color color;
     float time;
-    public int damage;
-    public bool emp;
-
     private SpriteRenderer _spriteRenderer;
 
     // Start is called before the first frame update

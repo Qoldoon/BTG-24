@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Reload()
     {
         if (!Input.GetKey(KeyCode.R)) return;
+        if (!playerInventory.canReload) return;
         if(playerInventory.isUsable(out IUsable usableItem))
             usableItem.SecondaryUse();
     }

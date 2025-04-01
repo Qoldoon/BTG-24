@@ -7,6 +7,7 @@ public class PlayerInventory : MonoBehaviour
     public bool hasKey;
     public List<Item> slots = new ();
     public int current;
+    public bool canReload;
     
     void Start()
     {
@@ -48,10 +49,11 @@ public class PlayerInventory : MonoBehaviour
         if (slots.Count < 3)
         {
             slots.Add(item);
+            item.OnAdd(this);
             Settle();
             return;
         }
-
+        slots[current].OnRemove();
         Destroy(slots[current]);
         slots[current] = item;
         Settle();
