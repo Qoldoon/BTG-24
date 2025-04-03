@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707078160235959940, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
       propertyPath: m_SortingOrder
-      value: -9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6979659817696810886, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
       propertyPath: m_Name
@@ -986,6 +986,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3203862080774342482, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -179.77002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359337046410165425, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4140238624814913118, guid: 99b0806a33ec145009c8c056f3fc76e5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1378,6 +1386,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2035524294}
     m_Modifications:
+    - target: {fileID: -9142653135104740267, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
+      propertyPath: fireRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -9142653135104740267, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
+      propertyPath: ammoCount
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2906454164144597299, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
       propertyPath: m_Name
       value: Revolver
@@ -1454,30 +1470,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8084581940043929743, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
-      propertyPath: Bullet
-      value: 
-      objectReference: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}
-    - target: {fileID: 8084581940043929743, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084581940043929743, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
-      propertyPath: ammoCount
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084581940043929743, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
-      propertyPath: bulletSpeed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084581940043929743, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
-      propertyPath: bulletDamage
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084581940043929743, guid: 5a1e300aeec71a141a942d9159ccecee, type: 3}
-      propertyPath: bulletSpread
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1538,10 +1530,6 @@ PrefabInstance:
     - target: {fileID: 3535500903984706286, guid: 08aa349a84815204c9d22e955ca0fdd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8186483124318805086, guid: 08aa349a84815204c9d22e955ca0fdd7, type: 3}
-      propertyPath: ammoCount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5862517120840928767, guid: 08aa349a84815204c9d22e955ca0fdd7, type: 3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949300855144248405}
   - component: {fileID: 949300855144248407}
-  - component: {fileID: -1068230944975804688}
+  - component: {fileID: 5103167564946232526}
   m_Layer: 2
   m_Name: Missile Launcher
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1068230944975804688
+--- !u!114 &5103167564946232526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,9 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 949300855144248402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a8c6d7040454eec8054b22b757085e, type: 3}
+  m_Script: {fileID: 11500000, guid: b7fd0e419c97442397e39d6ad5d0dc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 1215296530120796333, guid: 528c11fdf0a8242a189016a8547612c5, type: 3}
   ammoCount: 6
   fireRate: 1
   bulletSpeed: 30

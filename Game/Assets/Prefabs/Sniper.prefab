@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8577894374827885376}
   - component: {fileID: 8577894374827885382}
-  - component: {fileID: 8577894374827885383}
+  - component: {fileID: -5861456369126811097}
   m_Layer: 2
   m_Name: Sniper
   m_TagString: Untagged
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8577894374827885383
+--- !u!114 &-5861456369126811097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,9 +185,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8577894374827885377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6af275f2f0a6674fba4ea5f6e298df0, type: 3}
+  m_Script: {fileID: 11500000, guid: bdc55fe4622e4d12ad6959113e96b9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 8071423555603986821, guid: 28119008d18e64c5fb8707f82e8e2770, type: 3}
   ammoCount: 2
   fireRate: 1
   bulletSpeed: 50

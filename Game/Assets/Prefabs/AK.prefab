@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4973903904502362737}
   - component: {fileID: 4973903904502362739}
-  - component: {fileID: 9186758786056964038}
+  - component: {fileID: 1914623104731637753}
   m_Layer: 2
   m_Name: AK
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9186758786056964038
+--- !u!114 &1914623104731637753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,9 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4973903904502362736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a8c6d7040454eec8054b22b757085e, type: 3}
+  m_Script: {fileID: 11500000, guid: b93d5d11273d4d8980154475c0746b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 2397640681706749078, guid: 1f2d639b3f71a45468e3f52c0f932751, type: 3}
   ammoCount: 30
   fireRate: 0.2
   bulletSpeed: 30

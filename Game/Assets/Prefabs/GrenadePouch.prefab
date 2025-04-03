@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3535500903984706286}
   - component: {fileID: 1106955403748033626}
-  - component: {fileID: 8186483124318805086}
+  - component: {fileID: -2405264721806068204}
   m_Layer: 0
   m_Name: GrenadePouch
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8186483124318805086
+--- !u!114 &-2405264721806068204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,9 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 236214580072878893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a8c6d7040454eec8054b22b757085e, type: 3}
+  m_Script: {fileID: 11500000, guid: 02eb1936f2214920a6816ff8ba3da75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 7002994371057284424, guid: 51208e36b97274d1b9e3fbbe2b1d7a47, type: 3}
   ammoCount: 3
   fireRate: 1.5
   bulletSpeed: 20

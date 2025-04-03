@@ -15,20 +15,20 @@ public class Weapon : Item, IUsable
     public float reloadTime = 1;
     public GameObject Bullet;
     private bool _isReloading;
-    float time;
-    private Indicator reloadIndicator;
+    private float _time;
+    private Indicator _reloadIndicator;
     private Coroutine _reloadCoroutine = null;
 
     private void Start()
     {
-        reloadIndicator = transform.parent.gameObject.GetComponentInChildren<Indicator>();
-        time = Time.time;
+        _reloadIndicator = transform.parent.GetComponentInChildren<Indicator>();
+        _time = Time.time;
         _currentAmmo = ammoCount;
     }
     public void Use()
     {
         if (_currentAmmo == 0) return;
-        if (Time.time < time) return;
+        if (Time.time < _time) return;
         if (_isReloading) return;
 
         Vector3 euler = transform.eulerAngles;
@@ -46,7 +46,7 @@ public class Weapon : Item, IUsable
         }
         
         _currentAmmo--;
-        time = Time.time + fireRate;
+        _time = Time.time + fireRate;
         transform.eulerAngles = o;
     }
 
@@ -54,6 +54,13 @@ public class Weapon : Item, IUsable
     {
         if(_isReloading) return;
         _reloadCoroutine = StartCoroutine(Reload());
+    }
+
+    public override void Equip()
+    {
+        base.Equip();
+        var canvas = PlayerInventory.canvas;
+        canvas?.CreateText(name);
     }
 
     public override void UnEquip()
@@ -66,12 +73,12 @@ public class Weapon : Item, IUsable
         {
             StopCoroutine(_reloadCoroutine);
             _isReloading = false;
-            reloadIndicator.Stop();
+            _reloadIndicator?.Stop();
         }
     }
     private IEnumerator Reload()
     {
-        reloadIndicator.Fill(reloadTime);
+        _reloadIndicator?.Fill(reloadTime);
         _isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         _isReloading = false;

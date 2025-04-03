@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,14 @@ public class PlayerInventory : MonoBehaviour
     public List<Item> slots = new ();
     public int current;
     public bool canReload;
+    [NonSerialized]
+    public PlayerCanvas canvas;
+    public PlayerUI playerUI;
     
     void Start()
     {
+        canvas = gameObject.GetComponentInChildren<PlayerCanvas>();
+        playerUI = gameObject.GetComponentInChildren<PlayerUI>();
         foreach (var item in SelectedItems.selectedItems)
         {
             Add(item.gameObject);
@@ -43,8 +49,6 @@ public class PlayerInventory : MonoBehaviour
     {
         if (!go.TryGetComponent(out Item item)) return;
         item = Instantiate(item, transform);
-        item.transform.localPosition = new Vector3(0f, 0.3f, -1f);
-        item.transform.localRotation = Quaternion.identity;
         
         if (slots.Count < 3)
         {
@@ -54,8 +58,9 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
         slots[current].OnRemove();
-        Destroy(slots[current]);
+        Destroy(slots[current].gameObject);
         slots[current] = item;
+        item.OnAdd(this);
         Settle();
     }
 
@@ -64,6 +69,7 @@ public class PlayerInventory : MonoBehaviour
         foreach (var slot in slots)
         {
             slot.gameObject.SetActive(slots[current] == slot);
+            playerUI?.Select(current);
         }
     }
 }
