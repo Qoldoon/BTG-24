@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class SelectedItems : MonoBehaviour
 {
-    public static List<GameObject> selectedItems;
+    public static List<GameObject> selectedItems = new ();
     public bool add = true;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
-    void Start()
-    {
-        selectedItems = new List<GameObject>();
     }
 
     public int count

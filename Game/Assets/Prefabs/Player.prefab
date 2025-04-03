@@ -857,6 +857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b2759362a564fcdb48510658feed84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorA: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
+  image: {fileID: 0}
+  icon: {fileID: 0}
 --- !u!1 &4119225608878809238
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots: []
-  icons: []
 --- !u!1 &4505460322507556756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Color: {r: 0.4, g: 0.4, b: 0.4, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1060,6 +1063,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b2759362a564fcdb48510658feed84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorA: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
+  image: {fileID: 0}
+  icon: {fileID: 0}
 --- !u!1 &4686144469018138743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b2759362a564fcdb48510658feed84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorA: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
+  image: {fileID: 0}
+  icon: {fileID: 0}
 --- !u!1 &6243546746982005532
 GameObject:
   m_ObjectHideFlags: 0

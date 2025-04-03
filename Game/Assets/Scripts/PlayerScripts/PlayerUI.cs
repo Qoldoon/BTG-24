@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public UISlot[] slots;
-    private int current;
 
     private void Start()
     {
@@ -33,9 +32,10 @@ public class PlayerUI : MonoBehaviour
     }
     public void Select(int index)
     {
-        Debug.Log($"{index} {slots[current]} now ");
-        slots[current].image.color = Color.gray;
-        slots[index].image.color = Color.white;
-        current = index;
+        foreach (UISlot slot in slots)
+        {
+            slot.ToggleOff();
+        }
+        slots[index].Toggle();
     }
 }
