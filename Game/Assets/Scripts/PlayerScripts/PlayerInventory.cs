@@ -11,6 +11,7 @@ public class PlayerInventory : MonoBehaviour
     public bool canReload;
     [NonSerialized]
     public PlayerCanvas canvas;
+    [NonSerialized]
     public PlayerUI playerUI;
     
     void Start()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 
 public class BigWall : MonoBehaviour, IDamageable
@@ -7,27 +8,28 @@ public class BigWall : MonoBehaviour, IDamageable
     public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
     {
         List<WallState> hitBlocks = FindClosestBlocks(hit, radius);
-        
+        HitResponse finalResponse = null;
         if (hitBlocks.Count == 0)
         {
             return new HitResponseBuilder().Build();
         }
         if (radius == 0)
         {
-            return hitBlocks[0].Hit(hit, damage, target, emp);
+            finalResponse = hitBlocks[0].Hit(hit, damage, target, emp);
+            AstarPath.active?.Scan();
+            return finalResponse;
         }
         
-        HitResponse finalResponse = null;
+        
         foreach (var block in hitBlocks)
         {
-            var response = block.Hit(hit, damage, target, emp);
-            finalResponse = response;
+            finalResponse = block.Hit(hit, damage, target, emp);
         }
         if (hitBlocks.Count > 0)
         {
             AstarPath.active?.Scan();
         }
-
+        
         return finalResponse ?? new HitResponseBuilder().Destroy().Build();
     }
     private List<WallState> FindClosestBlocks(Vector2 hitPoint, float radius)
