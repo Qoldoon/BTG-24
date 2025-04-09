@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (!Input.GetKey(KeyCode.R)) return;
         if (!playerInventory.canReload) return;
-        if(playerInventory.isUsable(out IUsable usableItem))
+        if(playerInventory.IsUsable(out IUsable usableItem))
             usableItem.SecondaryUse();
     }
     private void Look()
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void AttackHandler()
     {
         if (!Input.GetKey(KeyCode.Mouse0)) return;
-        if(playerInventory.isUsable(out IUsable usableItem))
+        if(playerInventory.IsUsable(out IUsable usableItem))
             usableItem.Use();
     }
     private void DodgeHandler()

@@ -20,9 +20,10 @@ public class Behaviour : MonoBehaviour
     public float nextFireTime;
     
     private AIDestinationSetter setter;
-    private Vector3 memory;
     private bool isAggro;
-    private Coroutine aggroCoroutine;
+    private List<Sighting> _sightings = new ();
+    private Vector3 _pos;
+    private Vector3 _view;
 
     
     void Awake()
@@ -46,22 +47,36 @@ public class Behaviour : MonoBehaviour
         setter.target = movementTarget;
         movementTarget.transform.parent = null;
         aimTarget.transform.parent = null;
+        _pos = movementTarget.position;
+        _view = aimTarget.position;
     }
-    
+
+    private float timer;
     void Update()
     {
         Rotate();
+        React();
     }
 
+    private void SetAimTarget(Vector3 targetPosition)
+    {
+        aimTarget.position = targetPosition;
+    }
+
+    private void SetMoveTarget(Vector3 targetPosition)
+    {
+        movementTarget.position = targetPosition;
+    }
+    
     private void Shoot()
     {
         if (nextFireTime >= Time.time) return;
-        var bullet = Instantiate(this.bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
-        var projectile = bullet.GetComponent<Projectile>();
+        var o = Instantiate(bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
+        var projectile = o.GetComponent<Projectile>();
         projectile.speed = 30;
-        projectile.direction = (aimTarget.transform.position - transform.position).normalized;
+        projectile.direction = (aimTarget.position - transform.position).normalized;
         projectile.damage = 50;
-            
+        
         nextFireTime = Time.time + fireRate;
     }
     private void Rotate()
@@ -71,94 +86,194 @@ public class Behaviour : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(0, 0, angle - 90);
         Quaternion startRotation = transform.rotation;
-        transform.rotation = Quaternion.Slerp(startRotation, targetRotation, 1f);
+        transform.rotation = Quaternion.RotateTowards(
+            startRotation, 
+            targetRotation, 
+            360f * Time.deltaTime
+        );
     }
+
+    private void React()
+    {
+        if (_sightings.Count == 0)
+            return;
+        _sightings.RemoveAll(s => Time.time - s.TimeSeen > 12);
+
+        var sighting = Decide();
+        if (sighting.Target == null || sighting.Target.Equals(null))
+            return;
+        
+        if (sighting.Target.CompareTag("Player"))
+        {
+            if (IsRecent(sighting, 0.1f))
+                AttackPlayer(sighting);
+            else if (IsRecent(sighting, 0.2f))
+                Investigate(sighting);
+            else LookAround(sighting);
+        }
+        else if (sighting.Target.CompareTag("Enemy"))
+        {
+            FollowAlly(sighting);
+        }
+        else
+        {
+            SetMoveTarget(_pos);
+            SetAimTarget(_view);
+        }
+    }
+
     
+
+    private Sighting Decide()
+    {
+        Sighting bestCandidate = null;
+
+        foreach (var sighting in _sightings)
+        {
+            if (sighting.Target == null || sighting.Target.Equals(null)) 
+                continue;
+            
+            if (bestCandidate == null)
+            {
+                bestCandidate = sighting;
+                continue;
+            }
+            
+            if (sighting.Target.CompareTag("Player") && !bestCandidate.Target.CompareTag("Player"))
+            {
+                bestCandidate = sighting;
+            }
+            else if (sighting.Target.CompareTag("Enemy") && !bestCandidate.Target.CompareTag("Player"))
+            {
+                bestCandidate = sighting;
+            }
+            else if (sighting.Target.CompareTag(bestCandidate.Target.tag) && sighting.TimeSeen > bestCandidate.TimeSeen)
+            {
+                bestCandidate = sighting;
+            }
+        }
+
+        return bestCandidate;
+    }
+
+    private bool IsRecent(Sighting sighting, float threshold)
+    {
+        return Mathf.Abs(sighting.TimeSeen - Time.time) <= threshold;
+    }
     public void Detection(Collider2D other)
     {
         Vector3 directionToTarget = (other.transform.position - transform.position).normalized;
         float angleToTarget = Vector2.Angle(transform.up, directionToTarget);
-
+        //sight
         if (angleToTarget <= visionAngle / 2)
         {
-            if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
             var hit = Physics2D.Raycast(transform.position + directionToTarget * 0.51f, directionToTarget, visionRange);
             if (hit.collider != null)
-                HandleDetection(hit);
+            {
+                var sighting = new Sighting
+                {
+                    Target = hit.collider.gameObject,
+                    Velocity = hit.collider.attachedRigidbody != null ? hit.collider.attachedRigidbody.linearVelocity : Vector3.zero,
+                    Position = hit.point,
+                    TimeSeen = Time.time
+                };
+                TryAddSighting(sighting);
+            }
+        }
+        //hearing
+        // if (other.CompareTag("Player"))
+        // {
+        //     var sound = SoundTracker.Listen();
+        //     if (sound == null) return;
+        //     var sighting = new Sighting
+        //     {
+        //         Target = sound,
+        //         Velocity = Vector3.zero,
+        //         Position = sound.transform.position,
+        //         TimeSeen = Time.time
+        //     };
+        //     TryAddSighting(sighting);
+        // }
+    }
+
+    private void TryAddSighting(Sighting sighting)
+    {
+        var existingSighting = _sightings.Find(s => s.Equals(sighting));
+        if (existingSighting == null)
+            _sightings.Add(sighting);
+        else
+        {
+            existingSighting.TimeSeen = sighting.TimeSeen;
+            existingSighting.Velocity = sighting.Velocity;
+            existingSighting.Position = sighting.Position;
         }
     }
 
-    private void HandleDetection(RaycastHit2D hit)
+    private void LookAround(Sighting sighting)
     {
-        if (hit.collider.CompareTag("Player"))
+        if (Vector2.Distance(movementTarget.position, transform.position) > 0.2f) return;
+        SetMoveTarget(sighting.Position + sighting.Velocity * 0.5f);
+        
+        Vector3 right = new Vector2(sighting.Velocity.normalized.y, -sighting.Velocity.normalized.x).normalized;
+        Vector3 left = new Vector2(-sighting.Velocity.normalized.y, sighting.Velocity.normalized.x).normalized;
+        
+        Vector2 rightPosition =  sighting.Position + (right * 2);
+        Vector2 leftPosition =  sighting.Position + (left * 2);
+        
+        float timeCycle = Time.time % 3;
+        if (timeCycle < 1f)
+            aimTarget.position = rightPosition;
+        else if (timeCycle < 2f)
+            aimTarget.position = leftPosition;
+        else if (timeCycle < 3f)
         {
-            SetAggro(true);   
-            memory= hit.collider.attachedRigidbody.linearVelocity;
-            aimTarget.position = hit.point;
-            if (Vector3.Distance(transform.position, hit.collider.transform.position) >= 8.4f)
-                KeepDistance(hit.point);
-            else StandStill();
-            Shoot();
+            sighting.Position += sighting.Velocity;
+            SetMoveTarget(aimTarget.position);
         }
-        else if (hit.collider.CompareTag("Enemy"))
-        {
-            var b = hit.collider.GetComponent<Behaviour>();
-            if (b.isAggro)
-            {
-                movementTarget.position = b.aimTarget.position;
-                aimTarget.position = b.aimTarget.position;
-            }
-        }
-        else
-        {
-            StartLosingAggro();
-            if (memory != Vector3.zero)
-            {
-                ToLastSeenPos();
-                aimTarget.position += memory * 0.5f;
-                memory = Vector3.zero;
-            }
-        }
+    }
+    private void AttackPlayer(Sighting sighting)
+    {
+        SetAggro(true);   
+        SetAimTarget(sighting.Position);
+        if (Vector3.Distance(transform.position, sighting.Target.transform.position) >= 8.4f)
+            KeepDistance(sighting.Position);
+        else StandStill();
+        Shoot();
+    }
 
+    private void FollowAlly(Sighting sighting)
+    {
+        var b = sighting.Target.GetComponent<Behaviour>();
+        if (b.isAggro)
+        {
+            SetMoveTarget(b.aimTarget.position);
+            SetAimTarget(b.aimTarget.position);
+        }
+    }
+
+    private void Investigate(Sighting sighting)
+    {
+        SetAggro(false);
+        if (sighting.Velocity != Vector3.zero)
+        {
+            SetMoveTarget(sighting.Position);
+            SetAimTarget(movementTarget.position + sighting.Velocity * 0.5f);
+        }
     }
 
     private void SetAggro(bool state)
     {
         isAggro = state;
-        
-        if (aggroCoroutine != null)
-        {
-            StopCoroutine(aggroCoroutine);
-            aggroCoroutine = null;
-        }
     }
     
-    private void StartLosingAggro()
-    {
-        if (aggroCoroutine == null)
-        {
-            aggroCoroutine = StartCoroutine(LoseAggroAfterDelay());
-        }
-    }
-    
-    private IEnumerator LoseAggroAfterDelay()
-    {
-        yield return new WaitForSeconds(3f);
-        isAggro = false;
-        aggroCoroutine = null;
-    }
     private void KeepDistance(Vector3 point)
     {
         Vector3 directionToTarget = (point - transform.position).normalized;
-        movementTarget.position = point - directionToTarget * 8f;
-    }
-    private void ToLastSeenPos()
-    {
-        movementTarget.position = aimTarget.position;
+        SetMoveTarget(point - directionToTarget * 8f);
     }
     private void StandStill()
     {
-        movementTarget.position = transform.position;
+        SetMoveTarget(transform.position);
     }
 
     private void OnDestroy()

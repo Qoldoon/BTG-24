@@ -41,7 +41,7 @@ public class PlayerInventory : MonoBehaviour
         Settle();
     }
 
-    public bool isUsable(out IUsable usableItem)
+    public bool IsUsable(out IUsable usableItem)
     {
         return slots[current].TryGetComponent(out usableItem);
     }
