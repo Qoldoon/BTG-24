@@ -24,7 +24,7 @@ public class GrenadeTraveling : Projectile
             GameObject effect = Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(effect, 1f); 
         }
-        
+        SoundTracker.EmitSound(gameObject);
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 2);
         
         foreach (Collider2D hit in hitObjects)

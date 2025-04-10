@@ -35,7 +35,7 @@ public class Weapon : Item, IUsable
         var o = euler;
         euler.z = Random.Range(euler.z - bulletSpread, euler.z + bulletSpread);
         transform.eulerAngles = euler;
-        SoundTracker.EmitSound(transform.parent.gameObject);
+        SoundTracker.EmitSound(gameObject);
         var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, transform.rotation);
         if (bullet.TryGetComponent(out Projectile projectile))
         {

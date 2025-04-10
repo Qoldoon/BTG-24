@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Reflect
   - Destructable
+  - Weapon
   layers:
   - Default
   - TransparentFX

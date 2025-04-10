@@ -210,22 +210,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2098870060400564442, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273009125083999029, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: startEndModifier.addPoints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3147421588125042917, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dfcbec31831bd57458185b3d0504dee9, type: 3}
-    - target: {fileID: 5731200296786505008, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.59
-      objectReference: {fileID: 0}
     - target: {fileID: 9005186919544167211, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.4
@@ -265,10 +249,6 @@ PrefabInstance:
     - target: {fileID: 9005186919544167211, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080147858037551484, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: visionAngle
-      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -391,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIewlJlbrWQIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzqUDDATorTWE9JCECc3k4ouQ1liDLHn0ESAZ/ntXso0dd3pCvPd29+1q5U8ilC2BOW02RvBHzYH8GJBwJt8GLfkAZ3rQaic+oNG8Ce7yIKJR80Kd0IiPQ5jVBTgj2E91kEE8QtArkWlTrPkBEm2dRTij0gJSRrsQrRD6HJAz/gyXIeSCp8k8nD7wtBwNrnhkoByYVtoIG1ml8opJWpTAg+VWPJ00aSdRprCZWhGMMy2lsLUT4i5l7DShpfXYBwq4oNhZLB/0OYhD7kK6bvBzlllwtSVDLythcEBVVvJLV1MrqD1Wvt6p9KHO3TRaqnI+/kMPx5HOjC4emrLjUSjhcsGOL/TCqHWdqXbh1VffXp2oPNK9hLcc1JPeGO0VR9IZH0K9hcmq/XvrLMmBHVu8stoDffn/uwk9XGPz50SKYh+o79MK2Ekdxx1vHgxezG80HPfC1ikQDS5eLfyhh+4C1cS9MNYhVXepgr299iZIyTrOLHTjXaKNggjXpktQVLrLFtO4/g32uE7ZHnNPw1Opi9dc8wJ6IRFu9aNRj9rq0+2ybK5Pj2DzZ++kUN1kgXnCQSVaqWrDbI8NcTtvMsq6cQcv+NflIjCbLNlisZiPZjzj2XI4G8/ZlI1htthPGL9bkLh9QmGnVG4rq/WA8N5UO0qFm9Z8QwYbQ8u47tzQ00Z8FLozdKEyvWMGQD1XGW7OwWARfJZ8zQWOaAfOCRVvnHymRGp2BJ7eEqWx1fXZGZq2WVJSinftApKSJH40UhLg2zZvDbwLOIXiTbIruf4FUEsDBBQAAAgIAAAYIezA0cW/bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSqqmRZbKFhYW5gWlKWkqapa6poXmySbJhqqlFklFyipmFUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIewlJlbrWQIAABMFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIezA0cW/bQAAAHgAAAAJACQAAAAAAAAAAAAAAKYCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAXgMAAAAA
+    dataString: UEsDBBQAAAgIAAAYIex2uzHjWAIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzqUDDCTQW0sI6YGEiZvJxRchrbEGWfLog49k+O/VyjZ23OkJ8d7b3berlT+JULYE5rRZG8E3mgP5MSB4Jt8GLfkEZ7rXKhEf0GjeBXc5imjUvFIndMDHGGZ1Ac4I9lPtJYpHAfRKZNoUK76HpbbOBjij0kKgjHYYrQL0OSDn8DNcYMglnCb3ePoIp8VocA1HBsqBaaWNsJFVKq+YpEUJHC234umkSTuJMhWaqRVonGkpha2dEHcpY6dJmYMBbJULGhqL1VGeg9jnDrN1Y1+yzIKrHRl6eRAmzKdKSn7pamgFtYfK1pFKj2XuptFRlXPzDz0cRzozunhqyo5HWMLlgh1e6YVR6zpD7cIPX317daLyQHcS3nNQz3pttFc8kM54DPUWJg/t31tnyxzYocUrqz3Ql/+/GuzhGps/L6Uodkh9n1ZAInWcdrx4MOFefgfDcS1sbTug6OLNwh+67+5PTTwKY12garlCezvtDUrJKs4Mu/FuqY2CCNemS1BUuss2pHH9G+xxnbI95pHiS6mL11zzAHohEW71o1GP2urT7bJsrk8bsPmLd1KobjJknsOgllqpasNsj8W4xJuMsm7c3gv+dbkIzCYLNp/P70cznvFsMZyN79mUjWE2300Yv5uTuH1ChU6p3FZW6wGFe1PtKFXYtOYTMlgbWsZ154ae1uKj0J2hC5XphBkA9VJluDkHE4qEV8lXXIQRJeCcUPHGyWdKpGYH4OktURpbXZ2doWmbJSWlOGqHSEqW8ZuREoRv27w1cBRwwuJNsiu5/gVQSwMEFAAACAgAABgh7MDRxb9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKqqZFlsoWFhbmBaUpaSpqlrqmhebJJsmGqqUWSUXKKmYVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7Ha7MeNYAgAAEgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7MDRxb9tAAAAeAAAAAkAJAAAAAAAAAAAAAAApQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABdAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -473,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 105218012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.64170307, y: 0.848922, z: -2.2918522}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -490,18 +470,6 @@ PrefabInstance:
     - target: {fileID: 2098870060400564442, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098870060400564442, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2181740445976517214, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5731200296786505008, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 9005186919544167211, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_LocalPosition.x
@@ -822,6 +790,10 @@ PrefabInstance:
     - target: {fileID: 6979659817696810886, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
       propertyPath: m_Name
       value: Solid Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979659817696810886, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6979659817696810886, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
       propertyPath: m_TagString

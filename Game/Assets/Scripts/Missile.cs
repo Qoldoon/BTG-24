@@ -40,7 +40,7 @@ public class Missile : Projectile
         if (explosion != null)
         {
             GameObject effect = Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(effect, 1f); 
+            Destroy(effect, 1f);
         }
         
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 2);

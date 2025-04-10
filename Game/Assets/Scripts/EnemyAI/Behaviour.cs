@@ -22,8 +22,6 @@ public class Behaviour : MonoBehaviour
     private AIDestinationSetter setter;
     private bool isAggro;
     private List<Sighting> _sightings = new ();
-    private Vector3 _pos;
-    private Vector3 _view;
 
     
     void Awake()
@@ -47,15 +45,13 @@ public class Behaviour : MonoBehaviour
         setter.target = movementTarget;
         movementTarget.transform.parent = null;
         aimTarget.transform.parent = null;
-        _pos = movementTarget.position;
-        _view = aimTarget.position;
     }
-
-    private float timer;
+    
     void Update()
     {
         Rotate();
         React();
+        SetMoveTarget(movementTarget.position);
     }
 
     private void SetAimTarget(Vector3 targetPosition)
@@ -66,11 +62,26 @@ public class Behaviour : MonoBehaviour
     private void SetMoveTarget(Vector3 targetPosition)
     {
         movementTarget.position = targetPosition;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(movementTarget.position, 1f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.transform == transform) continue;
+            
+            Vector2 direction = (movementTarget.position - hit.transform.position).normalized;
+            
+            float overlapDistance = 1f - Vector2.Distance(movementTarget.position, hit.transform.position);
+            if (overlapDistance > 0) 
+            {
+                movementTarget.position += (Vector3)direction * overlapDistance;
+            }
+        }
     }
     
     private void Shoot()
     {
         if (nextFireTime >= Time.time) return;
+        SoundTracker.EmitSound(gameObject);
         var o = Instantiate(bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
         var projectile = o.GetComponent<Projectile>();
         projectile.speed = 30;
@@ -102,23 +113,22 @@ public class Behaviour : MonoBehaviour
         var sighting = Decide();
         if (sighting.Target == null || sighting.Target.Equals(null))
             return;
-        
+        Debug.Log($"{name} {sighting.Target.name}");
         if (sighting.Target.CompareTag("Player"))
         {
             if (IsRecent(sighting, 0.1f))
                 AttackPlayer(sighting);
             else if (IsRecent(sighting, 0.2f))
-                Investigate(sighting);
+                Follow(sighting);
             else LookAround(sighting);
         }
         else if (sighting.Target.CompareTag("Enemy"))
         {
             FollowAlly(sighting);
         }
-        else
+        else if (sighting.Target.CompareTag("Weapon"))
         {
-            SetMoveTarget(_pos);
-            SetAimTarget(_view);
+            Investigate(sighting);
         }
     }
 
@@ -143,7 +153,11 @@ public class Behaviour : MonoBehaviour
             {
                 bestCandidate = sighting;
             }
-            else if (sighting.Target.CompareTag("Enemy") && !bestCandidate.Target.CompareTag("Player"))
+            else if (sighting.Target.CompareTag("Weapon") && !(bestCandidate.Target.CompareTag("Player") && IsRecent(bestCandidate, 0.1f)))
+            {
+                bestCandidate = sighting;
+            }
+            else if (sighting.Target.CompareTag("Enemy") && sighting.Target.GetComponent<Behaviour>().isAggro && !bestCandidate.Target.CompareTag("Player") && !bestCandidate.Target.CompareTag("Weapon"))
             {
                 bestCandidate = sighting;
             }
@@ -181,19 +195,19 @@ public class Behaviour : MonoBehaviour
             }
         }
         //hearing
-        // if (other.CompareTag("Player"))
-        // {
-        //     var sound = SoundTracker.Listen();
-        //     if (sound == null) return;
-        //     var sighting = new Sighting
-        //     {
-        //         Target = sound,
-        //         Velocity = Vector3.zero,
-        //         Position = sound.transform.position,
-        //         TimeSeen = Time.time
-        //     };
-        //     TryAddSighting(sighting);
-        // }
+        if (other.CompareTag("Player"))
+        {
+            var sound = SoundTracker.Listen();
+            if (sound == null) return;
+            var sighting = new Sighting
+            {
+                Target = sound,
+                Velocity = Vector3.zero,
+                Position = sound.transform.position,
+                TimeSeen = Time.time - 11f
+            };
+            TryAddSighting(sighting);
+        }
     }
 
     private void TryAddSighting(Sighting sighting)
@@ -211,6 +225,8 @@ public class Behaviour : MonoBehaviour
 
     private void LookAround(Sighting sighting)
     {
+        return;
+        SetAggro(false);
         if (Vector2.Distance(movementTarget.position, transform.position) > 0.2f) return;
         SetMoveTarget(sighting.Position + sighting.Velocity * 0.5f);
         
@@ -241,6 +257,12 @@ public class Behaviour : MonoBehaviour
         Shoot();
     }
 
+    private void Investigate(Sighting sighting)
+    {
+        SetAimTarget(sighting.Position);
+        SetMoveTarget(sighting.Position);
+    }
+
     private void FollowAlly(Sighting sighting)
     {
         var b = sighting.Target.GetComponent<Behaviour>();
@@ -251,9 +273,8 @@ public class Behaviour : MonoBehaviour
         }
     }
 
-    private void Investigate(Sighting sighting)
+    private void Follow(Sighting sighting)
     {
-        SetAggro(false);
         if (sighting.Velocity != Vector3.zero)
         {
             SetMoveTarget(sighting.Position);
