@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EnemyAI;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,11 +18,13 @@ public class Behaviour : MonoBehaviour
     [Header("Combat")]
     public GameObject bullet;
     public float fireRate = 1f;
-    public float nextFireTime;
+
+    public IState currentState = new IdleState();
     
+    private float nextFireTime;
     private AIDestinationSetter setter;
-    private bool isAggro;
-    private List<Sighting> _sightings = new ();
+    private bool IsAggro => Sighting.IsRecent(_sightings.PlayerSighting(), 0.1f);
+    private Sightings _sightings = new ();
 
     
     void Awake()
@@ -49,6 +52,17 @@ public class Behaviour : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKey(KeyCode.U))
+        {
+            var sighting = new Sighting
+            {
+                Target = GameObject.FindWithTag("Player"),
+                Velocity = new Vector3(3, 0, 0),
+                Position = new Vector3(0, 5, 0),
+                TimeSeen = Time.time-0.1f
+            };
+            _sightings.TryAddSighting(sighting);
+        } //Delete this
         Rotate();
         React();
         SetMoveTarget(movementTarget.position);
@@ -106,31 +120,35 @@ public class Behaviour : MonoBehaviour
 
     private void React()
     {
-        if (_sightings.Count == 0)
-            return;
-        _sightings.RemoveAll(s => Time.time - s.TimeSeen > 12);
-
-        var sighting = Decide();
-        if (sighting.Target == null || sighting.Target.Equals(null))
-            return;
-        Debug.Log($"{name} {sighting.Target.name}");
-        if (sighting.Target.CompareTag("Player"))
-        {
-            if (IsRecent(sighting, 0.1f))
-                AttackPlayer(sighting);
-            else if (IsRecent(sighting, 0.2f))
-                Follow(sighting);
-            else LookAround(sighting);
-        }
-        else if (sighting.Target.CompareTag("Enemy"))
-        {
-            FollowAlly(sighting);
-        }
-        else if (sighting.Target.CompareTag("Weapon"))
-        {
-            Investigate(sighting);
-        }
+        currentState = currentState.ChangeState(_sightings);
+        currentState.React(this);
     }
+    // private void React()
+    // {
+    //     if (_sightings.Count == 0)
+    //         return;
+    //
+    //     var sighting = Decide();
+    //     if (sighting.Target == null || sighting.Target.Equals(null))
+    //         return;
+    //     
+    //     if (sighting.Target.CompareTag("Player"))
+    //     {
+    //         if (IsRecent(sighting, 0.1f))
+    //             AttackPlayer(sighting);
+    //         else if (IsRecent(sighting, 0.2f))
+    //             Follow(sighting);
+    //         else LookAround(sighting);
+    //     }
+    //     else if (sighting.Target.CompareTag("Enemy"))
+    //     {
+    //         FollowAlly(sighting);
+    //     }
+    //     else if (sighting.Target.CompareTag("Weapon"))
+    //     {
+    //         Investigate(sighting);
+    //     }
+    // }
 
     
 
@@ -153,11 +171,11 @@ public class Behaviour : MonoBehaviour
             {
                 bestCandidate = sighting;
             }
-            else if (sighting.Target.CompareTag("Weapon") && !(bestCandidate.Target.CompareTag("Player") && IsRecent(bestCandidate, 0.1f)))
+            else if (sighting.Target.CompareTag("Weapon") && !(bestCandidate.Target.CompareTag("Player") && Sighting.IsRecent(bestCandidate, 0.1f)))
             {
                 bestCandidate = sighting;
             }
-            else if (sighting.Target.CompareTag("Enemy") && sighting.Target.GetComponent<Behaviour>().isAggro && !bestCandidate.Target.CompareTag("Player") && !bestCandidate.Target.CompareTag("Weapon"))
+            else if (sighting.Target.CompareTag("Enemy") && sighting.Target.GetComponent<Behaviour>().IsAggro && !bestCandidate.Target.CompareTag("Player") && !bestCandidate.Target.CompareTag("Weapon"))
             {
                 bestCandidate = sighting;
             }
@@ -170,10 +188,7 @@ public class Behaviour : MonoBehaviour
         return bestCandidate;
     }
 
-    private bool IsRecent(Sighting sighting, float threshold)
-    {
-        return Mathf.Abs(sighting.TimeSeen - Time.time) <= threshold;
-    }
+    
     public void Detection(Collider2D other)
     {
         Vector3 directionToTarget = (other.transform.position - transform.position).normalized;
@@ -191,7 +206,8 @@ public class Behaviour : MonoBehaviour
                     Position = hit.point,
                     TimeSeen = Time.time
                 };
-                TryAddSighting(sighting);
+                // if(!hit.collider.CompareTag("Player"))
+                    _sightings.TryAddSighting(sighting);
             }
         }
         //hearing
@@ -206,86 +222,69 @@ public class Behaviour : MonoBehaviour
                 Position = sound.transform.position,
                 TimeSeen = Time.time - 11f
             };
-            TryAddSighting(sighting);
+            _sightings.TryAddSighting(sighting);
         }
     }
 
-    private void TryAddSighting(Sighting sighting)
-    {
-        var existingSighting = _sightings.Find(s => s.Equals(sighting));
-        if (existingSighting == null)
-            _sightings.Add(sighting);
-        else
-        {
-            existingSighting.TimeSeen = sighting.TimeSeen;
-            existingSighting.Velocity = sighting.Velocity;
-            existingSighting.Position = sighting.Position;
-        }
-    }
+    // private void TryAddSighting(Sighting sighting)
+    // {
+    //     var existingSighting = _sightings.Find(s => s.Equals(sighting));
+    //     if (existingSighting == null)
+    //         _sightings.Add(sighting);
+    //     else
+    //     {
+    //         existingSighting.TimeSeen = sighting.TimeSeen;
+    //         existingSighting.Velocity = sighting.Velocity;
+    //         existingSighting.Position = sighting.Position;
+    //     }
+    // }
 
     private void LookAround(Sighting sighting)
     {
-        return;
-        SetAggro(false);
         if (Vector2.Distance(movementTarget.position, transform.position) > 0.2f) return;
         SetMoveTarget(sighting.Position + sighting.Velocity * 0.5f);
+
         
-        Vector3 right = new Vector2(sighting.Velocity.normalized.y, -sighting.Velocity.normalized.x).normalized;
-        Vector3 left = new Vector2(-sighting.Velocity.normalized.y, sighting.Velocity.normalized.x).normalized;
-        
-        Vector2 rightPosition =  sighting.Position + (right * 2);
-        Vector2 leftPosition =  sighting.Position + (left * 2);
-        
-        float timeCycle = Time.time % 3;
-        if (timeCycle < 1f)
-            aimTarget.position = rightPosition;
-        else if (timeCycle < 2f)
-            aimTarget.position = leftPosition;
-        else if (timeCycle < 3f)
-        {
-            sighting.Position += sighting.Velocity;
-            SetMoveTarget(aimTarget.position);
-        }
+        SetAimTarget(transform.position + RightVector(sighting.Position - transform.position));
     }
-    private void AttackPlayer(Sighting sighting)
+
+    public static Vector3 RightVector(Vector3 forward)
     {
-        SetAggro(true);   
+        return new Vector2(forward.normalized.y, -forward.normalized.x);
+    }
+    
+    public void AttackPlayer(Sighting sighting)
+    {
         SetAimTarget(sighting.Position);
         if (Vector3.Distance(transform.position, sighting.Target.transform.position) >= 8.4f)
             KeepDistance(sighting.Position);
         else StandStill();
-        Shoot();
+        if(Vector2.Distance(transform.position, aimTarget.position) < 9f)
+            Shoot();
     }
-
-    private void Investigate(Sighting sighting)
+ 
+    public void Investigate(Sighting sighting)
     {
         SetAimTarget(sighting.Position);
         SetMoveTarget(sighting.Position);
     }
 
-    private void FollowAlly(Sighting sighting)
+    public void FollowAlly(Sighting sighting)
     {
         var b = sighting.Target.GetComponent<Behaviour>();
-        if (b.isAggro)
+        if (b.IsAggro)
         {
             SetMoveTarget(b.aimTarget.position);
             SetAimTarget(b.aimTarget.position);
         }
     }
 
-    private void Follow(Sighting sighting)
+    public void Follow(Sighting sighting)
     {
-        if (sighting.Velocity != Vector3.zero)
-        {
-            SetMoveTarget(sighting.Position);
-            SetAimTarget(movementTarget.position + sighting.Velocity * 0.5f);
-        }
+        SetMoveTarget(sighting.Position);
+        SetAimTarget(movementTarget.position + sighting.Velocity * 0.5f);
     }
-
-    private void SetAggro(bool state)
-    {
-        isAggro = state;
-    }
+    
     
     private void KeepDistance(Vector3 point)
     {
