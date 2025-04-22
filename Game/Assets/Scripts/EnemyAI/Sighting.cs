@@ -27,6 +27,11 @@ public class Sighting
         if (sighting == null || sighting.Target == null) return false;
         return Mathf.Abs(sighting.TimeSeen - Time.time) <= threshold;
     }
+
+    public override string ToString()
+    {
+        return $"{Target.ToString()},  seen: {TimeSeen}";
+    }
 }
 
 public class Sightings : IEnumerable<Sighting>

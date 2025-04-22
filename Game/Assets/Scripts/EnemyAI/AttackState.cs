@@ -22,5 +22,10 @@ namespace EnemyAI
 
             return this;
         }
+        
+        public override string ToString()
+        {
+            return $"Attacking player:{sightings.PlayerSighting()}";
+        }
     }
 }

@@ -13,7 +13,14 @@ namespace EnemyAI
         }
         public void React(Behaviour script)
         {
-            script.Follow(sightings.PlayerSighting());
+            var player = sightings.PlayerSighting();
+            script.Follow(player);
+
+            if (Sighting.IsRecent(sightings.Sound(), 0.1f))
+            {
+                player.Position = sightings.Sound().Position;
+            }
+            
             done = Vector2.Distance(script.movementTarget.position, script.transform.position) < 0.1f;
         }
 
@@ -24,12 +31,22 @@ namespace EnemyAI
             {
                 return new AttackState(sightings);
             }
+            
+            var sound = sightings.Sound();
+            if (Sighting.IsRecent(sound, 0.1f))
+                return new InvestigateState(sightings);
+            
             if(done || !Sighting.IsRecent(player, 5f))
             {
-                return new IdleState();//look state
+                return new LookState();
             }
 
             return this;
+        }
+        
+        public override string ToString()
+        {
+            return $"Chasing {sightings.PlayerSighting()}";
         }
     }
 }

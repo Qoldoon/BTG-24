@@ -1,12 +1,10 @@
-using System.Linq;
-
 namespace EnemyAI
 {
-    public class IdleState : IState
+    public class LookState : IState
     {
         public void React(Behaviour script)
         {
-
+            script.LookAround();
         }
 
         public IState ChangeState(Sightings sightings)
@@ -17,22 +15,25 @@ namespace EnemyAI
                 return new AttackState(sightings);
             }
 
+            var sound = sightings.Sound();
+            if (Sighting.IsRecent(sound, 0.2f))
+                return new InvestigateState(sightings);
+            
             var enemy = sightings.AllySighting();
             if (Sighting.IsRecent(enemy, 0.1f) && enemy.Target.GetComponent<Behaviour>().IsAggro)
             {
                 return new FollowState(sightings);
             }
-            
-            var sound = sightings.Sound();
-            if (Sighting.IsRecent(sound, 0.1f))
-                return new InvestigateState(sightings);
+
+            if (!Sighting.IsRecent(player, 4f))
+                return new IdleState();
             
             return this;
         }
-
+        
         public override string ToString()
         {
-            return "Idle";
+            return $"Looking around";
         }
     }
 }
