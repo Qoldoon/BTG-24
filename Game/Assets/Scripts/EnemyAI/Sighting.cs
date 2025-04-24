@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class Sighting
@@ -55,6 +53,11 @@ public class Sightings : IEnumerable<Sighting>
     {
         // Forget();
         return _allySighting;
+    }
+
+    public List<Sighting> WallSearch()
+    {
+        return _sightings.FindAll(s => s.Target.CompareTag("Walls"));
     }
 
     public Sighting Sound()

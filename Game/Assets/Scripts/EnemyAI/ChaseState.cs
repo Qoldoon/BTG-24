@@ -14,7 +14,7 @@ namespace EnemyAI
         public void React(Behaviour script)
         {
             var player = sightings.PlayerSighting();
-            script.Follow(player);
+            script.Chase(player);
 
             if (Sighting.IsRecent(sightings.Sound(), 0.1f))
             {
@@ -38,7 +38,7 @@ namespace EnemyAI
             
             if(done || !Sighting.IsRecent(player, 5f))
             {
-                return new LookState();
+                return new LookState(sightings);
             }
 
             return this;

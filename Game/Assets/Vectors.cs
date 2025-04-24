@@ -10,13 +10,15 @@ public class Vectors : MonoBehaviour
     {
         
     }
-
+    private float currentAngle = 0f;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            second.position = transform.position + Behaviour.RightVector(second.position - transform.position);
-        }
+        float angularSpeed = 360/2f;
+        
+        currentAngle = angularSpeed * Time.deltaTime;
+
+        first.position = transform.position + Behaviour.RotateVector(first.position - transform.position, currentAngle);
+        second.position = transform.position + Behaviour.RotateVector(second.position - transform.position, -currentAngle*2);
     }
 }

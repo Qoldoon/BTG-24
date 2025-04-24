@@ -52,18 +52,17 @@ public class Behaviour : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(currentState);
         Rotate();
         React();
         SetMoveTarget(movementTarget.position);
     }
 
-    private void SetAimTarget(Vector3 targetPosition)
+    public void SetAimTarget(Vector3 targetPosition)
     {
         aimTarget.position = targetPosition;
     }
 
-    private void SetMoveTarget(Vector3 targetPosition)
+    public void SetMoveTarget(Vector3 targetPosition)
     {
         movementTarget.position = targetPosition;
         Collider2D[] hits = Physics2D.OverlapCircleAll(movementTarget.position, 1f);
@@ -127,7 +126,7 @@ public class Behaviour : MonoBehaviour
                 var sighting = new Sighting
                 {
                     Target = hit.collider.gameObject,
-                    Velocity = hit.collider.attachedRigidbody != null ? hit.collider.attachedRigidbody.linearVelocity : Vector3.zero,
+                    Velocity = Vector3.ClampMagnitude(hit.collider.attachedRigidbody != null ? hit.collider.attachedRigidbody.linearVelocity : Vector3.zero, 5),
                     Position = hit.point,
                     TimeSeen = Time.time
                 };
@@ -151,15 +150,31 @@ public class Behaviour : MonoBehaviour
         }
     }
 
+    private float time;
     public void LookAround()
     {
-        //TODO: do
-        SetAimTarget(transform.position + RightVector(aimTarget.position - transform.position));
+        if(time > Time.time) return;
+        var dir = (aimTarget.position - transform.position).normalized;
+
+        dir = RotateVector(dir, 180 + Random.Range(-60, 60));
+
+        
+        SetAimTarget(transform.position + dir * Random.Range(1.5f, 6));
+        SetMoveTarget(transform.position + dir * 2);
+        time = Time.time + 2 + Random.Range(0.1f, 1.2f);
     }
 
-    public static Vector3 RightVector(Vector3 forward)
+    public static Vector3 RotateVector(Vector2 direction, float angle)
     {
-        return new Vector2(forward.normalized.y, -forward.normalized.x);
+        float angleRadians = angle * Mathf.Deg2Rad;
+        
+        float cos = Mathf.Cos(angleRadians);
+        float sin = Mathf.Sin(angleRadians);
+        
+        float x = direction.x * cos - direction.y * sin;
+        float y = direction.x * sin + direction.y * cos;
+    
+        return new Vector2(x, y).normalized;
     }
     
     public void AttackPlayer(Sighting sighting)
@@ -188,12 +203,17 @@ public class Behaviour : MonoBehaviour
         }
     }
 
-    public void Follow(Sighting sighting)
+    public void Chase(Sighting sighting)
     {
         SetMoveTarget(sighting.Position);
         SetAimTarget(movementTarget.position + sighting.Velocity * 0.5f);
     }
-    
+
+    public void ToPosition(Vector3 pos,  Vector3 dir)
+    {
+        SetMoveTarget(pos);
+        SetAimTarget(pos + dir);
+    }
     
     private void KeepDistance(Vector3 point)
     {

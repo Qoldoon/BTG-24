@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2098870060400564442, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5731200296786505008, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4
@@ -286,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIex9vBQOWAIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzqUDDCTQW0sI6YGEiZvJxRchrbEGWfLog49k+O/VyjZ23OkJ8d7b3berlT+JULYE5rRZG8E3mgP5MSB4Jt8GLfkEZ7rXKhEf0GjeBXc5imjUvFIndMDHGGZ1Ac4I9lPtJYpHAfRKZNoUK76HpbbOBjij0kKgjHYYrQL0OSDn8DNcYMglnCb3ePoIp8VocA1HBsqBaaWNsJFVKq+YpEUJHC234umkSTuJMhWaqRVonGkpha2dEHcpY6dJmYMBbJULGhqL1VGeg9jnDrN1Y1+yzIKrHRl6eRAmzKdKSn7pamgFtYfK1pFKj2XuptFRlXPzDz0cRzozunhqyo5HWMLlgh1e6YVR6zpD7cIPX317daLyQHcS3nNQz3pttFc8kM54DPUWJg/t31tnyxzYocUrqz3Ql/+/GuzhGps/L6Uodkh9n1ZAInWcdrx4MOFefgfDcS1snSKg6OLNwh+67+5PTTwKY12g6i4V2ttpb1BKVnFm2I13S20URLg2XYKi0l22IY3r32CP65TtMY8UX0pdvOaaB9ALiXCrH4161Fafbpdlc33agM1fvJNCdZMh8xwGtdRKVRtmeyzGJd5klHXj9l7wr8tFYDZZsPl8fj+a8Yxni+FsfM+mbAyz+W7C+N2cxO0TKnRK5bayWg8o3JtqR6nCpjWfkMHa0DKuOzf0tBYfhe4MXahMJ8wAqJcqw805mFAkvEq+4iKMKAHnhIo3Tj5TIjU7AE9vidLY6ursDE3bLCkpxVE7RFKyjN+MlCB82+atgaOAExZvkl3J9S9QSwMEFAAACAgAABgh7MDRxb9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKqqZFlsoWFhbmBaUpaSpqlrqmhebJJsmGqqUWSUXKKmYVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7H28FA5YAgAAEgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7MDRxb9tAAAAeAAAAAkAJAAAAAAAAAAAAAAApQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABdAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAYIeyu80CJWQIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzqVjGAjQWwuE9JDAhGZy8UVIa6xBljz6CB8Z/ntXso0dOj0h3r7dfW+18icRypbAnDYrI/iz5kB+9Eg4k2+9NvgEJ7rXaisu0HDeBXd5INHIeaVOaMQHIc3qApwR7Kfay0BOEPRKZNoUS76HubbOIpxRaQFDRruQrRD67JET/vRnIeWMp+EknC54miW9Kx4ZKAempTbEhlaxvGKSFiXwILklj4ZN2WGkKTRTM5Lv41BdSylsrYW4cxm9bsscDASzXFC0FvsHpzmIfe5CvW7uOsssuFqToeeFMDihqij5pauxFdQeKmEfVPrQ5mEUNVU1n/8J9wcxnBldPDVtB0lo4XLBDq/0zKh1nbF24cVX3V4dqTzQnYT3HNSLXhntFcegMz6kegvDRfv35myeAzu0eCX1DvTl/y8neLhG86e5FMUuzn1UAVup47Tj1YPBm/mNguNi2LoEokHFm4U/dN/doDrwKIx1GKpdqiBvp70JVLKMMwtuvJtroyDCtegSFJXuvMEy7v4G72KdtneRRxreSt28jjVP4C4lwi0/Se5CG328XZbN9fEZbL72TgrVLRYiLziouVaq2rCOpSZt601GWTdt7wX/ulsExsMZm06nk2TMM57N+uPBhI3YAMbT3ZDxhymJyycUGqVyUymt54PXptq2Chet+Yb0VoaWcdu5oceVuBS6I1CoTG+ZAVDrqsLNFhhsgs+SL7nACW3BOaHihZPPlEjNDsDTW6E0Wl2enKFpWyUlpfjQLiApmcePRkoCfFvmjYEPAcfQvCl2Jde/UEsDBBQAAAgIAAAYIezA0cW/bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSqqmRZbKFhYW5gWlKWkqapa6poXmySbJhqqlFklFyipmFUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIeyu80CJWQIAABMFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIezA0cW/bQAAAHgAAAAJACQAAAAAAAAAAAAAAKYCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAXgMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -386,6 +390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4617377551705638552, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5731200296786505008, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -430,6 +438,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9080147858037551484, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -485,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6979659817696810886, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
       propertyPath: m_Name
-      value: Solid Wall
+      value: Lonely wall
       objectReference: {fileID: 0}
     - target: {fileID: 6979659817696810886, guid: a88263d36dee90d409c6446c2ef71593, type: 3}
       propertyPath: m_Layer
@@ -973,7 +985,7 @@ GameObject:
   - component: {fileID: 700901153}
   - component: {fileID: 700901152}
   m_Layer: 6
-  m_Name: Walls (2)
+  m_Name: Up side wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1547,7 +1559,7 @@ GameObject:
   - component: {fileID: 1088001075}
   - component: {fileID: 1088001074}
   m_Layer: 6
-  m_Name: Walls
+  m_Name: side wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1723,7 +1735,7 @@ GameObject:
   - component: {fileID: 1229562510}
   - component: {fileID: 1229562513}
   m_Layer: 6
-  m_Name: Walls
+  m_Name: 'Out Wall '
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1864,7 +1876,7 @@ Transform:
   m_GameObject: {fileID: 1229562509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 5, z: 0}
+  m_LocalPosition: {x: 9, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3146,7 +3158,7 @@ GameObject:
   - component: {fileID: 1840648240}
   - component: {fileID: 1840648239}
   m_Layer: 6
-  m_Name: Walls (1)
+  m_Name: Up wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -26,7 +26,7 @@ namespace EnemyAI
             }
 
             if (done)
-                return new LookState();
+                return new LookState(sightings);
 
             return this;
         }
