@@ -65,8 +65,17 @@ public class Behaviour : MonoBehaviour
     public void SetMoveTarget(Vector3 targetPosition)
     {
         movementTarget.position = targetPosition;
+        if(Vector2.Distance(transform.position, movementTarget.position) >= 1)
+        {
+            var dir = movementTarget.position - transform.position;
+            var ray = Physics2D.Raycast(transform.position + dir.normalized * 0.51f, dir, 1f);
+            if (ray.collider != null && ray.collider.CompareTag("Enemy"))
+            {
+                movementTarget.position = transform.position + RotateVector(dir, 30);
+            }
+        }
+        
         Collider2D[] hits = Physics2D.OverlapCircleAll(movementTarget.position, 1f);
-
         foreach (var hit in hits)
         {
             if (hit.transform == transform) continue;
@@ -161,7 +170,7 @@ public class Behaviour : MonoBehaviour
         
         SetAimTarget(transform.position + dir * Random.Range(1.5f, 6));
         SetMoveTarget(transform.position + dir * 2);
-        time = Time.time + 2 + Random.Range(0.1f, 1.2f);
+        time = Time.time + Random.Range(1f, 1.4f);
     }
 
     public static Vector3 RotateVector(Vector2 direction, float angle)

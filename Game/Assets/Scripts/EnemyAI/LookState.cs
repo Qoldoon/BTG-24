@@ -13,14 +13,18 @@ namespace EnemyAI
         public LookState(Sightings sightings)
         {
             this.sightings = sightings;
-            goDirection = sightings.PlayerSighting().Velocity;
-            goPosition = sightings.PlayerSighting().Position;
+            var playerSighting = sightings.PlayerSighting();
+            if (playerSighting == null)
+            {
+                duration = 8;
+                return;
+            }
+            goDirection = playerSighting.Velocity;
+            goPosition = playerSighting.Position;
         }
         public void React(Behaviour script)
         {
-            if(duration < 2)
-                script.LookAround();
-            else
+            if(duration < 8)
             {
                 var list = sightings.WallSearch();
                 var bigAngle = float.MaxValue;
@@ -41,11 +45,16 @@ namespace EnemyAI
                 {
                     goPosition += goDirection;
                     goDirection = (s.Target.transform.position - goPosition + goDirection) * 0.5f;
+                    duration++;
                 }
 
                 script.ToPosition(goPosition, goDirection);
             }
-            duration += Time.deltaTime;
+            else
+            {
+                script.LookAround();
+                duration += Time.deltaTime;
+            }
         } 
 
         public IState ChangeState(Sightings sightings)
@@ -66,7 +75,7 @@ namespace EnemyAI
                 return new FollowState(sightings);
             }
 
-            if (duration > 10f)
+            if (duration > 12f)
                 return new IdleState();
             
             return this;

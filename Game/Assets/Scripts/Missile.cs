@@ -44,12 +44,12 @@ public class Missile : Projectile
         }
         
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 2);
-        
+
         foreach (Collider2D hit in hitObjects)
         {
             if (hit.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Hit(transform.position, damage, target, emp, 2);
+                damageable.Hit(transform.position, 100, target, emp, 2);
             }
         }
     }

@@ -57,6 +57,7 @@ public class Sightings : IEnumerable<Sighting>
 
     public List<Sighting> WallSearch()
     {
+        Forget();
         return _sightings.FindAll(s => s.Target.CompareTag("Walls"));
     }
 
@@ -73,10 +74,10 @@ public class Sightings : IEnumerable<Sighting>
     }
     private void Forget()
     {
-        _sightings.RemoveAll(s => Time.time - s.TimeSeen > 12);
-        if(_playerSighting.TimeSeen > 12)
+        _sightings.RemoveAll(s => s.Target == null);
+        if(_playerSighting != null && _playerSighting.Target == null)
             _playerSighting = null;
-        if(_allySighting.TimeSeen > 12)
+        if(_allySighting != null && _allySighting.Target == null)
             _allySighting = null;
     }
     
