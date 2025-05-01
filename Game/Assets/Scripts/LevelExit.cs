@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
+    public int level;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -14,7 +15,8 @@ public class LevelExit : MonoBehaviour
                 var controller = collision.GetComponent<PlayerController>();
                 Destroy(GameObject.Find("SelectedItems"));
                 controller.speed = 5f;
-               /* ScoreManager.instance.FinalHighScore();*/
+                //ScoreManager.instance.FinalHighScore();
+                MainMenu.CompleteLevel(level);
                 SceneManager.LoadScene("MenuScene");
             }
         }

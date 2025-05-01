@@ -24,7 +24,7 @@ namespace EnemyAI
         }
         public void React(Behaviour script)
         {
-            if(duration < 8)
+            if(duration < 8 || true)
             {
                 var list = sightings.WallSearch();
                 var bigAngle = float.MaxValue;
@@ -44,7 +44,8 @@ namespace EnemyAI
                 if (Vector2.Distance(script.transform.position, goPosition) < 1f)
                 {
                     goPosition += goDirection;
-                    goDirection = (s.Target.transform.position - goPosition + goDirection) * 0.5f;
+                    var walldir = s.Target.transform.position - goPosition;
+                    goDirection = (walldir + goDirection) * 0.5f;
                     duration++;
                 }
 
@@ -75,7 +76,7 @@ namespace EnemyAI
                 return new FollowState(sightings);
             }
 
-            if (duration > 12f)
+            if (duration > 12f && false)
                 return new IdleState();
             
             return this;

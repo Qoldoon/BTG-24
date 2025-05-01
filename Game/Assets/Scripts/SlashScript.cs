@@ -19,7 +19,7 @@ public class SlashScript : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
+    public HitResponse Hit(float damage, int target, bool emp = false)
     {
         var hb = new HitResponseBuilder().Target(target).Damage(damage);
         if (target == 1) return hb.Build();

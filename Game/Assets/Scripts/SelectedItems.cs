@@ -4,31 +4,18 @@ using UnityEngine;
 
 public class SelectedItems : MonoBehaviour
 {
-    public static List<GameObject> selectedItems = new ();
-    public bool add = true;
+    public List<GameObject> selectedItems = new ();
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-    public int count
+    public int Count => selectedItems.Count;
+
+    public void TryAdd(GameObject item)
     {
-        get
-        {
-            return selectedItems.Count;
-        }
-    }
-    public void changeBehaviour(bool intput)
-    {
-        add = intput;
-    }
-    public void selectItem(GameObject item)
-    {
-        if(!add) { unSelectItem(item); return; }
-        selectedItems.Add(item);
-    }
-    public void unSelectItem(GameObject item)
-    {
-        selectedItems.Remove(item);
+        if (!selectedItems.Contains(item))
+            selectedItems.Add(item);
+        else selectedItems.Remove(item);
     }
 }

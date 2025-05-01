@@ -31,7 +31,7 @@ public class GrenadeTraveling : Projectile
         {
             if (hit.gameObject.TryGetComponent(out IDamageable damagable))
             {
-                damagable.Hit(transform.position ,damage, target, emp);
+                damagable.Hit(damage, target, emp);
             }
         }
     }

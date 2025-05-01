@@ -10,7 +10,7 @@ public class UISlot : MonoBehaviour
     private Color colorB;
     public RawImage image;
     public Image icon;
-    void Start()
+    void Awake()
     {
         image = GetComponent<RawImage>();
         icon = GetComponentInChildren<Image>();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class Missile : Projectile
         var damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            HitResponse response = damageable.Hit(transform.position, damage, target, emp, 2);
+            HitResponse response = damageable.Hit(damage, target, emp);
             damage = response.damage;
             target = response.target;
             if (response.reflect)
@@ -32,10 +33,10 @@ public class Missile : Projectile
                 Parry();
             }
             if(response.destroy)
-                Destroy(gameObject);
+                Explode();
         }
     }
-    void OnDestroy()
+    void Explode()
     {
         if (explosion != null)
         {
@@ -49,8 +50,9 @@ public class Missile : Projectile
         {
             if (hit.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Hit(transform.position, 100, target, emp, 2);
+                damageable.Hit(100, target, emp);
             }
         }
+        Destroy(gameObject);
     }
 }

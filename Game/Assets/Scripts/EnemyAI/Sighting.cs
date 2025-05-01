@@ -75,10 +75,6 @@ public class Sightings : IEnumerable<Sighting>
     private void Forget()
     {
         _sightings.RemoveAll(s => s.Target == null);
-        if(_playerSighting != null && _playerSighting.Target == null)
-            _playerSighting = null;
-        if(_allySighting != null && _allySighting.Target == null)
-            _allySighting = null;
     }
     
     public void TryAddSighting(Sighting sighting)

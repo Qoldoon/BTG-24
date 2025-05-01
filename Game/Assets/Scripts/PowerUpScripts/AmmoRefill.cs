@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AmmoRefill : MonoBehaviour
 {
+    //TODO: redo all this
     private int revolverExtraAmmo = 3;
     private int launcherExtraAmmo = 1;
     private int akExtraAmmo = 10;

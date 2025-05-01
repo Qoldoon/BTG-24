@@ -13,8 +13,8 @@ public class ButtonScript : MonoBehaviour
     {
         var component = GetComponent<Button>();
 
-        if (GameObject.Find("SelectedItems").GetComponent<SelectedItems>().count < 3) { component.enabled = false; return; }
-        component.enabled = true;
+        if (GameObject.Find("SelectedItems").GetComponent<SelectedItems>().Count > 3) { component.interactable = false; return; }
+        component.interactable = true;
 
     }
 }

@@ -60,7 +60,7 @@ public class BulletScript : Projectile
         var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            HitResponse response = damageable.Hit(hit.point, damage, target);
+            HitResponse response = damageable.Hit(damage, target);
             damage = response.damage;
             target = response.target;
             if (response.reflect)

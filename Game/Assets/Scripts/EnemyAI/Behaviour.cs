@@ -81,9 +81,11 @@ public class Behaviour : MonoBehaviour
             if (hit.transform == transform) continue;
             
             Vector2 direction = (movementTarget.position - hit.transform.position).normalized;
+            if (direction == Vector2.zero)
+                direction = Vector2.up;
             
-            float overlapDistance = 1f - Vector2.Distance(movementTarget.position, hit.transform.position);
-            if (overlapDistance > 0) 
+            var overlapDistance = 1f - Vector2.Distance(movementTarget.position, hit.transform.position);
+            if (overlapDistance > 0)
             {
                 movementTarget.position += (Vector3)direction * overlapDistance;
             }
@@ -139,8 +141,7 @@ public class Behaviour : MonoBehaviour
                     Position = hit.point,
                     TimeSeen = Time.time
                 };
-                // if(!hit.collider.CompareTag("Player"))
-                    _sightings.TryAddSighting(sighting);
+                _sightings.TryAddSighting(sighting);
             }
         }
         //hearing

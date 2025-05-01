@@ -18,7 +18,8 @@ public class PlayerInventory : MonoBehaviour
     {
         canvas = gameObject.GetComponentInChildren<PlayerCanvas>();
         playerUI = gameObject.GetComponentInChildren<PlayerUI>();
-        foreach (var item in SelectedItems.selectedItems)
+        var selectedItems = GameObject.Find("SelectedItems").GetComponent<SelectedItems>();
+        foreach (var item in selectedItems.selectedItems)
         {
             Add(item.gameObject);
         }
@@ -43,7 +44,12 @@ public class PlayerInventory : MonoBehaviour
 
     public bool IsUsable(out IUsable usableItem)
     {
-        return slots[current].TryGetComponent(out usableItem);
+        usableItem = null;
+        if (slots != null && current >= 0 && current < slots.Count)
+        {
+            return slots[current].TryGetComponent(out usableItem);
+        }
+        return false;
     }
 
     public void Add(GameObject go)

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     float angle;
     private PlayerInventory playerInventory;
     public GameObject slash;
+    bool dead = false;
 
     void Start()
     {
@@ -23,12 +24,29 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     void Update()
     {
+        if (IsDead()) return;
         Parry();
         AttackHandler();
         DodgeHandler();
         MoveHandler();
         Look();
         Reload();
+    }
+
+    private bool IsDead()
+    {
+        if (dead)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     private void Reload()
@@ -79,11 +97,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(0.15f/speedMult);
         speed = orgSpeed;
     }
-    public HitResponse Hit(Vector2 hit, float damage, int target, bool emp = false, float radius = 0)
+    public HitResponse Hit(float damage, int target, bool emp = false)
     {
         HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
         if (target == 1) return hb.Build();
-        // hitPoints--;
+        hitPoints--;
         
         if (hitPoints < 1)
         {
@@ -93,9 +111,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     public void Die(int scene)
     {
-        Destroy(GameObject.Find("SelectedItems"));
-        speed = 5f;
-        SceneManager.LoadScene(scene);
+        playerInventory.playerUI.TitleText("DEAD");
+        Time.timeScale = 0;
+        dead = true;
+        // Destroy(GameObject.Find("SelectedItems"));
+        // speed = 5f;
+        // SceneManager.LoadScene(scene);
     }
    
 }
