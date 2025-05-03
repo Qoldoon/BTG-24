@@ -6,15 +6,9 @@ public class Spawn : MonoBehaviour
     public GameObject objectToSpawn;
     void Awake()
     {
+        var str = objectToSpawn.name;
         objectToSpawn = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-        // try
-        // {
-        //     Camera.main.GetComponent<Camera_Follow>().target = objectToSpawn.transform;
-        // }
-        // catch (Exception e)
-        // {
-        //     Console.WriteLine(e);
-        // }
+        objectToSpawn.name = str;
     }
 
     private void OnDrawGizmos()

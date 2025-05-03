@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
-    public bool hasKey;
+    List<string> keys = new();
     public List<Item> slots = new ();
     public int current;
     public bool canReload;
@@ -18,7 +18,8 @@ public class PlayerInventory : MonoBehaviour
     {
         canvas = gameObject.GetComponentInChildren<PlayerCanvas>();
         playerUI = gameObject.GetComponentInChildren<PlayerUI>();
-        var selectedItems = GameObject.Find("SelectedItems").GetComponent<SelectedItems>();
+        var selectedItems = GameObject.Find("SelectedItems")?.GetComponent<SelectedItems>();
+        if (selectedItems == null) return;
         foreach (var item in selectedItems.selectedItems)
         {
             Add(item.gameObject);
@@ -78,6 +79,15 @@ public class PlayerInventory : MonoBehaviour
             slot.gameObject.SetActive(slots[current] == slot);
             playerUI?.Select(current);
         }
+    }
+
+    public void addKey(string key)
+    {
+        keys.Add(key);
+    }
+    public bool hasKey(string key)
+    {
+        return keys.Contains(key);
     }
 }
 

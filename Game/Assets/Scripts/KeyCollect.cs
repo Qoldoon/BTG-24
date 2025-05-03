@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class KeyCollect : MonoBehaviour
 {
+    public string key = "exit";
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerInventory>().hasKey = true;
+            collision.GetComponent<PlayerInventory>().addKey(key);
             Destroy(gameObject);
         }
     }

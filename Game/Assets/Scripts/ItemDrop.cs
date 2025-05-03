@@ -5,8 +5,10 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
     public GameObject Prefab;
+    public string key;
     public void DropItem()
     {
-        Instantiate(Prefab, transform.position, Quaternion.identity);
+        var item = Instantiate(Prefab, transform.position, Quaternion.identity);
+        item.gameObject.GetComponent<KeyCollect>().key = key;
     }
 }

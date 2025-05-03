@@ -82,3 +82,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4765813092979529059, guid: 7bdee593432e075478ea3d5538d9f4dc, type: 3}
+  key: exit
