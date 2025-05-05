@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 [ExecuteInEditMode]
-public class DynamicWall : MonoBehaviour
+public class Boundary : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
     [SerializeField] private int width = 1;
@@ -28,6 +26,14 @@ public class DynamicWall : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        foreach(Transform block in transform)
+        {
+            block.GetComponent<BoxCollider2D>().compositeOperation = Collider2D.CompositeOperation.Merge;
+        }
+    }
+
     void RebuildWall()
     {
         List<Transform> list = new();
@@ -41,10 +47,15 @@ public class DynamicWall : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                Vector3 blockPosition = new Vector3(x, y, 0);
-                
-                GameObject block = Instantiate(wall, transform);
-                block.transform.localPosition = blockPosition;
+                if(x == 0 || x == width-1 || y == 0 || y == height-1)
+                {
+                    Vector3 blockPosition = new Vector3(x, y, 0);
+
+                    GameObject block = Instantiate(wall, transform);
+                    block.transform.localPosition = blockPosition;
+                    block.tag = "Untagged";
+                    DestroyImmediate(block.GetComponent<WallState>());
+                }
             }
         }
     }

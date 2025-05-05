@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3707078160235959940}
   - component: {fileID: 3707078160235959941}
   - component: {fileID: 785879542422957000}
+  - component: {fileID: 7038668306600916768}
   m_Layer: 6
   m_Name: Solid Wall
   m_TagString: Walls
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: -496720537
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 079eca245910366439fd5f9b24871854, type: 3}
-  m_Color: {r: 0.6792453, g: 0.28515485, b: 0.28515485, a: 1}
+  m_Sprite: {fileID: 645411862609229670, guid: cb052b13d7f4f44568880d51f4b21577, type: 3}
+  m_Color: {r: 0.6784314, g: 0.28627452, b: 0.28627452, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,3 +149,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagedsprite: {fileID: 21300000, guid: 4dd2f1a94c7bb1c4f9b96c0d6025f783, type: 3}
+--- !u!114 &7038668306600916768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979659817696810886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8146489409d114949b92079ac0c65d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  atlasTexture: {fileID: 2800000, guid: cb052b13d7f4f44568880d51f4b21577, type: 3}

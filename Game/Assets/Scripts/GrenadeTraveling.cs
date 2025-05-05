@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +17,15 @@ public class GrenadeTraveling : Projectile
         rb.linearVelocity = direction * speed;
         rb.angularVelocity = 300;
         
-        Destroy(gameObject, detonationTime);
+        StartCoroutine(timer(detonationTime));
     }
-    void OnDestroy()
+
+    IEnumerator timer(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Explode();
+    }
+    void Explode()
     {
         if (explosion != null)
         {
@@ -34,5 +42,6 @@ public class GrenadeTraveling : Projectile
                 damagable.Hit(damage, target, emp);
             }
         }
+        Destroy(gameObject);
     }
 }
