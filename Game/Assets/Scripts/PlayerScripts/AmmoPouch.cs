@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AmmoPouch : Item
 {
+    public override string Description { get; set; } =
+        "Spare ammunition \n" +
+        "Allows reloading for all weapons \n";
     public override void OnAdd(PlayerInventory inventory)
     {
         base.OnAdd(inventory);

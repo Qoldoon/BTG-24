@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Item : MonoBehaviour
 {
+    public virtual string Description { get; set; } = "Default";
     protected PlayerInventory PlayerInventory;
     public Sprite itemIcon;
     public virtual void OnAdd(PlayerInventory inventory)

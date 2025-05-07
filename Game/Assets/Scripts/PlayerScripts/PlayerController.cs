@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public PlayerInventory playerInventory;
     public GameObject slash;
     bool dead = false;
+    public bool freeze;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     void Update()
     {
+        if(freeze) return;
         if (IsDead()) return;
         Parry();
         AttackHandler();

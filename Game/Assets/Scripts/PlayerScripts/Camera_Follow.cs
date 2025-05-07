@@ -27,6 +27,7 @@ public class Camera_Follow : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(target.GetComponent<PlayerController>().freeze) return;
         mouse_pos = Input.mousePosition;
         object_pos = _camera.WorldToScreenPoint(target.position);
 

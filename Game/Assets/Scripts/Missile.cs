@@ -67,7 +67,7 @@ public class Missile : Projectile
         {
             if (hit.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                damageable.Hit(100, target, emp);
+                damageable.Hit(100, 2, emp);
             }
         }
         Destroy(gameObject);

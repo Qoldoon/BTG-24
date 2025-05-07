@@ -20,13 +20,10 @@ public class LevelExit : MonoBehaviour
         {
             if(collision.GetComponent<PlayerInventory>().hasKey("exit"))
             {
-                var controller = collision.GetComponent<PlayerController>();
+                StartCoroutine(LevelEnding(collision));
                 Destroy(GameObject.Find("SelectedItems"));
-                controller.speed = 5f;
                 ScoreManager.instance.SetHighscore();
                 MainMenu.CompleteLevel(level);
-                //Score sheet
-                StartCoroutine(LevelEnding(collision));
             }
             else
             {

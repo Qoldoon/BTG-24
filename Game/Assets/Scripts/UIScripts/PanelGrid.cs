@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class PanelGrid : MonoBehaviour
     private Color goodColor = ColorScheme.SecondaryColor;
     private Color badColor = ColorScheme.PrimaryAccentColor;
     [SerializeField] public SelectedItems selection;
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     private void Start()
     {
@@ -29,8 +31,41 @@ public class PanelGrid : MonoBehaviour
             
             var button = buttonInstance.GetComponent<Toggle>();
             button.onValueChanged.AddListener(_ => OnButtonClick(item));
+            button.GetComponent<Description>().SetDescription(item.GetComponent<Item>().Description);
             toggles.Add(button);
         }
+
+        Descriptions();
+    }
+
+    void Descriptions()
+    {
+        foreach (var button in toggles)
+        {
+            EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
+            if (trigger == null)
+                trigger = button.gameObject.AddComponent<EventTrigger>();
+            
+            EventTrigger.Entry pointerEnter = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+            pointerEnter.callback.AddListener((eventData) => SetDescription(button.GetComponent<Description>().value));
+            trigger.triggers.Add(pointerEnter);
+            
+            EventTrigger.Entry pointerExit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
+            pointerExit.callback.AddListener((eventData) => ResetDescription());
+            trigger.triggers.Add(pointerExit);
+        }
+    }
+    
+    private void SetDescription(string description)
+    {
+        if (descriptionText != null)
+            descriptionText.text = description;
+    }
+
+    private void ResetDescription()
+    {
+        if (descriptionText != null)
+            descriptionText.text = "";
     }
 
     void OnButtonClick(GameObject clickedObject)

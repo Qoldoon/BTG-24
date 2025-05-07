@@ -2,14 +2,18 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     private static readonly int FaceColor = Shader.PropertyToID("_FaceColor");
     public UISlot[] slots;
-    public Image fadeImage; // Reference to the UI Image for fading
+    public Image fadeImage;
+    public GameObject MenuPanel;
     
+    public bool MenuUp;
     private void Awake()
     {
         if (fadeImage != null)
@@ -25,6 +29,46 @@ public class PlayerUI : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (MenuUp)
+            ExitMenu();
+        else
+            EnterMenu();
+    }
+    public void EnterMenu()
+    {
+        MenuUp = true;
+        if (fadeImage != null)
+        {
+            fadeImage.enabled = true;
+            fadeImage.color = ColorScheme.TertiaryColor.MultiplyAlpha(0.5f);
+        }
+        if (MenuPanel != null) MenuPanel.SetActive(true);
+        
+        transform.parent.GetComponent<PlayerController>().freeze = true;
+    }
+
+    public void ExitMenu()
+    {
+        MenuUp = false;
+        if (fadeImage != null) fadeImage.enabled = false;
+        if (MenuPanel != null) MenuPanel.SetActive(false);
+        transform.parent.GetComponent<PlayerController>().freeze = false;
+    }
+
+    public void Abandon()
+    {
+        Destroy(GameObject.Find("SelectedItems"));
+        SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     private IEnumerator FadeIn()
     {
         float elapsedTime = 0f;
