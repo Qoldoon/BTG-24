@@ -38,6 +38,7 @@ public class LevelExit : MonoBehaviour
         var inv = collision.GetComponent<PlayerInventory>();
         inv.playerUI.TitleText("COMPLETE");
         inv.playerUI.SubTitleText(ScoreManager.instance.ShowScore());
+        inv.GetComponent<PlayerController>().hitPoints = 9999;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("LevelSelect");
     }
