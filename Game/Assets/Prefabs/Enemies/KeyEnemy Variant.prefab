@@ -13,9 +13,13 @@ PrefabInstance:
       value: KeyEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3147421588125042917, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e08ecf466a960e64f86794d80cbb66b5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.33333337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147421588125042917, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7638154
+      objectReference: {fileID: 0}
     - target: {fileID: 9005186919544167211, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.819785

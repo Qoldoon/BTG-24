@@ -26,13 +26,13 @@ public class Boundary : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        foreach(Transform block in transform)
-        {
-            block.GetComponent<BoxCollider2D>().compositeOperation = Collider2D.CompositeOperation.Merge;
-        }
-    }
+    // private void LateUpdate()
+    // {
+    //     foreach(Transform block in transform)
+    //     {
+    //         block.GetComponent<BoxCollider2D>().compositeOperation = Collider2D.CompositeOperation.Merge;
+    //     }
+    // }
 
     void RebuildWall()
     {

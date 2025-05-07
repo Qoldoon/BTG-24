@@ -8,7 +8,7 @@ namespace EnemyAI
         {
             this.sightings = sightings;
         }
-        public void React(Behaviour script)
+        public void React(EnemyBehaviour script)
         {
             script.AttackPlayer(sightings.PlayerSighting());
         }

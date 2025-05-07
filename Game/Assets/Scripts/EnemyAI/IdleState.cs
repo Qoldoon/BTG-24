@@ -4,7 +4,7 @@ namespace EnemyAI
 {
     public class IdleState : IState
     {
-        public void React(Behaviour script)
+        public void React(EnemyBehaviour script)
         {
 
         }
@@ -18,7 +18,7 @@ namespace EnemyAI
             }
 
             var enemy = sightings.AllySighting();
-            if (Sighting.IsRecent(enemy, 0.1f) && enemy.Target.GetComponent<Behaviour>().IsAggro)
+            if (Sighting.IsRecent(enemy, 0.1f) && enemy.Target.GetComponent<EnemyBehaviour>().IsAggro)
             {
                 return new FollowState(sightings);
             }

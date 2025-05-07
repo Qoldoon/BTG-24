@@ -6,8 +6,8 @@ public class Vectors : MonoBehaviour
     public Transform first;
     public Transform second;
 
-    public Behaviour enemy;
-    public Behaviour other;
+    public EnemyBehaviour enemy;
+    public EnemyBehaviour other;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +34,7 @@ public class Vectors : MonoBehaviour
         
         currentAngle = angularSpeed * Time.deltaTime;
 
-        first.position = transform.position + Behaviour.RotateVector(first.position - transform.position, currentAngle);
-        second.position = transform.position + Behaviour.RotateVector(second.position - transform.position, -currentAngle*2);
+        first.position = transform.position + EnemyBehaviour.RotateVector(first.position - transform.position, currentAngle);
+        second.position = transform.position + EnemyBehaviour.RotateVector(second.position - transform.position, -currentAngle*2);
     }
 }

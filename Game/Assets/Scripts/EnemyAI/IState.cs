@@ -2,7 +2,7 @@ namespace EnemyAI
 {
     public interface IState
     {
-        public void React(Behaviour script);
+        public void React(EnemyBehaviour script);
         public IState ChangeState(Sightings sightings);
     }
 }

@@ -30,24 +30,24 @@ public class Weapon : Item, IUsable
         if (_currentAmmo == 0) return;
         if (Time.time < _time) return;
         if (_isReloading) return;
-
-        Vector3 euler = transform.eulerAngles;
-        var o = euler;
-        euler.z = Random.Range(euler.z - bulletSpread, euler.z + bulletSpread);
-        transform.eulerAngles = euler;
+        var vector = transform.parent.GetComponent<PlayerController>().lookDirection;
+        vector = EnemyBehaviour.RotateVector(vector, Random.Range(-bulletSpread, +bulletSpread));
         SoundTracker.EmitSound(gameObject);
         var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, transform.rotation);
+        var mult = this.PlayerInventory.multiplier;
+        Debug.Log(mult);
+        Debug.Log(this.PlayerInventory);
         if (bullet.TryGetComponent(out Projectile projectile))
         {
-            projectile.direction = (transform.rotation * Vector2.up).normalized;
-            projectile.speed = bulletSpeed;
-            projectile.damage = bulletDamage;
+            projectile.direction = vector.normalized;
+            projectile.speed = bulletSpeed * mult;
+            projectile.damage = bulletDamage * mult;
             projectile.target = 1;
+            projectile.emp |= (mult > 1);
         }
-        
+        this.PlayerInventory.deAmplify();
         _currentAmmo--;
         _time = Time.time + fireRate;
-        transform.eulerAngles = o;
     }
 
     public void SecondaryUse()
@@ -56,6 +56,10 @@ public class Weapon : Item, IUsable
         _reloadCoroutine = StartCoroutine(Reload());
     }
 
+    public bool NeedsReload()
+    {
+        return _currentAmmo < ammoCount;
+    }
     public override void Equip()
     {
         base.Equip();

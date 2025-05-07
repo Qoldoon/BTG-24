@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private float t;
     Vector3 mouse_pos;
     Vector3 object_pos;
-    float angle;
-    private PlayerInventory playerInventory;
+    public Vector2 lookDirection { get; private set; }
+    public PlayerInventory playerInventory;
     public GameObject slash;
     bool dead = false;
 
@@ -62,7 +62,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         object_pos = Camera.main.WorldToScreenPoint(transform.position);
         mouse_pos.x -= object_pos.x;
         mouse_pos.y -= object_pos.y;
-        angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
+        lookDirection = new  Vector2(mouse_pos.x, mouse_pos.y).normalized;
+        var angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
     }
     private void Parry()

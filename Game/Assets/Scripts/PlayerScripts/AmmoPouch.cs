@@ -7,6 +7,7 @@ public class AmmoPouch : Item
     public override void OnAdd(PlayerInventory inventory)
     {
         base.OnAdd(inventory);
+        transform.localPosition = new Vector3(0f, 0f, 0f);
         PlayerInventory.canReload = true;
     }
 

@@ -9,6 +9,7 @@ public class PlayerInventory : MonoBehaviour
     public List<Item> slots = new ();
     public int current;
     public bool canReload;
+    public float multiplier = 1;
     [NonSerialized]
     public PlayerCanvas canvas;
     [NonSerialized]
@@ -88,6 +89,16 @@ public class PlayerInventory : MonoBehaviour
     public bool hasKey(string key)
     {
         return keys.Contains(key);
+    }
+
+    public void Amplify()
+    {
+        multiplier = 2;
+    }
+
+    public void deAmplify()
+    {
+        multiplier = 1;
     }
 }
 

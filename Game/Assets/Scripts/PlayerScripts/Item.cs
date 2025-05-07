@@ -10,7 +10,7 @@ public abstract class Item : MonoBehaviour
     public virtual void OnAdd(PlayerInventory inventory)
     {
         PlayerInventory = inventory;
-        transform.localPosition = new Vector3(0f, 0.3f, -1f);
+        transform.localPosition = new Vector3(0f, 0.3f, 0f);
         transform.localRotation = Quaternion.identity;
         if (itemIcon != null)
             PlayerInventory.playerUI?.SetIcons(PlayerInventory);

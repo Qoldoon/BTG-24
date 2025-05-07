@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
         if (target == 0) return hb.Build();
-        if (emp) { Shield = false; Destroy(shield); return hb.Destroy().Build(); }
+        if (emp && Shield) { Shield = false; Destroy(shield); return hb.Destroy().Build(); }
         if (!Shield && health <= damage)
         {
             Die();
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (GetComponent<ItemDrop>() != null)
             GetComponent<ItemDrop>().DropItem();
-        //ScoreManager.instance.AddPointForMeleeKill(gameObject.tag);
+        ScoreManager.instance?.AddPoints(100);
         Destroy(gameObject);
     }
 }

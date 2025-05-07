@@ -16,6 +16,7 @@ public class SpeedUp : MonoBehaviour
             gameObject.GetComponent<Renderer>().enabled = false;
             controller = collision.GetComponent<PlayerController>();
             controller.speedMult = boostSpeed;
+            controller.playerInventory.canvas.CreateText("Speed");
             StartCoroutine(SpeedUpDuration());
         }
     }

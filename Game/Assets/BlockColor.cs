@@ -1,11 +1,10 @@
 using System;
-using System.Linq;
 using UnityEngine;
 
 public class BlockColor : MonoBehaviour
 {
     public Sprite[] sprites;
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Texture2D atlasTexture;
 
     void Awake()
@@ -17,9 +16,9 @@ public class BlockColor : MonoBehaviour
 
     private void Start()
     {
-        UpdateSprite();
+        Invoke(nameof(UpdateSprite), 0.02f);
     }
-    
+
     void UpdateSprite()
     {
         if(sprites.Length == 0) return;
@@ -55,16 +54,15 @@ public class BlockColor : MonoBehaviour
     int GetNeighborConfiguration()
     {
         int config = 0;
-        Vector2Int[] neighborOffsets = new Vector2Int[]
-        {
-            new Vector2Int(0, 1),  // Top
-            new Vector2Int(0, -1), // Bottom
-            new Vector2Int(-1, 0), // Left
-            new Vector2Int(1, 0),   // Right
-            new Vector2Int(-1, 1),  // Top Left
-            new Vector2Int(1, 1), // Top Right
-            new Vector2Int(-1, -1), // Bottom Left
-            new Vector2Int(1, -1)   // Bottom Right
+        Vector2Int[] neighborOffsets = {
+            new (0, 1),  // Top
+            new (0, -1), // Bottom
+            new (-1, 0), // Left
+            new (1, 0),   // Right
+            new (-1, 1),  // Top Left
+            new (1, 1), // Top Right
+            new (-1, -1), // Bottom Left
+            new (1, -1)   // Bottom Right
         };
 
         for (int i = 0; i < neighborOffsets.Length; i++)

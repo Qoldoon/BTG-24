@@ -9,6 +9,8 @@ public class ItemDrop : MonoBehaviour
     public void DropItem()
     {
         var item = Instantiate(Prefab, transform.position, Quaternion.identity);
-        item.gameObject.GetComponent<KeyCollect>().key = key;
+        var component = item.gameObject.GetComponent<KeyCollect>();
+        if (component != null)
+            component.key = key;
     }
 }

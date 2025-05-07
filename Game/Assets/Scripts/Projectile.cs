@@ -11,4 +11,6 @@ public abstract class Projectile : MonoBehaviour
     public float damage;
     [NonSerialized]
     public int target;
+    [NonSerialized] 
+    public bool emp;
 }

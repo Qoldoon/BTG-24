@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Eyes : MonoBehaviour
 {
-    private Behaviour b;
+    private EnemyBehaviour b;
     private void Start()
     {
-        b = GetComponentInParent<Behaviour>();
+        b = GetComponentInParent<EnemyBehaviour>();
     }
 
     private void OnTriggerStay2D(Collider2D other)

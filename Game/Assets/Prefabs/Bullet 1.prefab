@@ -132,7 +132,7 @@ MonoBehaviour:
   trail: {fileID: 0}
   startColor: {r: 1, g: 0.8228265, b: 0, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 0}
-  trailTime: 0.6
+  trailTime: 0.2
   startWidth: 0.2
   endWidth: 0
   trailMaterial: {fileID: 2100000, guid: 123f02547d21a4e45bc371a14bf4c23c, type: 2}
@@ -149,8 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTrail: {fileID: 0}
-  speed: 30
-  mainmenu: 0
 --- !u!58 &8066663896493756181
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3240719602327619792}
   - component: {fileID: -5984040091179465366}
   - component: {fileID: 5115190265538106748}
+  - component: {fileID: 6695602067906893714}
   - component: {fileID: 2144190035184184807}
   m_Layer: 0
   m_Name: Missile
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 079eca245910366439fd5f9b24871854, type: 3}
-  m_Color: {r: 0.3207547, g: 0.07716268, b: 0.07716268, a: 1}
+  m_Sprite: {fileID: -6872676176704462011, guid: 1d6897428afcd46988ea3246e801d3c2, type: 3}
+  m_Color: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +156,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.58, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,6 +164,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6695602067906893714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536595946165197236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b2bcfbeb59e4664853c314fb8d3a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 0}
+  startColor: {r: 1, g: 0.6523076, b: 0, a: 1}
+  endColor: {r: 0.8820755, g: 0.9912105, b: 1, a: 0.23529412}
+  trailTime: 0.1
+  startWidth: 0.15
+  endWidth: 0.1
+  trailMaterial: {fileID: 2100000, guid: 123f02547d21a4e45bc371a14bf4c23c, type: 2}
 --- !u!114 &2144190035184184807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,11 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c0065c7f64d234aaf48df1de948774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
-  speed: 0
-  damage: 0
-  target: 0
   rb: {fileID: 0}
-  explosionDistance: 5
   explosion: {fileID: 1208132883143785956, guid: f45e1e09b368f1346aee6ed09d8f3948, type: 3}
-  radius: 30
+  bulletTrail: {fileID: 0}

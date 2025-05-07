@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class GrenadeTraveling : Projectile
 {
     public Rigidbody2D rb;
-    private bool emp = false;
     public float detonationTime = 1f;
     [SerializeField] private GameObject explosion;
 
     void Start()
     {
+        emp = true;
         rb = GetComponent<Rigidbody2D>();
 
         rb.linearVelocity = direction * speed;

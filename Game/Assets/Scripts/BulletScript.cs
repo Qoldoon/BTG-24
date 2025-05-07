@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BulletScript : Projectile
 {
@@ -19,6 +19,13 @@ public class BulletScript : Projectile
         }
         
         collisionMask = Physics2D.AllLayers & ~(1 << gameObject.layer);
+
+        if (emp && bulletTrail != null)
+        {
+            bulletTrail.Clear();
+            bulletTrail.startColor = Color.blue;
+            bulletTrail.endColor = Color.cyan;
+        }
         
         Destroy(gameObject, 5f);
     }
@@ -60,7 +67,7 @@ public class BulletScript : Projectile
         var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            HitResponse response = damageable.Hit(damage, target);
+            HitResponse response = damageable.Hit(damage, target, emp);
             damage = response.damage;
             target = response.target;
             if (response.reflect)
@@ -68,7 +75,21 @@ public class BulletScript : Projectile
                 Parry(hit);
             }
             if(response.destroy)
-                Destroy(gameObject);
+                EndPath();
         }
+        else if(!hit.collider.isTrigger)
+        {
+            EndPath();
+        }
+    }
+
+    void EndPath()
+    {
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        speed = 0f;
+        bulletTrail.time = 0.05f;
+        Destroy(gameObject, 0.05f);
+        enabled = false;
     }
 }

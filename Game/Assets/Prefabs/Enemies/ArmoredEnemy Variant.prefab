@@ -12,14 +12,26 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 63964497682826430, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1130123410398433707, guid: f3b7fc0fe8bc64aa1a460f4b6e6219ca, type: 3}
     - target: {fileID: 2098870060400564442, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: m_Name
       value: ArmoredEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3147421588125042917, guid: 2037080c9a3a84f0385310419725a770, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fb4ef824d455a8f4fb48c1fed245c384, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18155928
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147421588125042917, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147421588125042917, guid: 2037080c9a3a84f0385310419725a770, type: 3}
+      propertyPath: m_Color.r
+      value: 0.26376808
+      objectReference: {fileID: 0}
     - target: {fileID: 4617377551705638552, guid: 2037080c9a3a84f0385310419725a770, type: 3}
       propertyPath: maxSpeed
       value: 2

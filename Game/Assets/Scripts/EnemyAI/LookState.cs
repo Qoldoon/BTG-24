@@ -22,9 +22,9 @@ namespace EnemyAI
             goDirection = playerSighting.Velocity;
             goPosition = playerSighting.Position;
         }
-        public void React(Behaviour script)
+        public void React(EnemyBehaviour script)
         {
-            if(duration < 8 || true)
+            if(duration < 8)
             {
                 var list = sightings.WallSearch();
                 var bigAngle = float.MaxValue;
@@ -71,12 +71,12 @@ namespace EnemyAI
                 return new InvestigateState(sightings);
             
             var enemy = sightings.AllySighting();
-            if (Sighting.IsRecent(enemy, 0.1f) && enemy.Target.GetComponent<Behaviour>().IsAggro)
+            if (Sighting.IsRecent(enemy, 0.1f) && enemy.Target.GetComponent<EnemyBehaviour>().IsAggro)
             {
                 return new FollowState(sightings);
             }
 
-            if (duration > 12f && false)
+            if (duration > 12f)
                 return new IdleState();
             
             return this;
