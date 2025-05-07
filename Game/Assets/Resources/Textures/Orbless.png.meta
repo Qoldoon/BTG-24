@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Orbless_0: 7690118987972061407
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
