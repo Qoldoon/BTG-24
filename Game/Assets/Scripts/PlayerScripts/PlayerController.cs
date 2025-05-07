@@ -25,7 +25,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     void Update()
     {
-        if(freeze) return;
+        if(freeze)
+        {
+            rb.linearVelocity = Vector3.zero;
+            return;
+        }
         if (IsDead()) return;
         Parry();
         AttackHandler();
