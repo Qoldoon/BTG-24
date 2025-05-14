@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(string scene)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene);
     }
     public void SetNext(int level)

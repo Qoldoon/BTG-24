@@ -88,7 +88,8 @@ public class BulletScript : Projectile
         GetComponent<Renderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         speed = 0f;
-        bulletTrail.time = 0.05f;
+        if(bulletTrail != null)
+            bulletTrail.time = 0.05f;
         Destroy(gameObject, 0.05f);
         enabled = false;
     }

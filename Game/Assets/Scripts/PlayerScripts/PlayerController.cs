@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if(freeze)
         {
             rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = 0;
             return;
         }
         if (IsDead()) return;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void Look()
     {
+        if (rb is null) return;
         mouse_pos = Input.mousePosition;
         object_pos = Camera.main.WorldToScreenPoint(transform.position);
         mouse_pos.x -= object_pos.x;
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void MoveHandler()
     {
+        if (rb is null) return;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 moveDir = Vector2.ClampMagnitude(new Vector2(x, y), 1);
@@ -112,18 +115,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         
         if (hitPoints < 1)
         {
-            Die(0);
+            Die();
         }
         return hb.Destroy().Build();
     }
-    public void Die(int scene)
+    public void Die()
     {
-        playerInventory.playerUI.TitleText("DEAD");
+        playerInventory?.playerUI.TitleText("DEAD");
         Time.timeScale = 0;
         dead = true;
-        // Destroy(GameObject.Find("SelectedItems"));
-        // speed = 5f;
-        // SceneManager.LoadScene(scene);
     }
    
 }
