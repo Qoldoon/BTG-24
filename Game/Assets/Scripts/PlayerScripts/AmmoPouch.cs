@@ -16,6 +16,7 @@ public class AmmoPouch : Item
 
     public override void OnRemove()
     { 
+        base.OnRemove();
         PlayerInventory.canReload = false;
     }
 }

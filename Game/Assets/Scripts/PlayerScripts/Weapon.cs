@@ -21,7 +21,8 @@ public class Weapon : Item, IUsable
 
     private void Start()
     {
-        _reloadIndicator = transform.parent.GetComponentInChildren<Indicator>();
+        if(PlayerInventory != null)
+            _reloadIndicator = PlayerInventory.reloadIndicator;
         _time = Time.time;
         _currentAmmo = ammoCount;
     }

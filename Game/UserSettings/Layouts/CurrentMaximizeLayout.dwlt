@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 3}
-  - {fileID: 15}
+  - {fileID: 16}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 36
     width: 1470
-    height: 764
-  m_MinSize: {x: 300, y: 100}
-  m_MaxSize: {x: 24288, y: 16192}
+    height: 864
+  m_MinSize: {x: 400, y: 100}
+  m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 1538
+  controlID: 8214
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -34,23 +34,23 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f683d99f24875748a6656966ca9cea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 356, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Console
-    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
+    m_Text: Tile Palette
+    m_Image: {fileID: 0}
     m_Tooltip: 
-    m_TextWithWhitespace: "Console\u200B"
+    m_TextWithWhitespace: "Tile Palette\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 649
-    width: 1095.5
-    height: 190
+    x: 809.5
+    y: 72
+    width: 285
+    height: 594
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -59,8 +59,36 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_ContainerData: []
+    m_SaveData:
+    - dockPosition: 1
+      containerId: overlay-container--left
+      displayed: 1
+      id: Overlays/OverlayMenu
+      index: 0
+      contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 24, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 1
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    m_ContainerData:
+    - containerId: overlay-toolbar__top
+      scrollOffset: 0
+    - containerId: overlay-toolbar__left
+      scrollOffset: 0
+    - containerId: overlay-container--left
+      scrollOffset: 0
+    - containerId: overlay-container--right
+      scrollOffset: 0
+    - containerId: overlay-toolbar__right
+      scrollOffset: 0
+    - containerId: overlay-toolbar__bottom
+      scrollOffset: 0
+    - containerId: Floating
+      scrollOffset: 0
     m_OverlaysVisible: 1
 --- !u!114 &3
 MonoBehaviour:
@@ -82,11 +110,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1096.5
-    height: 764
-  m_MinSize: {x: 200, y: 100}
-  m_MaxSize: {x: 16192, y: 16192}
+    height: 864
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 1539
+  controlID: 8215
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -103,16 +131,17 @@ MonoBehaviour:
   m_Children:
   - {fileID: 5}
   - {fileID: 7}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1096.5
-    height: 548
-  m_MinSize: {x: 200, y: 50}
-  m_MaxSize: {x: 16192, y: 8096}
+    height: 620
+  m_MinSize: {x: 300, y: 50}
+  m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 1606
+  controlID: 8216
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -132,7 +161,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 236
-    height: 548
+    height: 620
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 6}
@@ -162,9 +191,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 101
+    y: 72
     width: 235
-    height: 522
+    height: 594
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -179,9 +208,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b46a0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 007fffff3a92ffff74a5ffffaeb8ffff7ecbffffbcdeffffb0f8ffff
+      m_SelectedIDs: 88ddfeff
+      m_LastClickedID: -74360
+      m_ExpandedIDs: 96ddfeff90f8fefffaf9feff54fffeffae04fffffe09ffff3c2cffff7a2cffffd63dffff423fffff384cffff2459ffff705dffffc06affffa477ffff727cffff36c7ffff24c8ffffd6d4fffface1ffffd4eeffff22fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -198,7 +227,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -216,26 +245,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 236
     y: 0
-    width: 860.5
-    height: 548
-  m_MinSize: {x: 52, y: 76}
+    width: 573.5
+    height: 620
+  m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 9}
   m_Panes:
   - {fileID: 8}
   - {fileID: 9}
   - {fileID: 10}
   - {fileID: 11}
-  - {fileID: 12}
-  m_Selected: 4
-  m_LastSelected: 3
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -258,9 +286,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 236
-    y: 101
-    width: 858.5
-    height: 522
+    y: 72
+    width: 571.5
+    height: 594
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -276,9 +304,9 @@ MonoBehaviour:
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
-  m_TargetDisplay: 7
+  m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 858.5, y: 501}
+  m_TargetSize: {x: 571.5, y: 573}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -293,10 +321,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -214.625
-    m_HBaseRangeMax: 214.625
-    m_VBaseRangeMin: -125.25
-    m_VBaseRangeMax: 125.25
+    m_HBaseRangeMin: -142.875
+    m_HBaseRangeMax: 142.875
+    m_VBaseRangeMin: -143.25
+    m_VBaseRangeMax: 143.25
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -305,7 +333,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -314,23 +342,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 858.5
-      height: 501
+      width: 571.5
+      height: 573
     m_Scale: {x: 2, y: 2}
-    m_Translation: {x: 429.25, y: 250.5}
+    m_Translation: {x: 285.75, y: 286.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -214.625
-      y: -125.25
-      width: 429.25
-      height: 250.5
+      x: -142.875
+      y: -143.25
+      width: 285.75
+      height: 286.5
     m_MinimalGUI: 1
   m_defaultScale: 2
-  m_LastWindowPixelSize: {x: 1717, y: 1044}
+  m_LastWindowPixelSize: {x: 1143, y: 1188}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -359,9 +387,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 236
-    y: 101
-    width: 858.5
-    height: 522
+    y: 72
+    width: 571.5
+    height: 594
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -487,7 +515,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Light Settings
-      index: 0
+      index: 3
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -515,7 +543,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Cloth Constraints
-      index: 1
+      index: 5
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -529,7 +557,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Cloth Collisions
-      index: 2
+      index: 6
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -585,7 +613,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Occlusion Culling
-      index: 3
+      index: 7
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -599,7 +627,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Physics Debugger
-      index: 4
+      index: 8
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -613,7 +641,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Scene Visibility
-      index: 5
+      index: 9
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -627,7 +655,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/Particles
-      index: 6
+      index: 10
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -739,7 +767,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: SceneView/CamerasOverlay
-      index: 7
+      index: 11
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -753,7 +781,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/PBR Validation Settings
-      index: 8
+      index: 12
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -767,7 +795,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       displayed: 0
       id: Scene View/TrailRenderer
-      index: 9
+      index: 13
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
@@ -788,6 +816,62 @@ MonoBehaviour:
       snapOffset: {x: -265.5, y: -419}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Open Tile Palette
+      index: 0
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 24, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Tile Palette Clipboard
+      index: 1
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 1
+      id: Scene View/Tilemap Focus
+      index: 2
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 24, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Tile Palette Brush Pick
+      index: 4
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
       layout: 4
       size: {x: 0, y: 0}
       sizeOverridden: 0
@@ -818,9 +902,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 8.761687, y: -4.546522, z: -10.064966}
+    m_Target: {x: 0.020935267, y: -3.0263674, z: -9.921017}
     speed: 2
-    m_Value: {x: 8.761687, y: -4.546522, z: -10.064966}
+    m_Value: {x: -0.008377448, y: -3.036264, z: -9.921628}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -856,13 +940,13 @@ MonoBehaviour:
       m_Size: {x: 0.5, y: 0.5}
     zGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 1, y: 1}
-    m_ShowGrid: 1
+      m_Size: {x: 0.5, y: 0.5}
+    m_ShowGrid: 0
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
@@ -870,9 +954,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 18.620857
+    m_Target: 4.2266
     speed: 2
-    m_Value: 18.620857
+    m_Value: 4.2876997
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1014,9 +1098,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 236
-    y: 101
+    y: 72
     width: 858.5
-    height: 522
+    height: 594
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1058,9 +1142,9 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_ShowAlpha: 0
   m_MipLevel: 0
-  m_Zoom: 1
+  m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
-  m_SelectedObject: {fileID: 11500000, guid: f305c10ac99634212a17747299016624, type: 3}
+  m_SelectedObject: {fileID: 0}
   m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpriteFrameModule
 --- !u!114 &12
@@ -1072,418 +1156,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GridPaintPaletteWindow
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 50, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Test Runner
-    m_Image: {fileID: 0}
-    m_Tooltip: Test framework for running Edit mode and Play mode tests in Unity.
-      Part of the com.unity.test-framework package.
-    m_TextWithWhitespace: "Test Runner\u200B"
-  m_Pos:
+  m_Children: []
+  m_Position:
     serializedVersion: 2
-    x: 236
-    y: 101
-    width: 858.5
-    height: 522
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_ContainerData: []
-    m_OverlaysVisible: 1
-  m_Spl:
-    ID: 1649
-    splitterInitialOffset: 0
-    currentActiveSplitter: -1
-    realSizes:
-    - 339
-    - 113
-    relativeSizes:
-    - 0.75
-    - 0.25
-    minSizes:
-    - 32
-    - 32
-    maxSizes:
-    - 0
-    - 0
-    lastTotalSize: 452
-    splitSize: 6
-    xOffset: 0
-    m_Version: 1
-    oldRealSizes: 
-    oldMinSizes: 
-    oldMaxSizes: 
-    oldSplitSize: 0
-  m_TestTypeToolbarIndex: 0
-  m_TestListGUIs:
-  - m_Window: {fileID: 12}
-    runProgress:
-      RunGuid: efdd839f-5537-429e-967a-beff62bc1189
-      ExecutionSettings:
-        m_TargetPlatform: 0
-        m_HasTargetPlatform: 0
-        filter:
-          testMode: 0
-          testNames: []
-          groupNames: []
-          categoryNames: []
-          assemblyNames: []
-        filters:
-        - testMode: 1
-          testNames:
-          - NewTestScript
-          groupNames: []
-          categoryNames: []
-          assemblyNames: []
-        runSynchronously: 0
-        playerHeartbeatTimeout: 600
-        orderedTestNames: []
-        ignoreTests: []
-        featureFlags:
-          fileCleanUpCheck: 0
-          requiresSplashScreen: 0
-          strictDomainReload: 0
-          disableNestedEnumeratorBugfix: 0
-        randomOrderSeed: 0
-      HasFinished: 1
-      Progress: 0.9999998
-      CurrentStepName: Unlock Reload Assemblies
-      CurrentStageName: 
-    m_NewResultList:
-    - id: 1000
-      uniqueId: '[Game][suite]'
-      name: Game
-      fullName: Game
-      resultStatus: 2
-      duration: 0
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 
-      parentUniqueId: 
-    - id: 1007
-      uniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
-      name: Tests.dll
-      fullName: /Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll
-      resultStatus: 2
-      duration: 0
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1010
-      parentUniqueId: '[Game][suite]'
-    - id: 1001
-      uniqueId: 'Tests.dll/[Tests][NewTestScript][suite]'
-      name: NewTestScript
-      fullName: NewTestScript
-      resultStatus: 2
-      duration: 0
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1007
-      parentUniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
-    - id: 1002
-      uniqueId: 'Tests.dll/NewTestScript/[Tests][NewTestScript.NewTestScriptSimplePasses]'
-      name: NewTestScriptSimplePasses
-      fullName: NewTestScript.NewTestScriptSimplePasses
-      resultStatus: 1
-      duration: 0.0088143
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: 'Tests.dll/[Tests][NewTestScript][suite]'
-    - id: 1003
-      uniqueId: 'Tests.dll/NewTestScript/[Tests][NewTestScript.NewTestScriptWithEnumeratorPasses]'
-      name: NewTestScriptWithEnumeratorPasses
-      fullName: NewTestScript.NewTestScriptWithEnumeratorPasses
-      resultStatus: 2
-      duration: 0.0107233
-      messages: "  Expected: greater than 0.0712964907f\n  But was:  0.0712964907f\n"
-      output: 
-      stacktrace: 'at NewTestScript+<NewTestScriptWithEnumeratorPasses>d__1.MoveNext
-        () [0x00047] in /Users/emilisceida/Documents/GitHub/BTG-24/Game/Assets/Tests/NewTestScript.cs:30
-
-        at
-        UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a]
-        in ./Library/PackageCache/com.unity.test-framework@5ac417e07314/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: 'Tests.dll/[Tests][NewTestScript][suite]'
-    - id: 1004
-      uniqueId: 'Tests.dll/[Tests][NewTestScript1][suite]'
-      name: NewTestScript1
-      fullName: NewTestScript1
-      resultStatus: 1
-      duration: 0
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1007
-      parentUniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
-    - id: 1007
-      uniqueId: 'Tests.dll/NewTestScript1/[Tests][NewTestScript1.NewTestScript1SimplePasses]'
-      name: NewTestScript1SimplePasses
-      fullName: NewTestScript1.NewTestScript1SimplePasses
-      resultStatus: 1
-      duration: 0.0014644
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1006
-      parentUniqueId: 'Tests.dll/[Tests][NewTestScript1][suite]'
-    - id: 1008
-      uniqueId: 'Tests.dll/NewTestScript1/[Tests][NewTestScript1.NewTestScript1WithEnumeratorPasses]'
-      name: NewTestScript1WithEnumeratorPasses
-      fullName: NewTestScript1.NewTestScript1WithEnumeratorPasses
-      resultStatus: 1
-      duration: 0.0055881
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1006
-      parentUniqueId: 'Tests.dll/[Tests][NewTestScript1][suite]'
-    m_ResultText: Game (4 tests)  1 tests failed (0.000s)
-    m_ResultStacktrace: 
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e9feb6e
-      m_LastClickedID: 1860935486
-      m_ExpandedIDs: 47a78501d9d5793422524b3a3e9feb6effffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategories: []
-      availableCategories:
-      - Uncategorized
-    m_SelectedOption: 0
-  - m_Window: {fileID: 12}
-    runProgress:
-      RunGuid: efdd839f-5537-429e-967a-beff62bc1189
-      ExecutionSettings:
-        m_TargetPlatform: 0
-        m_HasTargetPlatform: 0
-        filter:
-          testMode: 0
-          testNames: []
-          groupNames: []
-          categoryNames: []
-          assemblyNames: []
-        filters:
-        - testMode: 1
-          testNames:
-          - NewTestScript
-          groupNames: []
-          categoryNames: []
-          assemblyNames: []
-        runSynchronously: 0
-        playerHeartbeatTimeout: 600
-        orderedTestNames: []
-        ignoreTests: []
-        featureFlags:
-          fileCleanUpCheck: 0
-          requiresSplashScreen: 0
-          strictDomainReload: 0
-          disableNestedEnumeratorBugfix: 0
-        randomOrderSeed: 0
-      HasFinished: 1
-      Progress: 0.9999998
-      CurrentStepName: Unlock Reload Assemblies
-      CurrentStageName: 
-    m_NewResultList:
-    - id: 1007
-      uniqueId: '[Game][suite]'
-      name: Game
-      fullName: Game
-      resultStatus: 0
-      duration: 0
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 
-      parentUniqueId: 
-    m_ResultText: 
-    m_ResultStacktrace: 
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 3e9feb6effffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategories: []
-      availableCategories:
-      - Uncategorized
-    m_SelectedOption: 0
-  - m_Window: {fileID: 0}
-    runProgress:
-      RunGuid: efdd839f-5537-429e-967a-beff62bc1189
-      ExecutionSettings:
-        m_TargetPlatform: 0
-        m_HasTargetPlatform: 0
-        filter:
-          testMode: 0
-          testNames: []
-          groupNames: []
-          categoryNames: []
-          assemblyNames: []
-        filters:
-        - testMode: 1
-          testNames:
-          - NewTestScript
-          groupNames: []
-          categoryNames: []
-          assemblyNames: []
-        runSynchronously: 0
-        playerHeartbeatTimeout: 600
-        orderedTestNames: []
-        ignoreTests: []
-        featureFlags:
-          fileCleanUpCheck: 0
-          requiresSplashScreen: 0
-          strictDomainReload: 0
-          disableNestedEnumeratorBugfix: 0
-        randomOrderSeed: 0
-      HasFinished: 1
-      Progress: 0.9999998
-      CurrentStepName: Unlock Reload Assemblies
-      CurrentStageName: 
-    m_NewResultList: []
-    m_ResultText: 
-    m_ResultStacktrace: 
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategories: []
-      availableCategories: []
-    m_SelectedOption: 0
+    x: 809.5
+    y: 0
+    width: 287
+    height: 620
+  m_MinSize: {x: 358, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
+  m_ActualView: {fileID: 2}
+  m_Panes:
+  - {fileID: 2}
+  m_Selected: 0
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1494,23 +1183,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 548
+    y: 620
     width: 1096.5
-    height: 216
-  m_MinSize: {x: 101, y: 126}
-  m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 2}
+    height: 244
+  m_MinSize: {x: 231, y: 276}
+  m_MaxSize: {x: 10001, y: 10026}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
-  - {fileID: 2}
-  m_Selected: 1
-  m_LastSelected: 0
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1533,9 +1222,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 649
+    y: 692
     width: 1095.5
-    height: 190
+    height: 218
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1558,7 +1247,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tests
+    - Assets/Resources/Textures
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1568,16 +1257,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tests
+  - Assets/Resources/Textures
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/emilisceida/Documents/GitHub/BTG-24/Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 86}
-    m_SelectedIDs: b06a0000
-    m_LastClickedID: 27312
-    m_ExpandedIDs: 00000000ae680000b4680000b6680000b8680000ba680000bc680000be68000000ca9a3b
+    scrollPos: {x: 0, y: 86.00067}
+    m_SelectedIDs: 728b0000
+    m_LastClickedID: 35698
+    m_ExpandedIDs: 0000000056650000586500005a6500005c6500005e6500006065000062650000646500002a67000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1606,7 +1295,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ae680000b4680000b6680000b8680000ba680000bc680000be68000000ca9a3b
+    m_ExpandedIDs: 0000000056650000586500005a6500005c6500005e65000060650000626500006465000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1632,10 +1321,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b46a0000
-    m_LastClickedInstanceID: 27316
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000094560000da520000c8530000b2540000006100003e54000000000000b810090088dc08000c550000
+    m_SelectedInstanceIDs: 88ddfeff
+    m_LastClickedInstanceID: -74360
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c623000094560000da520000c8530000b2540000006100003e540000b810090088dc08000c55000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1652,7 +1341,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 7}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1660,11 +1349,47 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 276.00006}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
 --- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Console
+    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+    m_TextWithWhitespace: "Console\u200B"
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 692
+    width: 1095.5
+    height: 218
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1682,15 +1407,15 @@ MonoBehaviour:
     x: 1096.5
     y: 0
     width: 373.5
-    height: 764
+    height: 864
   m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1712,9 +1437,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1096.5
-    y: 101
+    y: 72
     width: 372.5
-    height: 738
+    height: 838
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

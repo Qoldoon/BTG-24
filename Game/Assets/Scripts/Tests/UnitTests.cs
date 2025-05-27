@@ -35,4 +35,53 @@ public class UnitTests
 
         Assert.IsTrue(go == null);
     }
+    
+    [Test]
+    public void Inventory_AddItem()
+    {
+        GameObject player = new GameObject("Player");
+        var inv = player.AddComponent<PlayerInventory>();
+        
+        Assert.That(inv, Is.Not.Null);
+        Assert.That(inv.slots, Is.Empty);
+        
+        GameObject item = new GameObject("Item");
+        item.AddComponent<Blaster>();
+        
+        inv.Add(item);
+        
+        Assert.That(inv.slots, Is.Not.Empty);
+        Assert.IsTrue(player.transform.childCount == 1);
+    }
+
+    [Test]
+    public void Inventory_Overfill()
+    {
+        GameObject player = new GameObject("Player");
+        var inv = player.AddComponent<PlayerInventory>();
+        
+        GameObject item = new GameObject("Item");
+        item.AddComponent<Blaster>();
+        
+        GameObject item2 = new GameObject("Item");
+        item2.AddComponent<Sniper>();
+        
+        GameObject item3 = new GameObject("Item");
+        item3.AddComponent<Launcher>();
+        
+        GameObject item4 = new GameObject("Item");
+        item4.AddComponent<Grenade>();
+        
+        inv.Add(item);
+        inv.Add(item2);
+        inv.Add(item3);
+        
+        Assert.That(inv.slots, Is.Not.Empty);
+        Assert.IsTrue(player.transform.childCount == 3);
+        
+        inv.Add(item4);
+        
+        inv.IsUsable(out var usable);
+        Assert.IsTrue(usable is Grenade);
+    }
 }

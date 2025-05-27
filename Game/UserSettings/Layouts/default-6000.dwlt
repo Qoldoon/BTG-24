@@ -17,13 +17,13 @@ MonoBehaviour:
     x: 0
     y: 65
     width: 1470
-    height: 820
+    height: 817
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 1
+  m_Maximized: 0
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -45,7 +45,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1470
-    height: 820
+    height: 817
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 800
+    y: 797
     width: 1470
     height: 20
   m_MinSize: {x: 0, y: 0}
@@ -115,11 +115,11 @@ MonoBehaviour:
     x: 0
     y: 36
     width: 1470
-    height: 764
+    height: 761
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 25
+  controlID: 67
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -141,11 +141,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1096.5
-    height: 764
+    height: 761
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 26
+  controlID: 68
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -167,11 +167,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1096.5
-    height: 548
+    height: 546
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 103
+  controlID: 69
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -191,7 +191,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 236
-    height: 548
+    height: 546
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 13}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -217,18 +217,18 @@ MonoBehaviour:
     x: 236
     y: 0
     width: 860.5
-    height: 548
-  m_MinSize: {x: 52, y: 76}
+    height: 546
+  m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 15}
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 4
-  m_LastSelected: 3
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 548
+    y: 546
     width: 1096.5
-    height: 216
+    height: 215
   m_MinSize: {x: 231, y: 276}
   m_MaxSize: {x: 10001, y: 10026}
   m_ActualView: {fileID: 19}
@@ -274,7 +274,7 @@ MonoBehaviour:
     x: 1096.5
     y: 0
     width: 373.5
-    height: 764
+    height: 761
   m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 20}
@@ -342,7 +342,7 @@ MonoBehaviour:
     x: 0
     y: 24
     width: 235
-    height: 522
+    height: 520
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2cfbffff
+      m_ExpandedIDs: 1cd9f9ffee11faffec12faff9c21faff522efaffd631faffe831faffae33faffcc33faff123afaff9a3cfaffcc3ffafff441faff1042faff6478faff8288faffa692faff20adfaffa8adfaffc0adfaffc6c1faff9acdfaff40e0faff4aedfaff94f8faff58fcfaffb607fbff4a13fbff1a28fbff563cfbff3250fbff3067fbff227cfbff5290fbffeaa4fbff18b9fbff86cdfbff9ee1fbffb0f5fbffd209fcff821dfcffa431fcff2661fcff3475fcffc088fcffc89cfcffecb1fcfff2c5fcffa8d9fcffbaedfcffd801fdfff415fdffa62dfdffa841fdff5c56fdff066afdff147efdff2692fdff9aa6fdff98bafdffb8cefdffb8e2fdffc0f6fdffca0afeffda1efeffd833feff9048feff6a5bfeffb06efeffe882feff3496feff80aafeffc6bdfeff20d1feff7ee4feffc4f7feff100bfffff01dffffb638ffff124dffff5a4dffffc660ffff4475ffff9488ffff449cffff8cafffff0ecaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -405,10 +405,10 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 236
-    y: 101
+    x: 237
+    y: 24
     width: 858.5
-    height: 522
+    height: 520
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -424,9 +424,9 @@ MonoBehaviour:
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
-  m_TargetDisplay: 7
+  m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 858.5, y: 501}
+  m_TargetSize: {x: 858.5, y: 499}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -443,8 +443,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -214.625
     m_HBaseRangeMax: 214.625
-    m_VBaseRangeMin: -125.25
-    m_VBaseRangeMax: 125.25
+    m_VBaseRangeMin: -124.75
+    m_VBaseRangeMax: 124.75
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -453,7 +453,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -463,9 +463,9 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 858.5
-      height: 501
+      height: 499
     m_Scale: {x: 2, y: 2}
-    m_Translation: {x: 429.25, y: 250.5}
+    m_Translation: {x: 429.25, y: 249.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -473,12 +473,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -214.625
-      y: -125.25
+      y: -124.75
       width: 429.25
-      height: 250.5
+      height: 249.5
     m_MinimalGUI: 1
   m_defaultScale: 2
-  m_LastWindowPixelSize: {x: 1717, y: 1044}
+  m_LastWindowPixelSize: {x: 1717, y: 1040}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -506,7 +506,7 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 236
+    x: 235
     y: 101
     width: 858.5
     height: 522
@@ -966,9 +966,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 8.761687, y: -4.546522, z: -10.064966}
+    m_Target: {x: -11.540739, y: 4.0066667, z: -9.958394}
     speed: 2
-    m_Value: {x: 8.761687, y: -4.546522, z: -10.064966}
+    m_Value: {x: -11.540739, y: 4.0066667, z: -9.958394}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1018,9 +1018,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 18.620857
+    m_Target: 7.963345
     speed: 2
-    m_Value: 18.620857
+    m_Value: 7.963345
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1161,7 +1161,7 @@ MonoBehaviour:
     m_TextWithWhitespace: "Sprite Editor\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 236
+    x: 235
     y: 101
     width: 858.5
     height: 522
@@ -1233,8 +1233,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Test Runner\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 237
-    y: 24
+    x: 235
+    y: 101
     width: 858.5
     height: 522
   m_SerializedDataModeController:
@@ -1249,7 +1249,7 @@ MonoBehaviour:
     m_ContainerData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 143
+    ID: 140
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -1272,11 +1272,11 @@ MonoBehaviour:
     oldMinSizes: 
     oldMaxSizes: 
     oldSplitSize: 0
-  m_TestTypeToolbarIndex: 0
+  m_TestTypeToolbarIndex: 1
   m_TestListGUIs:
   - m_Window: {fileID: 18}
     runProgress:
-      RunGuid: efdd839f-5537-429e-967a-beff62bc1189
+      RunGuid: 37027cad-e249-4e05-ab7e-5e35caaa5300
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1287,12 +1287,12 @@ MonoBehaviour:
           categoryNames: []
           assemblyNames: []
         filters:
-        - testMode: 1
-          testNames:
-          - NewTestScript
+        - testMode: 2
+          testNames: []
           groupNames: []
           categoryNames: []
-          assemblyNames: []
+          assemblyNames:
+          - Tests
         runSynchronously: 0
         playerHeartbeatTimeout: 600
         orderedTestNames: []
@@ -1304,7 +1304,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 0.9999998
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
@@ -1324,12 +1324,104 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    m_ResultText: Game (0.000s)
-    m_ResultStacktrace: 
+    - id: 1004
+      uniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
+      name: Tests.dll
+      fullName: /Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll
+      resultStatus: 2
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Game][suite]'
+    - id: 1001
+      uniqueId: 'Tests.dll/[Tests][NewTestScript][suite]'
+      name: NewTestScript
+      fullName: NewTestScript
+      resultStatus: 2
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1004
+      parentUniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1003
+      uniqueId: 'Tests.dll/NewTestScript/[Tests][NewTestScript.EnemyHit_Dies]'
+      name: EnemyHit_Dies
+      fullName: NewTestScript.EnemyHit_Dies
+      resultStatus: 2
+      duration: 0.0082441
+      messages: "  Expected: null\n  But was:  <New Game Object (EnemyHealth)>\n"
+      output: 'Destroy may not be called from edit mode! Use DestroyImmediate instead.
+
+        Destroying
+        an object in edit mode destroys it permanently.
+
+'
+      stacktrace: 'at NewTestScript+<EnemyHit_Dies>d__3.MoveNext () [0x0005e] in
+        /Users/emilisceida/Documents/GitHub/BTG-24/Game/Assets/Scripts/Tests/NewTestScript.cs:41
+
+        at
+        UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a]
+        in ./Library/PackageCache/com.unity.test-framework@5ac417e07314/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Tests.dll/[Tests][NewTestScript][suite]'
+    - id: 1002
+      uniqueId: 'Tests.dll/NewTestScript/[Tests][NewTestScript.PlayerHit_LosesHP]'
+      name: PlayerHit_LosesHP
+      fullName: NewTestScript.PlayerHit_LosesHP
+      resultStatus: 1
+      duration: 0.0001076
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Tests.dll/[Tests][NewTestScript][suite]'
+    m_ResultText: "EnemyHit_Dies (0.008s)\n---\n  Expected: null\n  But was:  <New
+      Game Object (EnemyHealth)>\n\n---\nat NewTestScript+<EnemyHit_Dies>d__3.MoveNext
+      () [0x0005e] in <color=#40a0ff><a href=\"/Users/emilisceida/Documents/GitHub/BTG-24/Game/Assets/Scripts/Tests/NewTestScript.cs\"
+      line=\"41\">Assets/Scripts/Tests/NewTestScript.cs:41</a></color>\nat UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext
+      () [0x0003a] in <color=#40a0ff><a href=\"./Library/PackageCache/com.unity.test-framework@5ac417e07314/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs\"
+      line=\"44\">Library/PackageCache/com.unity.test-framework@5ac417e07314/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44</a></color>\n\n---\nDestroy
+      may not be called from edit mode! Use DestroyImmediate instead.\nDestroying
+      an object in edit mode destroys it permanently."
+    m_ResultStacktrace: 'at NewTestScript+<EnemyHit_Dies>d__3.MoveNext () [0x0005e]
+      in /Users/emilisceida/Documents/GitHub/BTG-24/Game/Assets/Scripts/Tests/NewTestScript.cs:41
+
+      at
+      UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in
+      ./Library/PackageCache/com.unity.test-framework@5ac417e07314/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
+
+'
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e9feb6e
-      m_LastClickedID: 1860935486
+      m_SelectedIDs: 9f26fa4e
+      m_LastClickedID: 1325016735
       m_ExpandedIDs: 47a78501d9d5793422524b3a3e9feb6effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1360,7 +1452,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 18}
     runProgress:
-      RunGuid: efdd839f-5537-429e-967a-beff62bc1189
+      RunGuid: 37027cad-e249-4e05-ab7e-5e35caaa5300
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1371,12 +1463,12 @@ MonoBehaviour:
           categoryNames: []
           assemblyNames: []
         filters:
-        - testMode: 1
-          testNames:
-          - NewTestScript
+        - testMode: 2
+          testNames: []
           groupNames: []
           categoryNames: []
-          assemblyNames: []
+          assemblyNames:
+          - Tests
         runSynchronously: 0
         playerHeartbeatTimeout: 600
         orderedTestNames: []
@@ -1388,15 +1480,15 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 0.9999998
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
-    - id: 1007
+    - id: 1000
       uniqueId: '[Game][suite]'
       name: Game
       fullName: Game
-      resultStatus: 0
+      resultStatus: 1
       duration: 0
       messages: 
       output: 
@@ -1408,13 +1500,112 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    m_ResultText: 
+    - id: 1006
+      uniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
+      name: Tests.dll
+      fullName: /Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll
+      resultStatus: 1
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Game][suite]'
+    - id: 1001
+      uniqueId: 'Tests.dll/[Tests][IntegrationTests][suite]'
+      name: IntegrationTests
+      fullName: IntegrationTests
+      resultStatus: 1
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1006
+      parentUniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1002
+      uniqueId: 'Tests.dll/IntegrationTests/[Tests][IntegrationTests.BulletHitsEnemy_EnemyDies]'
+      name: BulletHitsEnemy_EnemyDies
+      fullName: IntegrationTests.BulletHitsEnemy_EnemyDies
+      resultStatus: 1
+      duration: 0.1116806
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Tests.dll/[Tests][IntegrationTests][suite]'
+    - id: 1003
+      uniqueId: 'Tests.dll/[Tests][UnitTests][suite]'
+      name: UnitTests
+      fullName: UnitTests
+      resultStatus: 1
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1006
+      parentUniqueId: '[Tests][/Users/emilisceida/Documents/GitHub/BTG-24/Game/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1003
+      uniqueId: 'Tests.dll/UnitTests/[Tests][UnitTests.EnemyHit_Dies]'
+      name: EnemyHit_Dies
+      fullName: UnitTests.EnemyHit_Dies
+      resultStatus: 1
+      duration: 0.0026355
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Tests.dll/[Tests][UnitTests][suite]'
+    - id: 1002
+      uniqueId: 'Tests.dll/UnitTests/[Tests][UnitTests.PlayerHit_LosesHP]'
+      name: PlayerHit_LosesHP
+      fullName: UnitTests.PlayerHit_LosesHP
+      resultStatus: 1
+      duration: 0.0040751
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Tests.dll/[Tests][UnitTests][suite]'
+    m_ResultText: Game (3 tests) (0.000s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 3e9feb6effffff7f
+      m_SelectedIDs: 3e9feb6e
+      m_LastClickedID: 1860935486
+      m_ExpandedIDs: de53e79147a7850147f4432a8463252d22524b3a8359db413e9feb6effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1444,7 +1635,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 0}
     runProgress:
-      RunGuid: efdd839f-5537-429e-967a-beff62bc1189
+      RunGuid: 37027cad-e249-4e05-ab7e-5e35caaa5300
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1455,12 +1646,12 @@ MonoBehaviour:
           categoryNames: []
           assemblyNames: []
         filters:
-        - testMode: 1
-          testNames:
-          - NewTestScript
+        - testMode: 2
+          testNames: []
           groupNames: []
           categoryNames: []
-          assemblyNames: []
+          assemblyNames:
+          - Tests
         runSynchronously: 0
         playerHeartbeatTimeout: 600
         orderedTestNames: []
@@ -1472,7 +1663,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 0.9999998
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList: []
@@ -1531,9 +1722,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 572
+    y: 570
     width: 1095.5
-    height: 190
+    height: 189
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1556,7 +1747,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1566,16 +1757,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/emilisceida/Documents/GitHub/BTG-24/Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 75.999695}
-    m_SelectedIDs: 1c680000
-    m_LastClickedID: 26652
-    m_ExpandedIDs: 0000000076770000787700007a7700007c7700007e7700008077000082770000
+    scrollPos: {x: 0, y: 118}
+    m_SelectedIDs: 10790000
+    m_LastClickedID: 30992
+    m_ExpandedIDs: 0000000056650000586500005a6500005c6500005e650000606500006265000064650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1604,7 +1795,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000076770000787700007a7700007c7700007e7700008077000082770000
+    m_ExpandedIDs: 0000000056650000586500005a6500005c6500005e650000606500006265000064650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1632,7 +1823,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000094560000da520000c8530000b2540000006100003e54000000000000b810090088dc08000c550000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1650,7 +1841,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 9}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1658,7 +1849,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 64}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -1686,7 +1877,7 @@ MonoBehaviour:
     x: 1097.5
     y: 24
     width: 372.5
-    height: 738
+    height: 735
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

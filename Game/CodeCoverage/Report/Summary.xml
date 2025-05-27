@@ -1,102 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>5/14/2025 - 12:22:14 PM</Generatedon>
+    <Generatedon>5/27/2025 - 9:06:47 AM</Generatedon>
     <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
     <Assemblies>1</Assemblies>
     <Classes>78</Classes>
     <Files>76</Files>
-    <Coveredlines>104</Coveredlines>
-    <Uncoveredlines>1911</Uncoveredlines>
-    <Coverablelines>2015</Coverablelines>
-    <Totallines>3514</Totallines>
-    <Linecoverage>5.1</Linecoverage>
+    <Coveredlines>29</Coveredlines>
+    <Uncoveredlines>1433</Uncoveredlines>
+    <Coverablelines>1462</Coverablelines>
+    <Totallines>3515</Totallines>
+    <Linecoverage>1.9</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
-    <Coveredmethods>16</Coveredmethods>
-    <Totalmethods>324</Totalmethods>
-    <Methodcoverage>4.9</Methodcoverage>
+    <Coveredmethods>10</Coveredmethods>
+    <Totalmethods>320</Totalmethods>
+    <Methodcoverage>3.1</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="Scripts" classes="78" coverage="5.1" coveredlines="104" coverablelines="2015" totallines="3700" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="16" totalmethods="324" methodcoverage="4.9">
-      <Class name="AmmoPouch" coverage="0" coveredlines="0" coverablelines="10" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="AmmoRefill" coverage="0" coveredlines="0" coverablelines="13" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="Attack" coverage="0" coveredlines="0" coverablelines="2" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="BigWall" coverage="0" coveredlines="0" coverablelines="12" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Blaster" coverage="0" coveredlines="0" coverablelines="6" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="BlockColor" coverage="0" coveredlines="0" coverablelines="156" totallines="210" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
-      <Class name="Boundary" coverage="0" coveredlines="0" coverablelines="42" totallines="68" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="BulletScript" coverage="61.1" coveredlines="41" coverablelines="67" totallines="96" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="5" methodcoverage="80" />
-      <Class name="BulletTrail" coverage="0" coveredlines="0" coverablelines="29" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="ButtonColor" coverage="0" coveredlines="0" coverablelines="23" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="ButtonScript" coverage="0" coveredlines="0" coverablelines="8" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Camera_Follow" coverage="0" coveredlines="0" coverablelines="25" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="ClockManager" coverage="0" coveredlines="0" coverablelines="3" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="ColorScheme" coverage="0" coveredlines="0" coverablelines="20" totallines="61" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="Description" coverage="0" coveredlines="0" coverablelines="3" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="Door" coverage="0" coveredlines="0" coverablelines="40" totallines="77" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
-      <Class name="DynamicWall" coverage="0" coveredlines="0" coverablelines="37" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="EnemyAI.AttackState" coverage="0" coveredlines="0" coverablelines="17" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="EnemyAI.ChaseState" coverage="0" coveredlines="0" coverablelines="30" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="EnemyAI.FollowState" coverage="0" coveredlines="0" coverablelines="24" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="EnemyAI.IdleState" coverage="0" coveredlines="0" coverablelines="19" totallines="38" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="EnemyAI.InvestigateState" coverage="0" coveredlines="0" coverablelines="21" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="EnemyAI.LookState" coverage="0" coveredlines="0" coverablelines="60" totallines="90" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="EnemyBehaviour" coverage="0" coveredlines="0" coverablelines="157" totallines="248" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="21" methodcoverage="0" />
-      <Class name="EnemyHealth" coverage="88.2" coveredlines="15" coverablelines="17" totallines="32" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
-      <Class name="Explode" coverage="0" coveredlines="0" coverablelines="17" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="ExtraHP" coverage="0" coveredlines="0" coverablelines="9" totallines="17" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="Eyes" coverage="0" coveredlines="0" coverablelines="6" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Glass" coverage="0" coveredlines="0" coverablelines="7" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="Grenade" coverage="0" coveredlines="0" coverablelines="6" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="GrenadeTraveling" coverage="0" coveredlines="0" coverablelines="31" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="HitResponse" coverage="100" coveredlines="7" coverablelines="7" totallines="80" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
-      <Class name="HitResponseBuilder" coverage="57.8" coveredlines="22" coverablelines="38" totallines="80" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="9" methodcoverage="55.5" />
-      <Class name="Indicator" coverage="0" coveredlines="0" coverablelines="55" totallines="90" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
-      <Class name="Item" coverage="0" coveredlines="0" coverablelines="16" totallines="32" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
-      <Class name="ItemDrop" coverage="0" coveredlines="0" coverablelines="6" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="ItemSelection" coverage="0" coveredlines="0" coverablelines="14" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="ItemSwither" coverage="0" coveredlines="0" coverablelines="24" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="KeyCollect" coverage="0" coveredlines="0" coverablelines="8" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Launcher" coverage="0" coveredlines="0" coverablelines="6" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="LevelExit" coverage="0" coveredlines="0" coverablelines="27" totallines="45" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="LevelSelect" coverage="0" coveredlines="0" coverablelines="8" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Look" coverage="0" coveredlines="0" coverablelines="10" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="MainMenu" coverage="0" coveredlines="0" coverablelines="35" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="8" methodcoverage="0" />
-      <Class name="Melee" coverage="0" coveredlines="0" coverablelines="3" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="Minigun" coverage="0" coveredlines="0" coverablelines="6" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="Missile" coverage="0" coveredlines="0" coverablelines="55" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="Move" coverage="0" coveredlines="0" coverablelines="3" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="OrbPickup" coverage="0" coveredlines="0" coverablelines="9" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="PanelGrid" coverage="0" coveredlines="0" coverablelines="56" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
-      <Class name="Pickup" coverage="0" coveredlines="0" coverablelines="17" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="PlayerCanvas" coverage="0" coveredlines="0" coverablelines="34" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="PlayerController" coverage="20.6" coveredlines="19" coverablelines="92" totallines="129" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="15" methodcoverage="20" />
-      <Class name="PlayerInventory" coverage="0" coveredlines="0" coverablelines="67" totallines="104" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="11" methodcoverage="0" />
-      <Class name="PlayerShield" coverage="0" coveredlines="0" coverablelines="7" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="PlayerUI" coverage="0" coveredlines="0" coverablelines="116" totallines="165" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="15" methodcoverage="0" />
-      <Class name="PowerShot" coverage="0" coveredlines="0" coverablelines="9" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="ProgressBar" coverage="0" coveredlines="0" coverablelines="17" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="ScoreManager" coverage="0" coveredlines="0" coverablelines="28" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="SelectedItems" coverage="0" coveredlines="0" coverablelines="10" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="Shoot" coverage="0" coveredlines="0" coverablelines="25" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="Sighting" coverage="0" coveredlines="0" coverablelines="13" totallines="106" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="Sightings" coverage="0" coveredlines="0" coverablelines="48" totallines="106" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
-      <Class name="SingleColor" coverage="0" coveredlines="0" coverablelines="16" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="SlashScript" coverage="0" coveredlines="0" coverablelines="25" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
-      <Class name="Sniper" coverage="0" coveredlines="0" coverablelines="6" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="SoundTracker" coverage="0" coveredlines="0" coverablelines="14" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="Spawn" coverage="0" coveredlines="0" coverablelines="9" totallines="19" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="SpeedUp" coverage="0" coveredlines="0" coverablelines="17" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="Throw" coverage="0" coveredlines="0" coverablelines="10" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="ToggleScript" coverage="0" coveredlines="0" coverablelines="2" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="TriggerCondition" coverage="0" coveredlines="0" coverablelines="4" totallines="10" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="TriggerScript" coverage="0" coveredlines="0" coverablelines="7" totallines="19" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="UISlot" coverage="0" coveredlines="0" coverablelines="13" totallines="33" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="UnDeafen" coverage="0" coveredlines="0" coverablelines="9" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Vectors" coverage="0" coveredlines="0" coverablelines="19" totallines="40" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="WallState" coverage="0" coveredlines="0" coverablelines="14" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="Weapon" coverage="0" coveredlines="0" coverablelines="64" totallines="91" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="9" methodcoverage="0" />
+    <Assembly name="Scripts" classes="78" coverage="1.9" coveredlines="29" coverablelines="1462" totallines="3701" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="10" totalmethods="320" methodcoverage="3.1">
+      <Class name="AmmoPouch" coverage="0" coveredlines="0" coverablelines="8" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="AmmoRefill" coverage="0" coveredlines="0" coverablelines="10" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="Attack" coverage="0" coveredlines="0" coverablelines="1" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="BigWall" coverage="0" coveredlines="0" coverablelines="8" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Blaster" coverage="80" coveredlines="4" coverablelines="5" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="4" methodcoverage="50" />
+      <Class name="BlockColor" coverage="0" coveredlines="0" coverablelines="125" totallines="210" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
+      <Class name="Boundary" coverage="0" coveredlines="0" coverablelines="28" totallines="68" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="BulletScript" coverage="0" coveredlines="0" coverablelines="46" totallines="96" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="BulletTrail" coverage="0" coveredlines="0" coverablelines="22" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="ButtonColor" coverage="0" coveredlines="0" coverablelines="18" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="ButtonScript" coverage="0" coveredlines="0" coverablelines="6" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Camera_Follow" coverage="0" coveredlines="0" coverablelines="20" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="ClockManager" coverage="0" coveredlines="0" coverablelines="2" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="ColorScheme" coverage="0" coveredlines="0" coverablelines="14" totallines="61" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="Description" coverage="0" coveredlines="0" coverablelines="2" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="Door" coverage="0" coveredlines="0" coverablelines="32" totallines="77" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
+      <Class name="DynamicWall" coverage="0" coveredlines="0" coverablelines="25" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="EnemyAI.AttackState" coverage="0" coveredlines="0" coverablelines="10" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="EnemyAI.ChaseState" coverage="0" coveredlines="0" coverablelines="19" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="EnemyAI.FollowState" coverage="0" coveredlines="0" coverablelines="15" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="EnemyAI.IdleState" coverage="0" coveredlines="0" coverablelines="12" totallines="38" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="EnemyAI.InvestigateState" coverage="0" coveredlines="0" coverablelines="13" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="EnemyAI.LookState" coverage="0" coveredlines="0" coverablelines="41" totallines="90" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="EnemyBehaviour" coverage="0" coveredlines="0" coverablelines="118" totallines="248" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="21" methodcoverage="0" />
+      <Class name="EnemyHealth" coverage="0" coveredlines="0" coverablelines="12" totallines="32" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Explode" coverage="0" coveredlines="0" coverablelines="11" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="ExtraHP" coverage="0" coveredlines="0" coverablelines="6" totallines="17" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="Eyes" coverage="0" coveredlines="0" coverablelines="4" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Glass" coverage="0" coveredlines="0" coverablelines="5" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="Grenade" coverage="0" coveredlines="0" coverablelines="5" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="GrenadeTraveling" coverage="0" coveredlines="0" coverablelines="22" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="HitResponse" coverage="0" coveredlines="0" coverablelines="6" totallines="80" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="HitResponseBuilder" coverage="0" coveredlines="0" coverablelines="21" totallines="80" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="9" methodcoverage="0" />
+      <Class name="Indicator" coverage="0" coveredlines="0" coverablelines="44" totallines="90" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
+      <Class name="Item" coverage="50" coveredlines="6" coverablelines="12" totallines="32" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="7" methodcoverage="57.1" />
+      <Class name="ItemDrop" coverage="0" coveredlines="0" coverablelines="5" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="ItemSelection" coverage="0" coveredlines="0" coverablelines="10" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="ItemSwither" coverage="0" coveredlines="0" coverablelines="18" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="KeyCollect" coverage="0" coveredlines="0" coverablelines="5" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Launcher" coverage="0" coveredlines="0" coverablelines="5" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="LevelExit" coverage="0" coveredlines="0" coverablelines="18" totallines="45" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="LevelSelect" coverage="0" coveredlines="0" coverablelines="6" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Look" coverage="0" coveredlines="0" coverablelines="8" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="MainMenu" coverage="0" coveredlines="0" coverablelines="24" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="8" methodcoverage="0" />
+      <Class name="Melee" coverage="0" coveredlines="0" coverablelines="2" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="Minigun" coverage="0" coveredlines="0" coverablelines="5" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="Missile" coverage="0" coveredlines="0" coverablelines="35" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="Move" coverage="0" coveredlines="0" coverablelines="2" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="OrbPickup" coverage="0" coveredlines="0" coverablelines="7" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="PanelGrid" coverage="0" coveredlines="0" coverablelines="41" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
+      <Class name="Pickup" coverage="0" coveredlines="0" coverablelines="11" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="PlayerCanvas" coverage="0" coveredlines="0" coverablelines="29" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="PlayerController" coverage="0" coveredlines="0" coverablelines="71" totallines="129" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="15" methodcoverage="0" />
+      <Class name="PlayerInventory" coverage="28.5" coveredlines="14" coverablelines="49" totallines="104" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="11" methodcoverage="27.2" />
+      <Class name="PlayerShield" coverage="0" coveredlines="0" coverablelines="5" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="PlayerUI" coverage="0" coveredlines="0" coverablelines="88" totallines="165" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="15" methodcoverage="0" />
+      <Class name="PowerShot" coverage="0" coveredlines="0" coverablelines="6" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="ProgressBar" coverage="0" coveredlines="0" coverablelines="12" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="ScoreManager" coverage="0" coveredlines="0" coverablelines="21" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="SelectedItems" coverage="0" coveredlines="0" coverablelines="8" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="Shoot" coverage="0" coveredlines="0" coverablelines="22" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="Sighting" coverage="0" coveredlines="0" coverablelines="5" totallines="106" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="Sightings" coverage="0" coveredlines="0" coverablelines="29" totallines="106" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
+      <Class name="SingleColor" coverage="0" coveredlines="0" coverablelines="11" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="SlashScript" coverage="0" coveredlines="0" coverablelines="18" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="Sniper" coverage="0" coveredlines="0" coverablelines="5" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="SoundTracker" coverage="0" coveredlines="0" coverablelines="8" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="Spawn" coverage="0" coveredlines="0" coverablelines="8" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="SpeedUp" coverage="0" coveredlines="0" coverablelines="13" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="Throw" coverage="0" coveredlines="0" coverablelines="8" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="ToggleScript" coverage="0" coveredlines="0" coverablelines="1" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="TriggerCondition" coverage="0" coveredlines="0" coverablelines="2" totallines="10" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="TriggerScript" coverage="0" coveredlines="0" coverablelines="6" totallines="19" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="UISlot" coverage="0" coveredlines="0" coverablelines="9" totallines="33" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="UnDeafen" coverage="0" coveredlines="0" coverablelines="5" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Vectors" coverage="0" coveredlines="0" coverablelines="12" totallines="40" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="WallState" coverage="0" coveredlines="0" coverablelines="11" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="Weapon" coverage="10" coveredlines="5" coverablelines="50" totallines="91" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="9" methodcoverage="11.1" />
     </Assembly>
   </Coverage>
 </CoverageReport>

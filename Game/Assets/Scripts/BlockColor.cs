@@ -171,7 +171,11 @@ public class BlockColor : MonoBehaviour
         {
             if (start is 15)
                 return end;
-
+            
+            // Four
+            if (start is 0)
+                return 46;
+            
             // Three
             if (start is 1)
                 return 42;
