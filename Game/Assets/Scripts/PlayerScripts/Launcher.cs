@@ -5,9 +5,9 @@ public class Launcher : Weapon
         "High damage with explosion \n" +
         "Dangerous to user \n" +
         "3 shot capacity, slow reload \n";
-    public override void OnAdd(PlayerInventory inventory)
+    public override void OnAdd(PlayerInventory inventory, int index)
     {
-        base.OnAdd(inventory);
+        base.OnAdd(inventory, index);
         name = "Launcher";
     }
 }

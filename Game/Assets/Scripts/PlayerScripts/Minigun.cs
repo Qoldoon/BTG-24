@@ -6,9 +6,9 @@ public class Minigun : Weapon
         "Low accuracy \n" +
         "Normal damage \n" +
         "high capacity and fire-rate \n";
-    public override void OnAdd(PlayerInventory inventory)
+    public override void OnAdd(PlayerInventory inventory, int index)
     {
-        base.OnAdd(inventory);
+        base.OnAdd(inventory, index);
         name = "Mini-gun";
     }
 }

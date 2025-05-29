@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 3921441551649640537, guid: b2ec701953b3b457bb457435cd115e0b, type: 3}
+  reloads: 60
 --- !u!212 &6445459622003373396
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -102,11 +102,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 5
   m_AngularDamping: 3
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 71dd8998a01a54cac82f2ca2db8feae9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   detonationTime: 1
   explosion: {fileID: 1208132883143785956, guid: f45e1e09b368f1346aee6ed09d8f3948, type: 3}
+  radius: 2
 --- !u!58 &-4681873876350423840
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,4 +168,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.49999997
+  m_Radius: 0.2

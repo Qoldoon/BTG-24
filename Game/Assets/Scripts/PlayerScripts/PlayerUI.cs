@@ -113,11 +113,20 @@ public class PlayerUI : MonoBehaviour
     }
     public void Select(int index)
     {
+        Unselect();
+        slots[index].ToggleOn();
+    }
+
+    public void Unselect()
+    {
         foreach (UISlot slot in slots)
         {
             slot.ToggleOff();
         }
-        slots[index].Toggle();
+    }
+    public void Unselect(int index)
+    {
+        slots[index].ToggleOff();
     }
     
     public void TitleText(string text)

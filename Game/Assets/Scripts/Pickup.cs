@@ -19,9 +19,10 @@ public class Pickup : MonoBehaviour
         if(item == null) Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if(!other.gameObject.CompareTag("Player")) return;
+        if (!Input.GetKey(KeyCode.Q)) return;
         var inv = other.gameObject.GetComponent<PlayerInventory>();
         inv.Add(item);
         Destroy(gameObject);

@@ -537,10 +537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800487a3e27f79a47b2d76210440f46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: []
   current: 0
   canReload: 0
+  reloads: 60
   multiplier: 1
+  pcik: {fileID: 1401179542483624583, guid: 6353dfb3e22cf4142bfbb7514c82a370, type: 3}
 --- !u!50 &1621175782447770177
 Rigidbody2D:
   serializedVersion: 5

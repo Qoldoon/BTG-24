@@ -32,12 +32,18 @@ public class PlayerController : MonoBehaviour, IDamageable
             return;
         }
         if (IsDead()) return;
-        Parry();
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            playerInventory.Toss(lookDirection * 15);
+        }
+
+        ParryHandler();
         AttackHandler();
         DodgeHandler();
         MoveHandler();
-        Look();
-        Reload();
+        RotationHandler();
+        ReloadHandler();
+        EquipHandler();
     }
 
     private bool IsDead()
@@ -56,14 +62,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         return false;
     }
 
-    private void Reload()
+    private void ReloadHandler()
     {
         if (!Input.GetKey(KeyCode.R)) return;
         if (!playerInventory.canReload) return;
         if(playerInventory.IsUsable(out IUsable usableItem))
             usableItem.SecondaryUse();
     }
-    private void Look()
+    private void RotationHandler()
     {
         if (rb is null) return;
         mouse_pos = Input.mousePosition;
@@ -74,7 +80,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         var angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
     }
-    private void Parry()
+    private void ParryHandler()
     {
         if (!Input.GetMouseButtonDown(1)) return;
         slash.GetComponent<SlashScript>().Slash();
@@ -99,6 +105,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         float y = Input.GetAxis("Vertical");
         Vector2 moveDir = Vector2.ClampMagnitude(new Vector2(x, y), 1);
         rb.linearVelocity = moveDir * (speed * speedMult);
+    }
+
+    private void EquipHandler()
+    {
+        if(playerInventory is null) return;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { playerInventory.Equip(0); return; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { playerInventory.Equip(1); return; }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { playerInventory.Equip(2); return; }
     }
     IEnumerator Dodge()
     {

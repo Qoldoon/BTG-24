@@ -13,6 +13,7 @@ public class Weapon : Item, IUsable
     public int bulletDamage = 50;
     public float bulletSpread;
     public float reloadTime = 1;
+    public int reloadCost = 20;
     public GameObject Bullet;
     private bool _isReloading;
     private float _time;
@@ -36,8 +37,6 @@ public class Weapon : Item, IUsable
         SoundTracker.EmitSound(gameObject);
         var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, transform.rotation);
         var mult = this.PlayerInventory.multiplier;
-        Debug.Log(mult);
-        Debug.Log(this.PlayerInventory);
         if (bullet.TryGetComponent(out Projectile projectile))
         {
             projectile.direction = vector.normalized;
@@ -64,6 +63,7 @@ public class Weapon : Item, IUsable
     public override void Equip()
     {
         base.Equip();
+        _time = Time.time + 0.5f;
         var canvas = PlayerInventory.canvas;
         canvas?.CreateText(name);
     }
@@ -87,6 +87,8 @@ public class Weapon : Item, IUsable
         _isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         _isReloading = false;
+        PlayerInventory.reloads -= reloadCost;
+        PlayerInventory.canReload = PlayerInventory.reloads > 0;
         _currentAmmo = ammoCount;
     }
 }

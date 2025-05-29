@@ -19,6 +19,19 @@ public class Indicator : MonoBehaviour
         _image = GetComponent<Image>();
         _color = _image.color;
     }
+
+    public void Display(float ammo)
+    {
+        Settle();
+        _image.color = new Color(1, 0.7f, 0, 1);
+        _image.fillAmount = ammo;
+        _image.enabled = true;
+    }
+
+    public void Clear()
+    {
+        Settle();
+    }
     
     public void Fill(float duration)
     {

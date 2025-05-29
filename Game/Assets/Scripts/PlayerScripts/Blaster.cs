@@ -6,9 +6,9 @@ public class Blaster : Weapon
         "A simple blaster \n" +
         "Normal damage \n" +
         "6 shot capacity \n";
-    public override void OnAdd(PlayerInventory inventory)
+    public override void OnAdd(PlayerInventory inventory, int index)
     {
-        base.OnAdd(inventory);
+        base.OnAdd(inventory, index);
         name = "Blaster";
     }
 }

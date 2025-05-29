@@ -5,9 +5,9 @@ public class Grenade : Weapon
         "Normal damage with ability to disable shields \n" +
         "Dangerous to user \n" +
         "3 shot capacity, low range \n";
-    public override void OnAdd(PlayerInventory inventory)
+    public override void OnAdd(PlayerInventory inventory, int index)
     {
-        base.OnAdd(inventory);
+        base.OnAdd(inventory, index);
         name = "Grenade";
     }
 }

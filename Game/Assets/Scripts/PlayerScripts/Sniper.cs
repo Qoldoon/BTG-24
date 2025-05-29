@@ -5,9 +5,9 @@ public class Sniper : Weapon
         "high accuracy and projectile velocity \n" +
         "High damage, armor piercing \n" +
         "5 shot capacity, low fire-rate \n";
-    public override void OnAdd(PlayerInventory inventory)
+    public override void OnAdd(PlayerInventory inventory, int index)
     {
-        base.OnAdd(inventory);
+        base.OnAdd(inventory, index);
         name = "Sniper";
     }
 }
