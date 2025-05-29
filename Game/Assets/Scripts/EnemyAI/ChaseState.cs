@@ -16,9 +16,10 @@ namespace EnemyAI
             var player = sightings.PlayerSighting();
             script.Chase(player);
 
-            if (Sighting.IsRecent(sightings.Sound(), 0.1f))
+            var sound = sightings.Listen();
+            if (Sound.IsRecent(sound, 0.1f))
             {
-                player.Position = sightings.Sound().Position;
+                player.Position = sound.Position;
             }
             
             done = Vector2.Distance(script.movementTarget.position, script.transform.position) < 0.1f;
@@ -32,8 +33,7 @@ namespace EnemyAI
                 return new AttackState(sightings);
             }
             
-            var sound = sightings.Sound();
-            if (Sighting.IsRecent(sound, 0.1f))
+            if (Sound.IsRecent(sightings.Listen(), 0.1f))
                 return new InvestigateState(sightings);
             
             if(done || !Sighting.IsRecent(player, 5f))

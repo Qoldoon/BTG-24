@@ -212,7 +212,7 @@ public class Inventory : IEnumerable<Item>
     
     public int Add(Item item)
     {
-        if(!FindFirstFreeSlot(out int index)) return 0;
+        if(!FindFirstFreeSlot(out var index)) return 0;
         Items[index] = item;
         Count++;
         return index;

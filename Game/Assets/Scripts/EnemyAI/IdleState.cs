@@ -23,8 +23,8 @@ namespace EnemyAI
                 return new FollowState(sightings);
             }
             
-            var sound = sightings.Sound();
-            if (Sighting.IsRecent(sound, 0.1f))
+            var sound = sightings.Listen();
+            if (Sound.IsRecent(sound, 0.1f))
                 return new InvestigateState(sightings);
             
             return this;

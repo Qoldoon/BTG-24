@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public GameObject slash;
     bool dead = false;
     public bool freeze;
-
+    
     void Start()
     {
         playerInventory = GetComponent<PlayerInventory>();
@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             playerInventory.Toss(lookDirection * 15);
         }
-
         ParryHandler();
         AttackHandler();
         DodgeHandler();

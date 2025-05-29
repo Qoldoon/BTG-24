@@ -31,7 +31,7 @@ public class Weapon : Item, IUsable
         if (_isReloading) return;
         var vector = transform.parent.GetComponent<PlayerController>().lookDirection;
         vector = EnemyBehaviour.RotateVector(vector, Random.Range(-bulletSpread, +bulletSpread));
-        SoundTracker.EmitSound(gameObject);
+        SoundTracker.TriggerGunShot(transform.position);
         var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, transform.rotation);
         var mult = this.PlayerInventory.multiplier;
         if (bullet.TryGetComponent(out Projectile projectile))

@@ -13,7 +13,7 @@ namespace EnemyAI
         }
         public void React(EnemyBehaviour script)
         {
-            script.Investigate(sightings.Sound());
+            script.Investigate(sightings.Listen());
             done = Vector2.Distance(script.movementTarget.position, script.transform.position) < 0.6f;
         }
 

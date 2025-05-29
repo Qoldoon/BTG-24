@@ -49,6 +49,7 @@ public class EnemyBehaviour : MonoBehaviour
         setter.target = movementTarget;
         movementTarget.transform.parent = null;
         aimTarget.transform.parent = null;
+        SoundTracker.OnGunShot += OnHeardSound;
     }
     
     void Update()
@@ -96,7 +97,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Shoot()
     {
         if (nextFireTime >= Time.time) return;
-        SoundTracker.EmitSound(gameObject);
+        SoundTracker.TriggerGunShot(transform.position);
         var o = Instantiate(bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
         var projectile = o.GetComponent<Projectile>();
         projectile.speed = 30;
@@ -145,22 +146,15 @@ public class EnemyBehaviour : MonoBehaviour
                 _sightings.TryAddSighting(sighting);
             }
         }
-        //hearing
-        if (other.CompareTag("Player"))
-        {
-            var sound = SoundTracker.Listen();
-            if (sound == null || isDeaf) return;
-            var sighting = new Sighting
-            {
-                Target = sound,
-                Velocity = Vector3.zero,
-                Position = sound.transform.position,
-                TimeSeen = Time.time
-            };
-            _sightings.TryAddSighting(sighting);
-        }
     }
 
+    private void OnHeardSound(Vector3 position)
+    {
+        if (isDeaf) return;
+        //TODO: make it hear
+        var sound = new Sound { Position = position, TimeHeard = Time.time };
+        _sightings.TryAddSound(sound);
+    }
     private float time;
     public void LookAround()
     {
@@ -198,11 +192,11 @@ public class EnemyBehaviour : MonoBehaviour
             Shoot();
     }
  
-    public void Investigate(Sighting sighting)
+    public void Investigate(Sound sound)
     {
-        if(sighting?.Target == null) return;
-        SetAimTarget(sighting.Position);
-        SetMoveTarget(sighting.Position);
+        if(sound == null) return;
+        SetAimTarget(sound.Position);
+        SetMoveTarget(sound.Position);
     }
 
     public void FollowAlly(Sighting sighting)

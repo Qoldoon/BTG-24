@@ -34,7 +34,7 @@ public class GrenadeTraveling : Projectile
             effect.transform.localScale *= radius * 2;
             Destroy(effect, 1f); 
         }
-        SoundTracker.EmitSound(gameObject);
+        SoundTracker.TriggerGunShot(transform.position);
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, radius);
         
         foreach (Collider2D hit in hitObjects)

@@ -65,9 +65,8 @@ namespace EnemyAI
             {
                 return new AttackState(sightings);
             }
-
-            var sound = sightings.Sound();
-            if (Sighting.IsRecent(sound, 0.2f))
+            
+            if (Sound.IsRecent(sightings.Listen(), 0.2f))
                 return new InvestigateState(sightings);
             
             var enemy = sightings.AllySighting();

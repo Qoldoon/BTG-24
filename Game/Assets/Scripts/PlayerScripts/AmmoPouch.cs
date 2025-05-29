@@ -9,6 +9,7 @@ public class AmmoPouch : Item
 {
     [SerializeField] private int reloads = 60;
     public Sprite sprite;
+    
     public override string Description { get; set; } =
         "Spare ammunition \n" +
         "Allows reloading for all weapons \n";
@@ -17,11 +18,12 @@ public class AmmoPouch : Item
         base.OnAdd(inventory, index);
         transform.localPosition = new Vector3(0f, 0f, 0f);
         PlayerInventory.reloads = reloads;
-        PlayerInventory.canReload = true;
         
         CreateBox("Box 1", new Vector3(0, -0.4f, 0), Quaternion.Euler(0, 0, 0));
         CreateBox("Box 2", new Vector3(-0.3f, -0.37f, 0), Quaternion.Euler(0, 0, -15));
         CreateBox("Box 3", new Vector3(0.3f, -0.37f, 0), Quaternion.Euler(0, 0, 15));
+        
+        PlayerInventory.Reload(0);
     }
 
     private void CreateBox(string s, Vector3 position, Quaternion rotation)
@@ -43,6 +45,7 @@ public class AmmoPouch : Item
     { 
         PlayerInventory.Boxes.ForEach(Destroy);
         PlayerInventory.Boxes.Clear();
+        reloads = PlayerInventory.reloads;
         PlayerInventory.reloads = 0;
         PlayerInventory.canReload = false;
         base.OnRemove(index);

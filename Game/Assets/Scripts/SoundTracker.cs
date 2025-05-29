@@ -4,26 +4,12 @@ using UnityEngine;
 
 public static class SoundTracker
 {
-    private static GameObject sound;
-    private static float time;
-    public static void EmitSound(GameObject emmiter)
-    {
-        sound = emmiter;
-        time = Time.time;
-    }
+    public delegate void GunShotHandler(Vector3 position);
 
-    [CanBeNull]
-    public static GameObject Listen()
+    public static event GunShotHandler OnGunShot;
+    
+    public static void TriggerGunShot(Vector3 shotPosition)
     {
-        Cleanup();
-        return sound;
-    }
-
-    private static void Cleanup()
-    {
-        if (time + 0.5f < Time.time)
-        {
-            sound = null;
-        }
+        OnGunShot?.Invoke(shotPosition);
     }
 }
