@@ -9,7 +9,7 @@ public class KeyCollect : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerInventory>().addKey(key);
+            collision.GetComponent<PlayerInventory>().AddKey(key);
             Destroy(gameObject);
         }
     }

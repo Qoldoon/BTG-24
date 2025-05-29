@@ -5,6 +5,6 @@ public class TriggerCondition : MonoBehaviour
     public string key = "exit";
     public bool Condition(GameObject target)
     {
-        return target.GetComponent<PlayerInventory>().hasKey(key);
+        return target.GetComponent<PlayerInventory>().HasKey(key);
     }
 }

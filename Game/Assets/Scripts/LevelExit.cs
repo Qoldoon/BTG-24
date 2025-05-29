@@ -18,7 +18,7 @@ public class LevelExit : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            if(collision.GetComponent<PlayerInventory>().hasKey("exit"))
+            if(collision.GetComponent<PlayerInventory>().HasKey("exit"))
             {
                 StartCoroutine(LevelEnding(collision));
                 Destroy(GameObject.Find("SelectedItems"));

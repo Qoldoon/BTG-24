@@ -17,13 +17,10 @@ public class Weapon : Item, IUsable
     public GameObject Bullet;
     private bool _isReloading;
     private float _time;
-    private Indicator _reloadIndicator;
     private Coroutine _reloadCoroutine = null;
 
     private void Start()
     {
-        if(PlayerInventory != null)
-            _reloadIndicator = PlayerInventory.reloadIndicator;
         _time = Time.time;
         _currentAmmo = ammoCount;
     }
@@ -45,7 +42,7 @@ public class Weapon : Item, IUsable
             projectile.target = 1;
             projectile.emp |= (mult > 1);
         }
-        this.PlayerInventory.deAmplify();
+        this.PlayerInventory.DeAmplify();
         _currentAmmo--;
         _time = Time.time + fireRate;
     }
@@ -78,17 +75,16 @@ public class Weapon : Item, IUsable
         {
             StopCoroutine(_reloadCoroutine);
             _isReloading = false;
-            _reloadIndicator?.Stop();
+            PlayerInventory.reloadIndicator?.Stop();
         }
     }
     private IEnumerator Reload()
     {
-        _reloadIndicator?.Fill(reloadTime);
+        PlayerInventory.reloadIndicator?.Fill(reloadTime);
         _isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         _isReloading = false;
-        PlayerInventory.reloads -= reloadCost;
-        PlayerInventory.canReload = PlayerInventory.reloads > 0;
+        PlayerInventory.Reload(reloadCost);
         _currentAmmo = ammoCount;
     }
 }

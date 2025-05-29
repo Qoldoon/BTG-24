@@ -11,6 +11,8 @@ public class PlayerInventory : MonoBehaviour
     public int current;
     public bool canReload;
     public int reloads = 60;
+    [NonSerialized]
+    public List<GameObject> Boxes = new ();
     public float multiplier = 1;
     [NonSerialized]
     public PlayerCanvas canvas;
@@ -117,8 +119,8 @@ public class PlayerInventory : MonoBehaviour
         slots.RemoveAt(index);
         Settle();
     }
-    
-    void Settle()
+
+    private void Settle()
     {
         foreach (var slot in slots)
         {
@@ -129,12 +131,12 @@ public class PlayerInventory : MonoBehaviour
         else playerUI?.Unselect();
     }
 
-    public void addKey(string key)
+    public void AddKey(string key)
     {
         keys.Add(key);
     }
     
-    public bool hasKey(string key)
+    public bool HasKey(string key)
     {
         return keys.Contains(key);
     }
@@ -144,9 +146,56 @@ public class PlayerInventory : MonoBehaviour
         multiplier = 2;
     }
 
-    public void deAmplify()
+    public void DeAmplify()
     {
         multiplier = 1;
+    }
+
+    public void Reload(int reloadCost)
+    {
+        reloads -= reloadCost;
+        canReload = reloads > 0;
+        UpdateAmmoPacks(reloads / 60f);
+    }
+
+    private void UpdateAmmoPacks(float percentage)
+    {
+        percentage = Mathf.Clamp01(percentage);
+        int currentStage = Mathf.FloorToInt(percentage * 6);
+        
+        foreach (var box in Boxes)
+        {
+            if (box != null)
+            {
+                box.SetActive(true);
+                box.transform.localScale = new  Vector3(0.25f, 0.2f, 1);
+            }
+        }
+        
+        if (percentage <= 0)
+        {
+            foreach (var pack in Boxes.Where(pack => pack != null))
+            {
+                pack.SetActive(false);
+            }
+        }
+        else
+        {
+            for (int i = 2; i >= 0; i--)
+            {
+                if (currentStage <= 2 * i)
+                {
+                    if (Boxes[i] != null) Boxes[i].SetActive(false);
+                }
+                else if (currentStage <= 2 * i + 1)
+                {
+                    if (Boxes[i] != null)
+                    {
+                        Boxes[i].transform.localScale = new  Vector3(0.25f, 0.1f, 1);
+                    }
+                }
+            }
+        }
     }
 }
 
