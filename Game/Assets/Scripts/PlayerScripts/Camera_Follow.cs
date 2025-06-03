@@ -19,11 +19,12 @@ public class Camera_Follow : MonoBehaviour
 
     void Start()
     {
-        _camera = Camera.main;
+        _camera = GetComponent<Camera>();
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
+        target.GetComponent<PlayerController>().Camera = _camera;
     }
     void FixedUpdate()
     {

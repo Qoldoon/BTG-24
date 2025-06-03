@@ -153,6 +153,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""ef9acd96-2bde-4a1c-bfdf-d8418b6573e1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -235,8 +244,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""5fbd9906-84c7-49b8-99e9-f3daaa209bba"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""790f1934-20a9-457e-aa12-0b0d788a1329"",
                     ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4430c2ab-6b7e-4426-a972-2e19763a68da"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -257,6 +288,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f4378a60-6b56-47b3-986b-1aa9c671f144"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""297a2efe-4db7-48c8-b2a4-77d2ce009098"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -268,8 +310,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""dc13cac7-91c4-45d8-892c-2aa2e98ef973"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f34b2853-2173-47c5-8f19-2289d5dfd20b"",
                     ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AltUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""524cf1ad-f9cb-4804-a456-69f4e102584e"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -309,6 +373,61 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Equip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48512b2c-91ee-4c73-8df0-711ed8f4dae9"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd385f45-2a3b-4fd4-a350-2ee11fd24880"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""067b14b3-bde3-4edd-88e2-556a9d68fc23"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""488617a9-b83a-4519-abb6-90e321cbe3b5"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3a57f30-e999-454b-a65b-d3b48f95dd87"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -324,6 +443,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_AltUse = m_Player.FindAction("AltUse", throwIfNotFound: true);
         m_Player_Equip = m_Player.FindAction("Equip", throwIfNotFound: true);
+        m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -411,6 +531,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_AltUse;
     private readonly InputAction m_Player_Equip;
+    private readonly InputAction m_Player_Mouse;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -450,6 +571,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Equip".
         /// </summary>
         public InputAction @Equip => m_Wrapper.m_Player_Equip;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Mouse".
+        /// </summary>
+        public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -497,6 +622,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Equip.started += instance.OnEquip;
             @Equip.performed += instance.OnEquip;
             @Equip.canceled += instance.OnEquip;
+            @Mouse.started += instance.OnMouse;
+            @Mouse.performed += instance.OnMouse;
+            @Mouse.canceled += instance.OnMouse;
         }
 
         /// <summary>
@@ -529,6 +657,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Equip.started -= instance.OnEquip;
             @Equip.performed -= instance.OnEquip;
             @Equip.canceled -= instance.OnEquip;
+            @Mouse.started -= instance.OnMouse;
+            @Mouse.performed -= instance.OnMouse;
+            @Mouse.canceled -= instance.OnMouse;
         }
 
         /// <summary>
@@ -618,5 +749,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEquip(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Mouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMouse(InputAction.CallbackContext context);
     }
 }

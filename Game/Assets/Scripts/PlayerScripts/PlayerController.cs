@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Vector2 smoothedMoveInput;
     private Vector2 moveVelocity;
     private PlayerControls controls;
+    public Camera Camera;
+
     void Start()
     {
         playerInventory = GetComponent<PlayerInventory>();
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (dead)
         {
-            if (!controls.Player.Reload.IsPressed())
+            if (controls.Player.Reload.IsPressed())
             {
                 Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -94,13 +96,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void RotationHandler()
     {
         if (rb is null) return;
-        mouse_pos = Input.mousePosition;
-        object_pos = Camera.main.WorldToScreenPoint(transform.position);
-        mouse_pos.x -= object_pos.x;
-        mouse_pos.y -= object_pos.y;
-        lookDirection = new  Vector2(mouse_pos.x, mouse_pos.y).normalized;
-        var angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
+        Vector2 mousePos = controls.Player.Mouse.ReadValue<Vector2>();
+        Vector3 objectPos = Camera.WorldToScreenPoint(transform.position);
+        mousePos.x -= objectPos.x;
+        mousePos.y -= objectPos.y;
+        lookDirection = mousePos.normalized;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
     }
     private void ParryHandler()
     {
@@ -171,5 +173,4 @@ public class PlayerController : MonoBehaviour, IDamageable
         Time.timeScale = 0;
         dead = true;
     }
-   
 }
