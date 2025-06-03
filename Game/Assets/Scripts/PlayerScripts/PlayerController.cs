@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour, IDamageable
@@ -18,11 +19,33 @@ public class PlayerController : MonoBehaviour, IDamageable
     public GameObject slash;
     bool dead = false;
     public bool freeze;
-    
+    private Vector2 moveInput;
+    private Vector2 smoothedMoveInput;
+    private Vector2 moveVelocity;
+    private PlayerControls controls;
     void Start()
     {
         playerInventory = GetComponent<PlayerInventory>();
     }
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Player.Move.canceled += _ => moveInput = Vector2.zero;
+        controls.Player.Equip.performed += EquipHandler;
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
     void Update()
     {
         if(freeze)
@@ -36,20 +59,20 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             playerInventory.Toss(lookDirection * 15);
         }
-        ParryHandler();
-        AttackHandler();
-        DodgeHandler();
         MoveHandler();
         RotationHandler();
+        DodgeHandler();
+        AttackHandler();
+        ParryHandler();
         ReloadHandler();
-        EquipHandler();
+        InteractHandler();
     }
 
     private bool IsDead()
     {
         if (dead)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (!controls.Player.Reload.IsPressed())
             {
                 Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -63,7 +86,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void ReloadHandler()
     {
-        if (!Input.GetKey(KeyCode.R)) return;
+        if (!controls.Player.Reload.IsPressed()) return;
         if (!playerInventory.canReload) return;
         if(playerInventory.IsUsable(out IUsable usableItem))
             usableItem.SecondaryUse();
@@ -81,37 +104,47 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void ParryHandler()
     {
-        if (!Input.GetMouseButtonDown(1)) return;
+        if (!controls.Player.AltUse.IsPressed()) return;
         slash.GetComponent<SlashScript>().Slash();
     }
     private void AttackHandler()
     {
-        if (!Input.GetKey(KeyCode.Mouse0)) return;
+        if (!controls.Player.Use.IsPressed()) return;
         if(playerInventory.IsUsable(out IUsable usableItem))
             usableItem.Use();
     }
     private void DodgeHandler()
     {
-        if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
+        if (!controls.Player.Dodge.IsPressed()) return;
         if (Time.time < t) return;
         StartCoroutine(Dodge());
         t = Time.time + 1f;
     }
     private void MoveHandler()
     {
-        if (rb is null) return;
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector2 moveDir = Vector2.ClampMagnitude(new Vector2(x, y), 1);
+        if (rb == null) return;
+        smoothedMoveInput = Vector2.SmoothDamp(
+            current: smoothedMoveInput,
+            target: moveInput,
+            currentVelocity: ref moveVelocity,
+            smoothTime: 0.1f
+        );
+        var moveDir = Vector2.ClampMagnitude(smoothedMoveInput, 1f);
         rb.linearVelocity = moveDir * (speed * speedMult);
     }
 
-    private void EquipHandler()
+    private void EquipHandler(InputAction.CallbackContext context)
     {
         if(playerInventory is null) return;
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { playerInventory.Equip(0); return; }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { playerInventory.Equip(1); return; }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) { playerInventory.Equip(2); return; }
+        var bindingIndex = context.action.GetBindingIndexForControl(context.control) % 3;
+        playerInventory.Equip(bindingIndex);
+    }
+
+    public event Action Interact;
+    private void InteractHandler()
+    {
+        if (!controls.Player.Interact.IsPressed()) return;
+        Interact?.Invoke();
     }
     IEnumerator Dodge()
     {

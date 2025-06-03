@@ -60,15 +60,23 @@ public class PlayerInventory : MonoBehaviour
 
     public void Toss(Vector2 direction)
     {
-        var item = slots[current];
+        Toss(direction, current);
+    }
+    public void Toss(Vector2 direction, int index)
+    {
+        var item = slots[index];
+        Toss(direction, item);
+        Remove(index, false);
+    }
 
+    public void Toss(Vector2 direction, Item item)
+    {
+        if(item == null) return;
         var pickup = Instantiate(pcik, transform.position, Quaternion.identity);
         pickup.GetComponent<Pickup>().item = item.gameObject;
         item.transform.SetParent(pickup.transform);
         var p = pickup.AddComponent<TossPhysics>();
         p.direction = direction;
-        
-        Remove(current, false);
     }
     public void Add(GameObject go)
     {
@@ -103,12 +111,12 @@ public class PlayerInventory : MonoBehaviour
     {
         var slot = slots[index];
         slot.OnRemove(index);
-        Destroy(slot.gameObject);
         slots[index] = item;
         item.OnAdd(this, index);
         if(index == current)
             slots[current].Equip();
         Settle();
+        Toss(Vector2.zero, slot);
     }
 
     private void Remove(int index, bool destroy = true)
