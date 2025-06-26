@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class PlayerInventory : MonoBehaviour
     [NonSerialized]
     public Indicator reloadIndicator;
 
-    public GameObject pcik;
+    public GameObject pick;
     
     void Start()
     {
@@ -72,7 +73,7 @@ public class PlayerInventory : MonoBehaviour
     public void Toss(Vector2 direction, Item item)
     {
         if(item == null) return;
-        var pickup = Instantiate(pcik, transform.position, Quaternion.identity);
+        var pickup = Instantiate(pick, transform.position, Quaternion.identity);
         pickup.GetComponent<Pickup>().item = item.gameObject;
         item.transform.SetParent(pickup.transform);
         var p = pickup.AddComponent<TossPhysics>();

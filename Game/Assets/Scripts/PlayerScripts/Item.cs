@@ -14,6 +14,7 @@ public abstract class Item : MonoBehaviour
         PlayerInventory = inventory;
         transform.localPosition = new Vector3(0f, 0.3f, 0f);
         transform.localRotation = Quaternion.identity;
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
         if (itemIcon != null)
             PlayerInventory.playerUI?.SetIcon(index, itemIcon);
     }
@@ -22,6 +23,7 @@ public abstract class Item : MonoBehaviour
         PlayerInventory.playerUI?.ClearIcon(index);
         PlayerInventory = null;
         transform.localPosition = Vector3.zero;
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
     }
     public virtual void Equip()
     {

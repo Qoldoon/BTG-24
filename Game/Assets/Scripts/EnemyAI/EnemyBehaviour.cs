@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyBehaviour : MonoBehaviour, IActor
 {
     [Header("Nodes")]
     public Transform aimTarget;
@@ -16,13 +16,13 @@ public class EnemyBehaviour : MonoBehaviour
     public float visionRange = 12f;
     public float visionAngle = 200f;
     public bool isDeaf;
-    [Header("Combat")]
-    public GameObject bullet;
-    public float fireRate = 1f;
+    [Header("Combat")] public Weapon weapon;
+    // public GameObject bullet;
+    // public float fireRate = 1f;
     
     public IState currentState = new IdleState();
     
-    private float nextFireTime;
+    // private float nextFireTime;
     private AIDestinationSetter setter;
     public bool IsAggro => Sighting.IsRecent(_sightings.PlayerSighting(), 0.1f);
     private Sightings _sightings = new ();
@@ -96,15 +96,17 @@ public class EnemyBehaviour : MonoBehaviour
     
     private void Shoot()
     {
-        if (nextFireTime >= Time.time) return;
-        SoundTracker.TriggerGunShot(transform.position);
-        var o = Instantiate(bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
-        var projectile = o.GetComponent<Projectile>();
-        projectile.speed = 30;
-        projectile.direction = (aimTarget.position - transform.position).normalized;
-        projectile.damage = 50;
-        
-        nextFireTime = Time.time + fireRate;
+        if(weapon is null) return;
+        weapon.Use();
+        // if (nextFireTime >= Time.time) return;
+        // SoundTracker.TriggerGunShot(transform.position);
+        // var o = Instantiate(bullet, transform.position + transform.up * 0.6f, Quaternion.identity);
+        // var projectile = o.GetComponent<Projectile>();
+        // projectile.speed = 30;
+        // projectile.direction = (aimTarget.position - transform.position).normalized;
+        // projectile.damage = 50;
+        //
+        // nextFireTime = Time.time + fireRate;
     }
     private void Rotate()
     {
@@ -238,5 +240,15 @@ public class EnemyBehaviour : MonoBehaviour
             
         if (aimTarget != null)
             Destroy(aimTarget.gameObject);
+    }
+
+    public Vector2 GetLookDirection()
+    {
+        return aimTarget.position - transform.position;
+    }
+
+    public int Target()
+    {
+        return 0;
     }
 }

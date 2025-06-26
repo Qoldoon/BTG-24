@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 633003619
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1873471457967999169, guid: 46feefe0370bf40ccb046ac4a82918d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,4 +107,5 @@ MonoBehaviour:
   bulletDamage: 50
   bulletSpread: 0
   reloadTime: 0.8
+  reloadCost: 20
   Bullet: {fileID: 3744773112264494366, guid: 930fde403c35a054e98c3099c683aeb1, type: 3}

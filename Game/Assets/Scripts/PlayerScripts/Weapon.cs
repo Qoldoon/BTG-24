@@ -18,33 +18,42 @@ public class Weapon : Item, IUsable
     private bool _isReloading;
     private float _time;
     private Coroutine _reloadCoroutine = null;
-
+    private IActor _wielder;
     private void Start()
     {
         _time = Time.time;
         _currentAmmo = ammoCount;
+        _wielder = GetComponentInParent<IActor>();
     }
     public void Use()
     {
         if (_currentAmmo == 0) return;
         if (Time.time < _time) return;
         if (_isReloading) return;
-        var vector = transform.parent.GetComponent<PlayerController>().lookDirection;
+        var vector = _wielder.GetLookDirection();
+        vector = transform.up;
         vector = EnemyBehaviour.RotateVector(vector, Random.Range(-bulletSpread, +bulletSpread));
         SoundTracker.TriggerGunShot(transform.position);
         var bullet = Instantiate(Bullet, transform.position + transform.up * 0.3f, transform.rotation);
-        var mult = this.PlayerInventory.multiplier;
+        var mult = Multiplier();
         if (bullet.TryGetComponent(out Projectile projectile))
         {
             projectile.direction = vector.normalized;
             projectile.speed = bulletSpeed * mult;
             projectile.damage = bulletDamage * mult;
-            projectile.target = 1;
+            projectile.target = _wielder.Target();
             projectile.emp |= (mult > 1);
         }
-        this.PlayerInventory.DeAmplify();
+        if(PlayerInventory is not null)
+            PlayerInventory.DeAmplify();
         _currentAmmo--;
         _time = Time.time + fireRate;
+    }
+
+    private float Multiplier()
+    {
+        if (PlayerInventory is null) return 1;
+        return PlayerInventory.multiplier;
     }
 
     public void SecondaryUse()
@@ -69,6 +78,13 @@ public class Weapon : Item, IUsable
     {
         InterruptReload();
     }
+
+    public override void OnAdd(PlayerInventory inventory, int index)
+    {
+        base.OnAdd(inventory, index);
+        _wielder = inventory.transform.GetComponent<IActor>();
+    }
+
     public void InterruptReload()
     {
         if (_isReloading && _reloadCoroutine != null)

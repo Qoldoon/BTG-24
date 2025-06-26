@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour, IActor, IDamageable
 {
     [SerializeField] public int hitPoints = 1;
     [SerializeField] public float speedMult = 1f;
@@ -172,5 +172,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         playerInventory?.playerUI.TitleText("DEAD");
         Time.timeScale = 0;
         dead = true;
+    }
+
+    public Vector2 GetLookDirection()
+    {
+        return lookDirection;
+    }
+
+    public int Target()
+    {
+        return 1;
     }
 }
