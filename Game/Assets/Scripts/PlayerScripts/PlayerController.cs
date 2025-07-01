@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     }
     private void ParryHandler()
     {
-        if (!controls.Player.AltUse.IsPressed()) return;
+        if (!controls.Player.AltUse.WasPressedThisFrame()) return;
         slash.GetComponent<SlashScript>().Slash();
     }
     private void AttackHandler()
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     public event Action Interact;
     private void InteractHandler()
     {
-        if (!controls.Player.Interact.IsPressed()) return;
+        if (!controls.Player.Interact.WasPressedThisFrame()) return;
         Interact?.Invoke();
     }
 
