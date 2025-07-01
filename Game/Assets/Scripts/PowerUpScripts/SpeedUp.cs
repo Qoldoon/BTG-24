@@ -11,19 +11,13 @@ public class SpeedUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             gameObject.GetComponent<Renderer>().enabled = false;
             controller = collision.GetComponent<PlayerController>();
-            controller.speedMult = boostSpeed;
+            controller.MultiplySpeed(boostSpeed, speedUpDuration);
             controller.playerInventory.canvas.CreateText("Speed");
-            StartCoroutine(SpeedUpDuration());
+            Destroy(gameObject);
         }
-    }
-    IEnumerator SpeedUpDuration()
-    {
-        yield return new WaitForSeconds(speedUpDuration);
-        controller.speedMult = 1f;
-        Destroy(gameObject);
     }
 }

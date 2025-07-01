@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
 {
     [SerializeField] public int hitPoints = 1;
     [SerializeField] public float speedMult = 1f;
+    private float currentSpeedMult = 1f;
+    private float speedMultVelocity = 0f;
     [SerializeField] public float speed = 5f;
     public Rigidbody2D rb;
     private float t;
@@ -119,7 +121,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     {
         if (!controls.Player.Dodge.IsPressed()) return;
         if (Time.time < t) return;
-        StartCoroutine(Dodge());
+        MultiplySpeed(5, 0.15f);
         t = Time.time + 1f;
     }
     private void MoveHandler()
@@ -132,7 +134,13 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
             smoothTime: 0.1f
         );
         var moveDir = Vector2.ClampMagnitude(smoothedMoveInput, 1f);
-        rb.linearVelocity = moveDir * (speed * speedMult);
+        currentSpeedMult = Mathf.SmoothDamp(
+            current: currentSpeedMult,
+            target: speedMult,
+            currentVelocity: ref speedMultVelocity,
+            smoothTime: 0.08f
+        );
+        rb.linearVelocity = moveDir * (speed * currentSpeedMult);
     }
 
     private void EquipHandler(InputAction.CallbackContext context)
@@ -148,13 +156,18 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
         if (!controls.Player.Interact.IsPressed()) return;
         Interact?.Invoke();
     }
-    IEnumerator Dodge()
+
+    public void MultiplySpeed(float mult, float duration)
     {
-        var orgSpeed = speed;
-        speed = 25f;
-        yield return new WaitForSeconds(0.15f/speedMult);
-        speed = orgSpeed;
+        StartCoroutine(Speed(mult, duration));
     }
+    IEnumerator Speed(float mult, float duration)
+    {
+        speedMult *= mult;
+        yield return new WaitForSeconds(duration);
+        speedMult /= mult;
+    }
+    
     public HitResponse Hit(float damage, int target, bool emp = false)
     {
         HitResponseBuilder hb = new HitResponseBuilder().Damage(damage).Target(target);
