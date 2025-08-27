@@ -16,7 +16,8 @@ public class EnemyBehaviour : MonoBehaviour, IActor
     public float visionRange = 12f;
     public float visionAngle = 200f;
     public bool isDeaf;
-    [Header("Combat")] public Weapon weapon;
+    [Header("Combat")] 
+    public Weapon weapon;
     // public GameObject bullet;
     // public float fireRate = 1f;
     
@@ -43,6 +44,8 @@ public class EnemyBehaviour : MonoBehaviour, IActor
             Debug.LogError("setter not found!");
             enabled = false;
         }
+
+        weapon = GetComponentInChildren<Weapon>();
     }
     void Start()
     {
@@ -135,7 +138,8 @@ public class EnemyBehaviour : MonoBehaviour, IActor
         //sight
         if (angleToTarget <= visionAngle / 2)
         {
-            var hit = Physics2D.Raycast(transform.position + directionToTarget * 0.51f, directionToTarget, visionRange);
+            int layerMask = ~((1 << 2) | (1 << 3));
+            var hit = Physics2D.Raycast(transform.position + directionToTarget * 0.51f, directionToTarget, visionRange, layerMask);
             if (hit.collider != null)
             {
                 var sighting = new Sighting
@@ -153,7 +157,6 @@ public class EnemyBehaviour : MonoBehaviour, IActor
     private void OnHeardSound(Vector3 position)
     {
         if (isDeaf) return;
-        //TODO: make it hear
         var sound = new Sound { Position = position, TimeHeard = Time.time };
         _sightings.TryAddSound(sound);
     }
@@ -164,7 +167,6 @@ public class EnemyBehaviour : MonoBehaviour, IActor
         var dir = (aimTarget.position - transform.position).normalized;
 
         dir = RotateVector(dir, 180 + Random.Range(-60, 60));
-
         
         SetAimTarget(transform.position + dir * Random.Range(1.5f, 6));
         SetMoveTarget(transform.position + dir * 2);

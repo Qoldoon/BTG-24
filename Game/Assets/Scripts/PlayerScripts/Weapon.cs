@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class Weapon : Item, IUsable
 {
     public int ammoCount = 6;
-    private int _currentAmmo;
+    protected int _currentAmmo;
     public float fireRate = 1;
     public float bulletSpeed = 30;
     public int bulletDamage = 50;
@@ -15,8 +15,8 @@ public class Weapon : Item, IUsable
     public float reloadTime = 1;
     public int reloadCost = 20;
     public GameObject Bullet;
-    private bool _isReloading;
-    private float _time;
+    protected bool _isReloading;
+    protected float _time;
     private Coroutine _reloadCoroutine = null;
     private IActor _wielder;
     private void Start()
@@ -25,7 +25,7 @@ public class Weapon : Item, IUsable
         _currentAmmo = ammoCount;
         _wielder = GetComponentInParent<IActor>();
     }
-    public void Use()
+    public virtual void Use()
     {
         if (_currentAmmo == 0) return;
         if (Time.time < _time) return;

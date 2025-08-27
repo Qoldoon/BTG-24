@@ -1,44 +1,35 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class SlashScript : MonoBehaviour, IDamageable
 {
-    public bool isParrying = false;
-
     private SpriteRenderer _spriteRenderer;
-    private BoxCollider2D _boxCollider2D;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float t;
+    
     private void Awake()
     {
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = Resources.Load<Sprite>("Textures/slash");
     }
 
-    void Start()
+    private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        t = Time.time + 0.2f;
+    }
+
+    private void Update()
+    {
+        if(t < Time.time)
+            Destroy(gameObject);
     }
 
     public HitResponse Hit(float damage, int target, bool emp = false)
     {
         var hb = new HitResponseBuilder().Target(target).Damage(damage);
         if (target == 1) return hb.Build();
+        t = Mathf.Min(t + 0.1f, Time.time + 0.4f);
         return hb.ForEnemy().Reflect().Build();
-    }
-    public void Slash()
-    {
-
-        StartCoroutine(Routine());
-    }
-    IEnumerator Routine()
-    {
-        _spriteRenderer.flipX = !_spriteRenderer.flipX;
-        _spriteRenderer.enabled = true;
-        _boxCollider2D.enabled = true;
-        isParrying = true;
-        yield return new WaitForSeconds(0.2f);
-        _spriteRenderer.enabled = false;
-        _boxCollider2D.enabled = false;
-        isParrying = false;
     }
 }

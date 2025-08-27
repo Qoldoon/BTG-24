@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class InteractEvent : Interactable
 {
     [SerializeField]
-    private UnityEvent @event;
+    private UnityEvent target;
     protected override void Interact()
     {
         var condition = GetComponent<TriggerCondition>();
@@ -15,6 +15,6 @@ public class InteractEvent : Interactable
             _player.playerInventory.canvas?.CreateText("Missing key");
             return;
         }
-        @event.Invoke();
+        target.Invoke();
     }
 }

@@ -59,6 +59,18 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
+    public bool NeedsReload()
+    {
+        if (IsUsable(out IUsable usableItem))
+        {
+            if (usableItem is Weapon weapon)
+            {
+                return weapon.NeedsReload();
+            }
+        }
+        return false;
+    }
+
     public void Toss(Vector2 direction)
     {
         Toss(direction, current);

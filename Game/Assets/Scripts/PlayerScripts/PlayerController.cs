@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -13,12 +14,12 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     private float speedMultVelocity = 0f;
     [SerializeField] public float speed = 5f;
     public Rigidbody2D rb;
-    private float t;
+    private EnumArray<Timer, float> t = new (); //new float[Enum.GetValues(typeof(Timer)).Length];
     Vector3 mouse_pos;
     Vector3 object_pos;
     public Vector2 lookDirection { get; private set; }
     public PlayerInventory playerInventory;
-    public GameObject slash;
+
     bool dead = false;
     public bool freeze;
     private Vector2 moveInput;
@@ -52,17 +53,8 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
 
     void Update()
     {
-        if(freeze)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = 0;
-            return;
-        }
-        if (IsDead()) return;
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            playerInventory.Toss(lookDirection * 15);
-        }
+        if (Freeze()) return;
+        TossHandler();
         MoveHandler();
         RotationHandler();
         DodgeHandler();
@@ -70,6 +62,27 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
         ParryHandler();
         ReloadHandler();
         InteractHandler();
+    }
+
+    private void TossHandler()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            playerInventory.Toss(lookDirection * 15);
+        }
+    }
+
+    private bool Freeze()
+    {
+        if(freeze)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = 0;
+            return true;
+        }
+
+        if (IsDead()) return true;
+        return false;
     }
 
     private bool IsDead()
@@ -92,7 +105,8 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     {
         if (!controls.Player.Reload.IsPressed()) return;
         if (!playerInventory.canReload) return;
-        if(playerInventory.IsUsable(out IUsable usableItem))
+        if (!playerInventory.NeedsReload()) return;
+        if (playerInventory.IsUsable(out IUsable usableItem))
             usableItem.SecondaryUse();
     }
     private void RotationHandler()
@@ -109,7 +123,18 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     private void ParryHandler()
     {
         if (!controls.Player.AltUse.WasPressedThisFrame()) return;
-        slash.GetComponent<SlashScript>().Slash();
+        if (Time.time < t[Timer.Parry]) return;
+        if (GetComponentInChildren<SlashScript>() is not null) return;
+        GameObject o = new GameObject();
+        o.transform.position = transform.position + transform.up * 0.5f;
+        o.transform.rotation = transform.rotation;
+        o.transform.parent = transform;
+        o.layer = 3;
+        o.AddComponent<BoxCollider2D>().size *= new Vector2(1.5f, 1);
+        o.GetComponent<BoxCollider2D>().isTrigger = true;
+        o.AddComponent<SpriteRenderer>();
+        o.AddComponent<SlashScript>();
+        t[Timer.Parry] = Time.time + 1.5f;
     }
     private void AttackHandler()
     {
@@ -120,9 +145,9 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     private void DodgeHandler()
     {
         if (!controls.Player.Dodge.IsPressed()) return;
-        if (Time.time < t) return;
+        if (Time.time < t[Timer.Dodge]) return;
         MultiplySpeed(5, 0.15f);
-        t = Time.time + 1f;
+        t[Timer.Dodge] = Time.time + 1f;
     }
     private void MoveHandler()
     {
