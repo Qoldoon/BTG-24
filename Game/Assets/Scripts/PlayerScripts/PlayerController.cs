@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     private float speedMultVelocity = 0f;
     [SerializeField] public float speed = 5f;
     public Rigidbody2D rb;
-    private EnumArray<Timer, float> t = new (); //new float[Enum.GetValues(typeof(Timer)).Length];
+    private EnumArray<Timer, float> t = new ();
     Vector3 mouse_pos;
     Vector3 object_pos;
     public Vector2 lookDirection { get; private set; }
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     {
         if (!controls.Player.Dodge.IsPressed()) return;
         if (Time.time < t[Timer.Dodge]) return;
-        MultiplySpeed(5, 0.15f);
+        MultiplySpeed("dodge",5, 0.15f);
         t[Timer.Dodge] = Time.time + 1f;
     }
     private void MoveHandler()
@@ -181,16 +181,43 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
         if (!controls.Player.Interact.WasPressedThisFrame()) return;
         Interact?.Invoke();
     }
+    
+    private Dictionary<string, float> multipliers = new ();
 
-    public void MultiplySpeed(float mult, float duration)
+    private Dictionary<string, Coroutine> timers = new ();
+
+    public void MultiplySpeed(string key, float mult, float duration = -1)
     {
-        StartCoroutine(Speed(mult, duration));
+        multipliers[key] = mult;
+        RecalculateSpeed();
+        
+        if (timers.ContainsKey(key))
+        {
+            StopCoroutine(timers[key]);
+            timers.Remove(key);
+        }
+        
+        if (duration > 0f)
+            timers[key] = StartCoroutine(RemoveAfterDuration(key, duration));
     }
-    IEnumerator Speed(float mult, float duration)
+
+    public void RemoveMultiplier(string key)
     {
-        speedMult *= mult;
+        if (multipliers.Remove(key))
+            RecalculateSpeed();
+    }
+
+    private IEnumerator RemoveAfterDuration(string key, float duration)
+    {
         yield return new WaitForSeconds(duration);
-        speedMult /= mult;
+        RemoveMultiplier(key);
+    }
+
+    private void RecalculateSpeed()
+    {
+        speedMult = 1f;
+        foreach (var m in multipliers.Values)
+            speedMult *= m;
     }
     
     public HitResponse Hit(float damage, int target, bool emp = false)

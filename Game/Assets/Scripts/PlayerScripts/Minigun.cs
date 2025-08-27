@@ -19,6 +19,12 @@ public class Minigun : Weapon
     {
         base.Equip();
         _time += 0.5f;
-        PlayerInventory.GetComponent<PlayerController>().MultiplySpeed(0.5f, 10);
+        PlayerInventory.GetComponent<PlayerController>().MultiplySpeed(name,0.5f);
+    }
+
+    public override void UnEquip()
+    {
+        base.UnEquip();
+        PlayerInventory.GetComponent<PlayerController>().RemoveMultiplier(name);
     }
 }
