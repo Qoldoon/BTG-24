@@ -22,7 +22,7 @@ public class LevelExit : MonoBehaviour
             {
                 StartCoroutine(LevelEnding(collision));
                 Destroy(GameObject.Find("SelectedItems"));
-                ScoreManager.instance.SetHighscore();
+                ScoreManager.instance.SetHighscore(level);
                 MainMenu.CompleteLevel(level);
             }
             else

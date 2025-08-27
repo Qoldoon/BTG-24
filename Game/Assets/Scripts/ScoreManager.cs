@@ -29,24 +29,24 @@ public class ScoreManager : MonoBehaviour
 
     public static string ShowHighscore(int l)
     {
-        var s = (PlayerPrefs.GetInt("highscore") >> (l - 1) * 8) & 255;
-        s *= 100;
-        return s.ToString();
+        var data = SaveSystem.LoadGame();
+        if (data == null || data.highscores == null || l < 0 || l >= data.highscores.Count)
+            return "0";
+
+        return data.highscores[l].ToString();
     }
 
-    public void SetHighscore()
+    public void SetHighscore(int l)
     {
-        highscore = (PlayerPrefs.GetInt("highscore") >> (level - 1) * 8) & 255;
-        highscore *= 100;
-        if(highscore < score)
-            highscore = score;
-        highscore /= 100;
-        highscore <<= (level - 1) * 8;
-        var s = PlayerPrefs.GetInt("highscore");
-        var mask = 15 << (level - 1) * 8;
-        mask = ~mask;
-        s = s & mask | highscore;
-        PlayerPrefs.SetInt("highscore", s);
-        PlayerPrefs.Save();
+        var save = SaveSystem.LoadGame();
+        
+        while (save.highscores.Count <= l)
+            save.highscores.Add(0);
+        
+        int current = save.highscores[l];
+        if (score > current)
+            save.highscores[l] = score;
+        
+        SaveSystem.SaveGame(save);
     }
 }

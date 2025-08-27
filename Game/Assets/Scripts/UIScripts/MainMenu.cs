@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-    private const string HIGHEST_LEVEL_KEY = "HighestLevelUnlocked";
     private static string nextScene;
     public void PlayLevel(int level)
     { 
-        Debug.Log("Playing Game");
         SetNext(level);
         if (IsLevelUnlocked(level))
             SceneManager.LoadScene("PreGameMenu");
@@ -39,18 +37,18 @@ public class MainMenu : MonoBehaviour
     
     public static void CompleteLevel(int currentLevel)
     {
-        int highestLevelUnlocked = PlayerPrefs.GetInt(HIGHEST_LEVEL_KEY, 1);
+        var save = SaveSystem.LoadGame();
         
-        if (currentLevel + 1 > highestLevelUnlocked)
+        if (currentLevel + 1 > save.highestLevelUnlocked)
         {
-            PlayerPrefs.SetInt(HIGHEST_LEVEL_KEY, currentLevel + 1);
-            PlayerPrefs.Save();
+            save.highestLevelUnlocked = currentLevel + 1;
+            SaveSystem.SaveGame(save);
         }
     }
     
     private static bool IsLevelUnlocked(int level)
     {
-        int highestLevelUnlocked = PlayerPrefs.GetInt(HIGHEST_LEVEL_KEY, 1);
+        int highestLevelUnlocked = SaveSystem.LoadGame().highestLevelUnlocked;
         return level <= highestLevelUnlocked;
     }
 }
