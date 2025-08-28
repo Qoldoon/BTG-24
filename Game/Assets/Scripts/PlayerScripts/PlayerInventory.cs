@@ -85,6 +85,7 @@ public class PlayerInventory : MonoBehaviour
     public void Toss(Vector2 direction, Item item)
     {
         if(item == null) return;
+        item.UnEquip();
         var pickup = Instantiate(pick, transform.position, Quaternion.identity);
         pickup.GetComponent<Pickup>().item = item.gameObject;
         item.transform.SetParent(pickup.transform);
