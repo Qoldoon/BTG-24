@@ -1,7 +1,10 @@
-namespace DefaultNamespace
+using System;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
 {
-    public class GameManager
+    private void Start()
     {
-        
+        WallManager.Initialize();
     }
 }

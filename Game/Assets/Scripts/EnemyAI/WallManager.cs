@@ -1,29 +1,51 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
-public static class WallCache
+public static class WallManager
 {
-    public static List<Vector3> WallPositions { get; private set; }
-    public static List<GameObject> WallObjects { get; private set; }
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    private static void Initialize()
+    private static HashSet<Vector2Int> wallGridPositions = new ();
+    
+    
+    public static void Initialize()
     {
-        Debug.Log("WallManager initializing...");
-
-        WallPositions = new List<Vector3>();
-        WallObjects = new List<GameObject>();
-
-        // Assuming walls are tagged "Wall"
-        var walls = GameObject.FindGameObjectsWithTag("Wall");
-
-        foreach (var wall in walls)
+        wallGridPositions.Clear();
+        
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("Walls");
+        
+        foreach (GameObject wall in walls)
         {
-            WallObjects.Add(wall);
-            WallPositions.Add(wall.transform.position);
+            Vector3 position = wall.transform.position;
+            Vector2Int gridPosition = new Vector2Int(
+                Mathf.RoundToInt(position.x),
+                Mathf.RoundToInt(position.y)
+            );
+            wallGridPositions.Add(gridPosition);
         }
 
-        Debug.Log($"WallManager: found {WallObjects.Count} walls.");
+        Debug.Log($"WallManager initialized with {wallGridPositions.Count} wall grid positions.");
+    }
+    
+    public static bool IsWallAtGridPosition(Vector2Int gridPosition)
+    {
+        return wallGridPositions.Contains(gridPosition);
+    }
+    
+    public static bool IsWallAtWorldPosition(Vector2 worldPosition)
+    {
+        Vector2Int gridPosition = new Vector2Int(
+            Mathf.RoundToInt(worldPosition.x),
+            Mathf.RoundToInt(worldPosition.y)
+        );
+        return wallGridPositions.Contains(gridPosition);
+    }
+    
+    public static void AddWallAtGridPosition(Vector2Int gridPosition)
+    {
+        wallGridPositions.Add(gridPosition);
+    }
+    
+    public static void RemoveWallAtGridPosition(Vector2Int gridPosition)
+    {
+        wallGridPositions.Remove(gridPosition);
     }
 }

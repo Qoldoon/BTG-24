@@ -59,13 +59,24 @@ public class Sightings : IEnumerable<Sighting>
     private List<Sound> _sounds;
     private Sighting _playerSighting;
     private Sighting _allySighting;
+    private Transform _this;
     public int Count => _sightings.Count;
     public Sightings()
     {
         _sightings = new List<Sighting>();
         _sounds = new List<Sound>();
     }
+    public Sightings(Transform transform)
+    {
+        _sightings = new List<Sighting>();
+        _sounds = new List<Sound>();
+        _this = transform;
+    }
 
+    public Transform EnemyTransform()
+    {
+        return _this;
+    }
     public Sighting PlayerSighting()
     {
         // Forget();
@@ -76,12 +87,6 @@ public class Sightings : IEnumerable<Sighting>
     {
         // Forget();
         return _allySighting;
-    }
-
-    public List<Sighting> WallSearch()
-    {
-        Forget();
-        return _sightings.FindAll(s => s.Target.CompareTag("Walls"));
     }
 
     public Sound Listen()

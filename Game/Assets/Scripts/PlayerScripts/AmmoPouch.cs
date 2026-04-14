@@ -12,7 +12,7 @@ public class AmmoPouch : Item
     
     public override string Description { get; set; } =
         "Spare ammunition \n" +
-        "Allows reloading for all weapons \n";
+        "Enables reloading for all weapons \n";
     public override void OnAdd(PlayerInventory inventory, int index)
     {
         base.OnAdd(inventory, index);
