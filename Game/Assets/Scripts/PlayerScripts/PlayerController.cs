@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
         o.GetComponent<BoxCollider2D>().isTrigger = true;
         o.AddComponent<SpriteRenderer>();
         o.AddComponent<SlashScript>();
-        t[Timer.Parry] = Time.time + 1.5f;
+        t[Timer.Parry] = Time.time + 3f;
     }
     private void AttackHandler()
     {
