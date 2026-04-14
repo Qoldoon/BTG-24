@@ -26,7 +26,7 @@ public class EnemyBehaviour : MonoBehaviour, IActor
     // private float nextFireTime;
     private AIDestinationSetter setter;
     public bool IsAggro => Sighting.IsRecent(_sightings.PlayerSighting(), 0.1f);
-    private Sightings _sightings = new ();
+    private Sightings _sightings;
 
     
     void Awake()
@@ -53,6 +53,7 @@ public class EnemyBehaviour : MonoBehaviour, IActor
         movementTarget.transform.parent = null;
         aimTarget.transform.parent = null;
         SoundTracker.OnGunShot += OnHeardSound;
+        _sightings = new  Sightings(transform);
     }
     
     void Update()
@@ -133,6 +134,9 @@ public class EnemyBehaviour : MonoBehaviour, IActor
     
     public void Detection(Collider2D other)
     {
+        if(!other.CompareTag("Player") && !other.CompareTag("Enemy"))
+            return;
+        
         Vector3 directionToTarget = (other.transform.position - transform.position).normalized;
         float angleToTarget = Vector2.Angle(transform.up, directionToTarget);
         //sight
@@ -244,6 +248,69 @@ public class EnemyBehaviour : MonoBehaviour, IActor
             Destroy(aimTarget.gameObject);
     }
 
+    public void Track(Sighting sighting)
+    {
+        if (CanMoveForward())
+        {
+            SetMoveTarget(transform.position + (Vector3)_moveDir * 2f);
+        }
+        else
+        {
+            TryReflect();
+        }
+        SetAimTarget(transform.position + (Vector3)_moveDir * 2f);
+    }
+
+    private Vector2 _moveDir;
+    public void BeginTracking(Sighting sighting)
+    {
+        if (sighting != null && sighting.Velocity.sqrMagnitude > 0.01f)
+            _moveDir = sighting.Velocity.normalized;
+        else
+            _moveDir = GetLookDirection().normalized;
+
+        if (_moveDir.sqrMagnitude < 0.01f)
+            _moveDir = Vector2.up;
+    }
+    private void TryReflect()
+    {
+        Vector3 origin = transform.position + (Vector3)_moveDir.normalized * 0.51f;
+
+        var hit = Physics2D.Raycast(origin, _moveDir, 20, 1 << 6);
+        if (hit.collider == null) return;
+
+        var tangentA = new Vector2(-hit.normal.y, hit.normal.x);
+        var tangentB = new Vector2(hit.normal.y, -hit.normal.x);
+
+        bool aPreferred = Vector2.Dot(_moveDir, tangentA) >= 0;
+        var preferred = aPreferred ? tangentA : tangentB;
+        var other = aPreferred ? tangentB : tangentA;
+
+        if (!IsDirectionBlocked(preferred))
+            _moveDir = preferred;
+        else if (!IsDirectionBlocked(other))
+            _moveDir = other;
+        else
+            _moveDir = -_moveDir;
+
+        aimTarget.position = transform.position + (Vector3)_moveDir * 2f;
+        movementTarget.position = transform.position + (Vector3)_moveDir * 2f;
+    }
+
+    private bool IsDirectionBlocked(Vector2 dir)
+    {
+        Vector3 origin = transform.position + (Vector3)dir.normalized * 0.51f;
+        var hit = Physics2D.Raycast(origin, dir, 2, 1 << 6);
+        return hit.collider != null && hit.collider.CompareTag("Walls");
+    }
+    public bool CanMoveForward()
+    {
+        Vector3 origin = transform.position + (Vector3)_moveDir.normalized * 0.51f;
+        int layerMask = 1 << 6;
+        var hit = Physics2D.Raycast(origin, _moveDir, 2, layerMask);
+        if (hit.collider != null && hit.collider.CompareTag("Walls")) return false;
+        return true;
+    }
     public Vector2 GetLookDirection()
     {
         return aimTarget.position - transform.position;
