@@ -103,7 +103,10 @@ public class Sightings : IEnumerable<Sighting>
     {
         var existingSighting = _sightings.Find(s => s.Equals(sighting));
         if (existingSighting == null)
+        {
             _sightings.Add(sighting);
+            existingSighting = sighting;
+        }
         else
         {
             existingSighting.TimeSeen = sighting.TimeSeen;
