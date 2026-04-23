@@ -70,3 +70,12 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# UML / documentation generation
+UML_DIAGRAMS.md
+uml_exports/
+BTG24_Architecture.docx
+node_modules/
+package.json
+package-lock.json
+make_docx.js
