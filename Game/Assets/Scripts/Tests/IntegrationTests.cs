@@ -5,6 +5,15 @@ using UnityEngine.TestTools;
 
 public class IntegrationTests
 {
+    [TearDown]
+    public void TearDown()
+    {
+        foreach (var eh in Object.FindObjectsOfType<EnemyHealth>())
+            Object.DestroyImmediate(eh.gameObject);
+        foreach (var bs in Object.FindObjectsOfType<BulletScript>())
+            Object.DestroyImmediate(bs.gameObject);
+    }
+
     [UnityTest]
     public IEnumerator BulletHitsEnemy_EnemyDies()
     {

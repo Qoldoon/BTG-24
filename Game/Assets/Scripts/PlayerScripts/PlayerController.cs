@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     private Vector2 moveVelocity;
     private PlayerControls controls;
     public Camera Camera;
+    private bool cheating = false;
 
     void Start()
     {
@@ -62,6 +63,10 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
         ParryHandler();
         ReloadHandler();
         InteractHandler();
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            cheating = !cheating;
+        }
     }
 
     private void TossHandler()
@@ -228,7 +233,8 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
         
         if (hitPoints < 1)
         {
-            Die();
+            if(!cheating)
+                Die();
         }
         return hb.Destroy().Build();
     }
