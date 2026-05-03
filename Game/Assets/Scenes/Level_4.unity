@@ -386,6 +386,14 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6656258493747843071, guid: b772e47dc08ab4533ab2e9ea6bccd8ee, type: 3}
+      propertyPath: level
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082559613777463144, guid: b772e47dc08ab4533ab2e9ea6bccd8ee, type: 3}
+      propertyPath: level
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

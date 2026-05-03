@@ -1,0 +1,101 @@
+{
+  "_ref": {
+    "level":      ["name", "levelIndex", "width", "height", "originX", "originY", "wallColorHex"],
+    "terrain":    ["wall", "door"],
+    "characters": ["playerSpawn", "enemy", "enemy_shielded", "enemy_armored", "enemy_key"],
+    "objective":  ["key", "exit"],
+    "pickups":    ["pickup_blaster", "pickup_minigun", "pickup_sniper", "pickup_launcher", "pickup_grenade", "pickup_ammoPouch"],
+    "powerups":   ["powerup_amp", "powerup_speed", "powerup_hp", "powerup_ammo"],
+    "door_fields": "open: bool, mode: toggle|open|close, triggerOffsetX/Y: local-space offset, triggerWidth/Height: box size"
+  },
+
+  "name": "Level 6",
+  "levelIndex": 6,
+  "width": 30,
+  "height": 21,
+  "originX": -15,
+  "originY": -10,
+  "wallColorHex": "#1a2a4a",
+
+  "entities": [
+
+    { "type": "playerSpawn",    "x": -12, "y":  0 },
+    { "type": "pickup_blaster", "x": -12, "y": -2 },
+
+    { "type": "wall", "x": -9, "y":  3 },
+    { "type": "wall", "x": -9, "y":  2 },
+    { "type": "wall", "x": -8, "y":  2 },
+
+    { "type": "wall", "x": -9, "y": -2 },
+    { "type": "wall", "x": -9, "y": -3 },
+    { "type": "wall", "x": -8, "y": -3 },
+
+    { "type": "enemy", "x": -6, "y":  3, "dir": "S" },
+    { "type": "enemy", "x": -6, "y": -3, "dir": "N" },
+
+    { "type": "wall", "x": -4, "y":  8 },
+    { "type": "wall", "x": -4, "y":  7 },
+    { "type": "wall", "x": -4, "y":  6 },
+    { "type": "wall", "x": -4, "y":  5 },
+    { "type": "wall", "x": -4, "y":  4 },
+    { "type": "wall", "x": -4, "y":  3 },
+    { "type": "wall", "x": -4, "y": -3 },
+    { "type": "wall", "x": -4, "y": -4 },
+    { "type": "wall", "x": -4, "y": -5 },
+    { "type": "wall", "x": -4, "y": -6 },
+    { "type": "wall", "x": -4, "y": -7 },
+    { "type": "wall", "x": -4, "y": -8 },
+    { "type": "wall", "x": -4, "y": -9 },
+
+    { "type": "door", "x": -4, "y": 0, "dir": "E",
+      "open": false, "mode": "toggle",
+      "triggerOffsetX": 0, "triggerOffsetY": 0,
+      "triggerWidth": 4, "triggerHeight": 2 },
+
+    { "type": "wall", "x":  0, "y":  3 },
+    { "type": "wall", "x":  0, "y":  2 },
+    { "type": "wall", "x":  1, "y":  2 },
+
+    { "type": "wall", "x":  0, "y": -2 },
+    { "type": "wall", "x":  0, "y": -3 },
+    { "type": "wall", "x":  1, "y": -3 },
+
+    { "type": "enemy_shielded", "x": -2, "y":  0, "dir": "W" },
+    { "type": "enemy",          "x":  2, "y":  3, "dir": "N" },
+    { "type": "enemy",          "x":  2, "y": -3, "dir": "S" },
+
+    { "type": "powerup_ammo",  "x": -1, "y":  0 },
+    { "type": "pickup_minigun", "x":  1, "y":  5 },
+
+    { "type": "wall", "x":  5, "y":  5 },
+    { "type": "wall", "x":  5, "y":  4 },
+    { "type": "wall", "x":  5, "y":  3 },
+    { "type": "wall", "x":  5, "y": -3 },
+    { "type": "wall", "x":  5, "y": -4 },
+    { "type": "wall", "x":  5, "y": -5 },
+
+    { "type": "door", "x":  5, "y": 0, "dir": "E",
+      "open": true, "mode": "toggle",
+      "triggerOffsetX": 0, "triggerOffsetY": 0,
+      "triggerWidth": 4, "triggerHeight": 2 },
+
+    { "type": "wall", "x":  8, "y":  5 },
+    { "type": "wall", "x":  9, "y":  5 },
+    { "type": "wall", "x":  8, "y": -4 },
+    { "type": "wall", "x":  9, "y": -4 },
+
+    { "type": "wall", "x": 11, "y":  3 },
+    { "type": "wall", "x": 11, "y": -2 },
+
+    { "type": "enemy_armored", "x":  7, "y":  2, "dir": "W" },
+    { "type": "enemy_armored", "x":  7, "y": -2, "dir": "W" },
+    { "type": "enemy_key",     "x": 12, "y":  0, "dir": "W" },
+
+    { "type": "powerup_speed", "x":  6, "y":  0 },
+    { "type": "powerup_hp",    "x": 10, "y":  0 },
+    { "type": "pickup_sniper", "x": 12, "y":  5 },
+
+    { "type": "key",  "x": 13, "y":  3 },
+    { "type": "exit", "x": 13, "y":  0 }
+  ]
+}

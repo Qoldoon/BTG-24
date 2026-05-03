@@ -1,0 +1,213 @@
+{
+  "name": "Level 4",
+  "levelIndex": 4,
+  "width": 61,
+  "height": 31,
+  "originX": -20,
+  "originY": -20,
+  "wallColorHex": "#3a3a3a",
+
+  "entities": [
+    { "type": "playerSpawn", "x":  -18, "y": 8 },
+    { "type": "exit",        "x":  33, "y": -16 },
+
+    { "type": "powerup_amp",    "x": -2, "y": -8 },
+    { "type": "powerup_hp",    "x": -18, "y": 0 },
+    { "type": "powerup_ammo",    "x": -18, "y": -6 },
+
+    { "type": "wall", "x": -15, "y":  9 },
+    { "type": "wall", "x": -15, "y":  8 },
+    { "type": "wall", "x": -15, "y":  7 },
+    { "type": "wall", "x": -15, "y":  6 },
+    { "type": "wall", "x": -15, "y":  5 },
+
+    { "type": "wall", "x": -19, "y":  1 },
+    { "type": "wall", "x": -18, "y":  1 },
+    { "type": "wall", "x": -17, "y":  1 },
+    { "type": "wall", "x": -16, "y":  1 },
+    { "type": "wall", "x": -15, "y":  1 },
+    { "type": "wall", "x": -14, "y":  1 },
+    { "type": "wall", "x": -13, "y":  1 },
+    { "type": "wall", "x": -12, "y":  1 },
+    { "type": "wall", "x": -11, "y":  1 },
+    { "type": "wall", "x": -10, "y":  1 },
+    { "type": "wall", "x": -9, "y":  1 },
+    { "type": "wall", "x": -8, "y":  1 },
+    { "type": "wall", "x": -7, "y":  1 },
+    { "type": "wall", "x": -6, "y":  1 },
+
+    { "type": "wall", "x": -19, "y":  -8 },
+    { "type": "wall", "x": -18, "y":  -8 },
+    { "type": "wall", "x": -17, "y":  -8 },
+    { "type": "wall", "x": -16, "y":  -8 },
+    { "type": "wall", "x": -15, "y":  -8 },
+    { "type": "wall", "x": -14, "y":  -8 },
+    { "type": "wall", "x": -13, "y":  -8 },
+    { "type": "wall", "x": -12, "y":  -8 },
+    { "type": "wall", "x": -11, "y":  -8 },
+    { "type": "wall", "x": -10, "y":  -8 },
+    { "type": "wall", "x": -9, "y":  -8 },
+    { "type": "wall", "x": -8, "y":  -8 },
+    { "type": "wall", "x": -7, "y":  -8 },
+    { "type": "wall", "x": -6, "y":  -8 },
+
+    { "type": "wall", "x": 2, "y":  9 },
+    { "type": "wall", "x": 2, "y":  8 },
+    { "type": "wall", "x": 2, "y":  7 },
+    { "type": "wall", "x": 2, "y":  6 },
+    { "type": "wall", "x": 2, "y":  5 },
+    { "type": "wall", "x": 2, "y":  4 },
+    { "type": "wall", "x": 2, "y":  3 },
+    { "type": "wall", "x": 2, "y":  2 },
+    { "type": "wall", "x": 2, "y":  1 },
+    { "type": "wall", "x": 2, "y":  0 },
+    { "type": "wall", "x": 2, "y":  -1 },
+    { "type": "wall", "x": 2, "y":  -2 },
+    { "type": "wall", "x": 2, "y":  -3 },
+    { "type": "wall", "x": 2, "y":  -4 },
+    { "type": "wall", "x": 2, "y":  -5 },
+    { "type": "wall", "x": 2, "y":  -6 },
+    { "type": "wall", "x": 2, "y":  -7 },
+    { "type": "wall", "x": 2, "y":  -8 },
+    { "type": "wall", "x": 2, "y":  -9 },
+    { "type": "wall", "x": 2, "y":  -10 },
+    { "type": "wall", "x": 2, "y":  -11 },
+    { "type": "wall", "x": 2, "y":  -12 },
+    { "type": "wall", "x": 2, "y":  -13 },
+    { "type": "wall", "x": 2, "y":  -14 },
+
+    
+    { "type": "wall", "x": 25, "y":  4 },
+    { "type": "wall", "x": 25, "y":  3 },
+    { "type": "wall", "x": 25, "y":  2 },
+    { "type": "wall", "x": 25, "y":  1 },
+    { "type": "wall", "x": 25, "y":  0 },
+    { "type": "wall", "x": 25, "y":  -1 },
+    { "type": "wall", "x": 25, "y":  -2 },
+    { "type": "wall", "x": 25, "y":  -3 },
+    { "type": "wall", "x": 25, "y":  -4 },
+    { "type": "wall", "x": 25, "y":  -5 },
+    { "type": "wall", "x": 25, "y":  -6 },
+    { "type": "wall", "x": 25, "y":  -7 },
+    { "type": "wall", "x": 25, "y":  -8 },
+    { "type": "wall", "x": 25, "y":  -9 },
+    { "type": "wall", "x": 25, "y":  -10 },
+    { "type": "wall", "x": 25, "y":  -11 },
+    { "type": "wall", "x": 25, "y":  -12 },
+    { "type": "wall", "x": 25, "y":  -13 },
+    { "type": "wall", "x": 25, "y":  -14 },
+    { "type": "wall", "x": 25, "y":  -15 },
+    { "type": "wall", "x": 25, "y":  -16 },
+    { "type": "wall", "x": 25, "y":  -17 },
+    { "type": "wall", "x": 25, "y":  -18 },
+    { "type": "wall", "x": 25, "y":  -19 },
+
+    { "type": "wall", "x": 8, "y":  -14 },
+    { "type": "wall", "x": 9, "y":  -14 },
+    { "type": "wall", "x": 10, "y":  -14 },
+    { "type": "wall", "x": 11, "y":  -14 },
+    { "type": "wall", "x": 12, "y":  -14 },
+
+    { "type": "wall", "x": 16, "y":  -14 },
+    { "type": "wall", "x": 17, "y":  -14 },
+    { "type": "wall", "x": 18, "y":  -14 },
+    { "type": "wall", "x": 19, "y":  -14 },
+    { "type": "wall", "x": 20, "y":  -14 },
+
+    { "type": "wall", "x": 8, "y":  -13 },
+    { "type": "wall", "x": 9, "y":  -13 },
+    { "type": "wall", "x": 10, "y":  -13 },
+    { "type": "wall", "x": 11, "y":  -13 },
+    { "type": "wall", "x": 12, "y":  -13 },
+
+    { "type": "wall", "x": 16, "y":  -13 },
+    { "type": "wall", "x": 17, "y":  -13 },
+    { "type": "wall", "x": 18, "y":  -13 },
+    { "type": "wall", "x": 19, "y":  -13 },
+    { "type": "wall", "x": 20, "y":  -13 },
+
+    { "type": "wall", "x": 8, "y":  -12 },
+    { "type": "wall", "x": 9, "y":  -12 },
+
+    { "type": "wall", "x": 19, "y":  -12 },
+    { "type": "wall", "x": 20, "y":  -12 },
+
+    { "type": "wall", "x": 8, "y":  -11 },
+    { "type": "wall", "x": 9, "y":  -11 },
+
+    { "type": "wall", "x": 19, "y":  -11 },
+    { "type": "wall", "x": 20, "y":  -11 },
+
+    { "type": "wall", "x": 8, "y":  -10 },
+    { "type": "wall", "x": 9, "y":  -10 },
+
+    { "type": "wall", "x": 19, "y":  -10 },
+    { "type": "wall", "x": 20, "y":  -10 },
+
+    { "type": "wall", "x": 8, "y":  -6 },
+    { "type": "wall", "x": 9, "y":  -6 },
+
+    { "type": "wall", "x": 19, "y":  -6 },
+    { "type": "wall", "x": 20, "y":  -6 },
+
+    { "type": "wall", "x": 8, "y":  -5 },
+    { "type": "wall", "x": 9, "y":  -5 },
+
+    { "type": "wall", "x": 19, "y":  -5 },
+    { "type": "wall", "x": 20, "y":  -5 },
+
+    { "type": "wall", "x": 8, "y":  -4 },
+    { "type": "wall", "x": 9, "y":  -4 },
+
+    { "type": "wall", "x": 19, "y":  -4 },
+    { "type": "wall", "x": 20, "y":  -4 },
+
+    { "type": "wall", "x": 8, "y":  -3 },
+    { "type": "wall", "x": 9, "y":  -3 },
+    { "type": "wall", "x": 10, "y":  -3 },
+    { "type": "wall", "x": 11, "y":  -3 },
+    { "type": "wall", "x": 12, "y":  -3 },
+
+    { "type": "wall", "x": 16, "y":  -3 },
+    { "type": "wall", "x": 17, "y":  -3 },
+    { "type": "wall", "x": 18, "y":  -3 },
+    { "type": "wall", "x": 19, "y":  -3 },
+    { "type": "wall", "x": 20, "y":  -3 },
+
+    { "type": "wall", "x": 8, "y":  -2 },
+    { "type": "wall", "x": 9, "y":  -2 },
+    { "type": "wall", "x": 10, "y":  -2 },
+    { "type": "wall", "x": 11, "y":  -2 },
+    { "type": "wall", "x": 12, "y":  -2 },
+
+    { "type": "wall", "x": 16, "y":  -2 },
+    { "type": "wall", "x": 17, "y":  -2 },
+    { "type": "wall", "x": 18, "y":  -2 },
+    { "type": "wall", "x": 19, "y":  -2 },
+    { "type": "wall", "x": 20, "y":  -2 },
+
+
+    { "type": "wall", "x": 30, "y":  3 },
+    
+    { "type": "wall", "x": 35, "y":  3 },
+
+    { "type": "enemy",          "x": -10, "y":  6, "dir": "E" },
+    { "type": "enemy",          "x": -10, "y":  8, "dir": "E" },
+    { "type": "enemy",          "x": -6, "y":  6, "dir": "W" },
+    { "type": "enemy",          "x": -6, "y":  8, "dir": "W" },
+
+    { "type": "enemy_armored",  "x": -15, "y":  -3, "dir": "E" },
+
+    { "type": "enemy_shielded",  "x": -18, "y":  -13, "dir": "E" },
+
+    { "type": "enemy",          "x": 12, "y":  8, "dir": "E" },
+    { "type": "enemy",          "x": 12, "y":  6, "dir": "E" },
+    { "type": "enemy",          "x": 14, "y":  -8, "dir": "N" },
+    { "type": "enemy_armored",  "x": 7, "y":  0, "dir": "E" },
+
+    { "type": "enemy_armored",  "x": 31, "y":  -6, "dir": "N" },
+
+    { "type": "enemy",          "x": 30, "y":  -10, "dir": "N" },
+    { "type": "enemy",          "x": 34, "y":  -10, "dir": "N" }
+  ]
+}

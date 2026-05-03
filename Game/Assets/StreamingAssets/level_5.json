@@ -1,0 +1,57 @@
+{
+  "_ref": {
+    "level":      ["name", "levelIndex", "width", "height", "originX", "originY", "wallColorHex"],
+    "terrain":    ["wall", "door"],
+    "characters": ["playerSpawn", "enemy", "enemy_shielded", "enemy_armored", "enemy_key"],
+    "objective":  ["key", "exit"],
+    "pickups":    ["pickup_blaster", "pickup_minigun", "pickup_sniper", "pickup_launcher", "pickup_grenade", "pickup_ammoPouch"],
+    "powerups":   ["powerup_amp", "powerup_speed", "powerup_hp", "powerup_ammo"],
+    "door_fields": "open: bool, mode: toggle|open|close, triggerOffsetX/Y: local-space offset, triggerWidth/Height: box size"
+  },
+
+  "name": "Level 5",
+  "levelIndex": 5,
+  "width": 22,
+  "height": 17,
+  "originX": -11,
+  "originY": -8,
+  "wallColorHex": "#3a3a5c",
+
+  "entities": [
+    { "type": "playerSpawn",    "x": -8, "y":  0 },
+    { "type": "pickup_blaster", "x": -8, "y": -2 },
+
+    { "type": "wall", "x": -5, "y":  2 },
+    { "type": "wall", "x": -5, "y": -2 },
+
+    { "type": "enemy", "x": -4, "y":  0, "dir": "E" },
+
+    { "type": "wall", "x": 2, "y":  7 },
+    { "type": "wall", "x": 2, "y":  6 },
+    { "type": "wall", "x": 2, "y":  5 },
+    { "type": "wall", "x": 2, "y":  4 },
+    { "type": "wall", "x": 2, "y":  3 },
+    { "type": "wall", "x": 2, "y": -3 },
+    { "type": "wall", "x": 2, "y": -4 },
+    { "type": "wall", "x": 2, "y": -5 },
+    { "type": "wall", "x": 2, "y": -6 },
+    { "type": "wall", "x": 2, "y": -7 },
+
+    { "type": "door", "x": 2, "y": 0, "dir": "E", "mode": "open",
+      "triggerOffsetX": 0, "triggerOffsetY": -1,
+      "triggerWidth": 5, "triggerHeight": 1 },
+
+    { "type": "wall", "x": 6, "y":  4 },
+    { "type": "wall", "x": 7, "y":  4 },
+    { "type": "wall", "x": 6, "y": -3 },
+    { "type": "wall", "x": 7, "y": -3 },
+
+    { "type": "enemy",          "x": 5, "y":  2, "dir": "W" },
+    { "type": "enemy_shielded", "x": 5, "y": -2, "dir": "W" },
+
+    { "type": "powerup_hp", "x": 4, "y": 0 },
+
+    { "type": "key",  "x": 8, "y":  0 },
+    { "type": "exit", "x": 9, "y":  0 }
+  ]
+}

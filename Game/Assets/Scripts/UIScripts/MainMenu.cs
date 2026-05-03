@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     private static string nextScene;
     public void PlayLevel(int level)
-    { 
+    {
         SetNext(level);
         if (IsLevelUnlocked(level))
             SceneManager.LoadScene("PreGameMenu");
@@ -17,9 +17,10 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(scene);
     }
+
     public void SetNext(int level)
     {
-        nextScene = "Level_" + level;
+        nextScene = string.IsNullOrEmpty(LevelSession.levelFile) ? "Level_" + level : "GameScene";
     }
     public void LoadNext()
     {

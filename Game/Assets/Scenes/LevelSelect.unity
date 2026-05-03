@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9107055575274580724, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
       propertyPath: level
       value: 2
@@ -330,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 252308907}
   - component: {fileID: 252308908}
+  - component: {fileID: 252308909}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -384,6 +389,20 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &252308909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252308906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728f60d1468bc4ee883c943d7e7a7443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::LevelSelectManager
+  buttonPrefab: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
+  container: {fileID: 252308907}
 --- !u!1 &354603285
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9107055575274580724, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
       propertyPath: level
       value: 4
@@ -1020,6 +1043,10 @@ PrefabInstance:
     - target: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
       propertyPath: m_Name
       value: Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9107055575274580724, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
       propertyPath: level
@@ -1214,9 +1241,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4931289912226195626, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
       propertyPath: m_Name
       value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353386654155451312, guid: 6ccdea2623c3a427f845506ee8f3ae66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
