@@ -146,8 +146,8 @@ public class IntegrationTests
         projectile.AddComponent<BoxCollider2D>();
         var b = projectile.AddComponent<BulletScript>();
         b.target = 1;
-        b.speed = 5;
-        b.damage = 10;
+        b.speed = 20;
+        b.damage = 50;
         b.emp = true;
         b.direction = new Vector3(1, 0, 0);
         projectile.transform.position = new Vector3(-1, 0, 0);
@@ -182,7 +182,7 @@ public class IntegrationTests
         projectile.AddComponent<BoxCollider2D>();
         var b = projectile.AddComponent<BulletScript>();
         b.target = 1;
-        b.speed = 5;
+        b.speed = 20;
         b.damage = 50;
         b.direction = new Vector3(1, 0, 0);
         projectile.transform.position = new Vector3(-1, 0, 0);

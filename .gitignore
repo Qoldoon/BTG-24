@@ -79,3 +79,4 @@ node_modules/
 package.json
 package-lock.json
 make_docx.js
+/Game/CodeCoverage

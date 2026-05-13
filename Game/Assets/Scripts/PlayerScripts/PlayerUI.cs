@@ -13,6 +13,11 @@ public class PlayerUI : MonoBehaviour
     public Image fadeImage;
     public GameObject MenuPanel;
     
+    public TMP_Text infoText;
+    public float fps { get; private set; }
+    private int _frameCount;
+    private float _fpsTimer;
+
     public bool MenuUp;
     private void Awake()
     {
@@ -31,6 +36,18 @@ public class PlayerUI : MonoBehaviour
 
     private void Update()
     {
+        _frameCount++;
+        _fpsTimer += Time.unscaledDeltaTime;
+        if (_fpsTimer >= 1f)
+        {
+            fps = _frameCount / _fpsTimer;
+            _frameCount = 0;
+            _fpsTimer = 0f;
+            if (infoText != null) infoText.text = $"{fps:0} FPS";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+            infoText.enabled = !infoText.enabled;
+
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
         if (MenuUp)
             ExitMenu();

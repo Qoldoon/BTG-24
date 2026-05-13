@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>5/3/2026 - 5:00:46 PM</Generatedon>
-    <Parser>MultiReportParser (3x OpenCoverParser)</Parser>
+    <Generatedon>5/13/2026 - 12:47:23 AM</Generatedon>
+    <Parser>MultiReportParser (5x OpenCoverParser)</Parser>
     <Assemblies>1</Assemblies>
     <Classes>92</Classes>
     <Files>87</Files>
     <Coveredlines>490</Coveredlines>
-    <Uncoveredlines>2246</Uncoveredlines>
-    <Coverablelines>2736</Coverablelines>
-    <Totallines>4778</Totallines>
-    <Linecoverage>17.9</Linecoverage>
+    <Uncoveredlines>2286</Uncoveredlines>
+    <Coverablelines>2776</Coverablelines>
+    <Totallines>4796</Totallines>
+    <Linecoverage>17.6</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
     <Coveredmethods>98</Coveredmethods>
-    <Totalmethods>413</Totalmethods>
-    <Methodcoverage>23.7</Methodcoverage>
+    <Totalmethods>432</Totalmethods>
+    <Methodcoverage>22.6</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="Scripts" classes="92" coverage="17.9" coveredlines="490" coverablelines="2736" totallines="5475" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="98" totalmethods="413" methodcoverage="23.7">
+    <Assembly name="Scripts" classes="92" coverage="17.6" coveredlines="490" coverablelines="2776" totallines="5493" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="98" totalmethods="432" methodcoverage="22.6">
       <Class name="AmmoPouch" coverage="0" coveredlines="0" coverablelines="33" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
       <Class name="AmmoRefill" coverage="0" coveredlines="0" coverablelines="13" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
       <Class name="Attack" coverage="0" coveredlines="0" coverablelines="2" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
@@ -48,7 +48,7 @@
       <Class name="Explode" coverage="0" coveredlines="0" coverablelines="17" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
       <Class name="ExtraHP" coverage="0" coveredlines="0" coverablelines="9" totallines="17" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
       <Class name="Eyes" coverage="0" coveredlines="0" coverablelines="6" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="GameManager" coverage="0" coveredlines="0" coverablelines="3" totallines="10" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="GameManager" coverage="0" coveredlines="0" coverablelines="4" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
       <Class name="Glass" coverage="0" coveredlines="0" coverablelines="7" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
       <Class name="Grenade" coverage="83.3" coveredlines="5" coverablelines="6" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="4" methodcoverage="50" />
       <Class name="GrenadeTraveling" coverage="0" coveredlines="0" coverablelines="31" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
@@ -84,7 +84,7 @@
       <Class name="PlayerInventory" coverage="49.3" coveredlines="78" coverablelines="158" totallines="292" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="19" methodcoverage="68.4" />
       <Class name="PlayerScripts.EnumArray[TEnum,TValue]" coverage="66.6" coveredlines="4" coverablelines="6" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="3" methodcoverage="33.3" />
       <Class name="PlayerShield" coverage="0" coveredlines="0" coverablelines="7" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="PlayerUI" coverage="0" coveredlines="0" coverablelines="122" totallines="174" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="17" methodcoverage="0" />
+      <Class name="PlayerUI" coverage="0" coveredlines="0" coverablelines="161" totallines="191" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="35" methodcoverage="0" />
       <Class name="PowerShot" coverage="0" coveredlines="0" coverablelines="9" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
       <Class name="SaveData" coverage="0" coveredlines="0" coverablelines="2" totallines="41" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
       <Class name="SaveSystem" coverage="0" coveredlines="0" coverablelines="18" totallines="41" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />

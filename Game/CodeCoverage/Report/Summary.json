@@ -1,24 +1,24 @@
 {
   "summary": {
-    "generatedon": "2026-05-03T14:00:46Z",
-    "parser": "MultiReportParser (3x OpenCoverParser)",
+    "generatedon": "2026-05-12T21:47:23Z",
+    "parser": "MultiReportParser (5x OpenCoverParser)",
     "assemblies": 1,
     "classes": 92,
     "files": 87,
     "coveredlines": 490,
-    "uncoveredlines": 2246,
-    "coverablelines": 2736,
-    "totallines": 4778,
-    "linecoverage": 17.9,
+    "uncoveredlines": 2286,
+    "coverablelines": 2776,
+    "totallines": 4796,
+    "linecoverage": 17.6,
     "coveredbranches": 0,
     "totalbranches": 0,
     "coveredmethods": 98,
-    "totalmethods": 413,
-    "methodcoverage": 23.7
+    "totalmethods": 432,
+    "methodcoverage": 22.6
  },
   "coverage": {
     "assemblies": [
-      { "name": "Scripts", "classes": 92, "coverage": 17.9, "coveredlines": 490, "coverablelines": 2736, "totallines": 5475, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 23.7, "coveredmethods": 98, "totalmethods": 413, "classesinassembly": [
+      { "name": "Scripts", "classes": 92, "coverage": 17.6, "coveredlines": 490, "coverablelines": 2776, "totallines": 5493, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 22.6, "coveredmethods": 98, "totalmethods": 432, "classesinassembly": [
         { "name": "AmmoPouch", "coverage": 0, "coveredlines": 0, "coverablelines": 33, "totallines": 53, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 6 },
         { "name": "AmmoRefill", "coverage": 0, "coveredlines": 0, "coverablelines": 13, "totallines": 21, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
         { "name": "Attack", "coverage": 0, "coveredlines": 0, "coverablelines": 2, "totallines": 18, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
@@ -48,7 +48,7 @@
         { "name": "Explode", "coverage": 0, "coveredlines": 0, "coverablelines": 17, "totallines": 34, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 2 },
         { "name": "ExtraHP", "coverage": 0, "coveredlines": 0, "coverablelines": 9, "totallines": 17, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
         { "name": "Eyes", "coverage": 0, "coveredlines": 0, "coverablelines": 6, "totallines": 16, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 2 },
-        { "name": "GameManager", "coverage": 0, "coveredlines": 0, "coverablelines": 3, "totallines": 10, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
+        { "name": "GameManager", "coverage": 0, "coveredlines": 0, "coverablelines": 4, "totallines": 11, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 2 },
         { "name": "Glass", "coverage": 0, "coveredlines": 0, "coverablelines": 7, "totallines": 13, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
         { "name": "Grenade", "coverage": 83.3, "coveredlines": 5, "coverablelines": 6, "totallines": 13, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 50, "coveredmethods": 2, "totalmethods": 4 },
         { "name": "GrenadeTraveling", "coverage": 0, "coveredlines": 0, "coverablelines": 31, "totallines": 49, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 4 },
@@ -84,7 +84,7 @@
         { "name": "PlayerInventory", "coverage": 49.3, "coveredlines": 78, "coverablelines": 158, "totallines": 292, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 68.4, "coveredmethods": 13, "totalmethods": 19 },
         { "name": "PlayerScripts.EnumArray[TEnum,TValue]", "coverage": 66.6, "coveredlines": 4, "coverablelines": 6, "totallines": 25, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 33.3, "coveredmethods": 1, "totalmethods": 3 },
         { "name": "PlayerShield", "coverage": 0, "coveredlines": 0, "coverablelines": 7, "totallines": 18, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 2 },
-        { "name": "PlayerUI", "coverage": 0, "coveredlines": 0, "coverablelines": 122, "totallines": 174, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 17 },
+        { "name": "PlayerUI", "coverage": 0, "coveredlines": 0, "coverablelines": 161, "totallines": 191, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 35 },
         { "name": "PowerShot", "coverage": 0, "coveredlines": 0, "coverablelines": 9, "totallines": 15, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
         { "name": "SaveData", "coverage": 0, "coveredlines": 0, "coverablelines": 2, "totallines": 41, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 },
         { "name": "SaveSystem", "coverage": 0, "coveredlines": 0, "coverablelines": 18, "totallines": 41, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 4 },

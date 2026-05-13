@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private void Start()
+    void Awake()
     {
-        WallManager.Initialize();
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 }

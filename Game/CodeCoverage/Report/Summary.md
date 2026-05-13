@@ -1,25 +1,25 @@
 ﻿# Summary
 |||
 |:---|:---|
-| Generated on: | 5/3/2026 - 5:00:46 PM |
-| Parser: | MultiReportParser (3x OpenCoverParser) |
+| Generated on: | 5/13/2026 - 12:47:23 AM |
+| Parser: | MultiReportParser (5x OpenCoverParser) |
 | Assemblies: | 1 |
 | Classes: | 92 |
 | Files: | 87 |
 | Covered lines: | 490 |
-| Uncovered lines: | 2246 |
-| Coverable lines: | 2736 |
-| Total lines: | 4778 |
-| Line coverage: | 17.9% (490 of 2736) |
+| Uncovered lines: | 2286 |
+| Coverable lines: | 2776 |
+| Total lines: | 4796 |
+| Line coverage: | 17.6% (490 of 2776) |
 | Covered branches: | 0 |
 | Total branches: | 0 |
 | Covered methods: | 98 |
-| Total methods: | 413 |
-| Method coverage: | 23.7% (98 of 413) |
+| Total methods: | 432 |
+| Method coverage: | 22.6% (98 of 432) |
 
 |**Name**|**Covered**|**Uncovered**|**Coverable**|**Total**|**Line coverage**|**Covered**|**Total**|**Branch coverage**|**Covered**|**Total**|**Method coverage**|
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-|**Scripts**|**490**|**2246**|**2736**|**5475**|**17.9%**|**0**|**0**|****|**98**|**413**|**23.7%**|
+|**Scripts**|**490**|**2286**|**2776**|**5493**|**17.6%**|**0**|**0**|****|**98**|**432**|**22.6%**|
 |AmmoPouch|0|33|33|53|0%|0|0||0|6|0%|
 |AmmoRefill|0|13|13|21|0%|0|0||0|1|0%|
 |Attack|0|2|2|18|0%|0|0||0|1|0%|
@@ -49,7 +49,7 @@
 |Explode|0|17|17|34|0%|0|0||0|2|0%|
 |ExtraHP|0|9|9|17|0%|0|0||0|1|0%|
 |Eyes|0|6|6|16|0%|0|0||0|2|0%|
-|GameManager|0|3|3|10|0%|0|0||0|1|0%|
+|GameManager|0|4|4|11|0%|0|0||0|2|0%|
 |Glass|0|7|7|13|0%|0|0||0|1|0%|
 |Grenade|5|1|6|13|83.3%|0|0||2|4|50%|
 |GrenadeTraveling|0|31|31|49|0%|0|0||0|4|0%|
@@ -85,7 +85,7 @@
 |PlayerInventory|78|80|158|292|49.3%|0|0||13|19|68.4%|
 |PlayerScripts.EnumArray[TEnum,TValue]|4|2|6|25|66.6%|0|0||1|3|33.3%|
 |PlayerShield|0|7|7|18|0%|0|0||0|2|0%|
-|PlayerUI|0|122|122|174|0%|0|0||0|17|0%|
+|PlayerUI|0|161|161|191|0%|0|0||0|35|0%|
 |PowerShot|0|9|9|15|0%|0|0||0|1|0%|
 |SaveData|0|2|2|41|0%|0|0||0|1|0%|
 |SaveSystem|0|18|18|41|0%|0|0||0|4|0%|
