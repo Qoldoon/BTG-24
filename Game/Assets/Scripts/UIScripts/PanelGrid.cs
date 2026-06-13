@@ -76,7 +76,7 @@ public class PanelGrid : MonoBehaviour
             var buttonColor = t.gameObject.GetComponent<ButtonColor>();
             if (t.isOn)
             {
-                buttonColor.selectedColor = ColorScheme.ColorOption.Secondary;
+                buttonColor.selectedColor = ColorScheme.ColorOption.Primary;
                 if(toggles.Count(x => x.isOn) > 3)
                     buttonColor.selectedColor = ColorScheme.ColorOption.Accent;
             }

@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour, IActor, IDamageable
     }
     public void Die()
     {
+        playerInventory?.playerUI.ShowDeathBlur();
         playerInventory?.playerUI.TitleText("DEAD");
         Time.timeScale = 0;
         dead = true;

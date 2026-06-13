@@ -22,6 +22,7 @@ public class PlayerCanvas : MonoBehaviour
         textComponent.fontSize = 24;
         textComponent.color = Color.white;
         textComponent.alignment = TextAlignmentOptions.Center;
+        textComponent.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/Saira_Condensed-Regular SDF");
         
         RectTransform textRect = textObj.GetComponent<RectTransform>();
 

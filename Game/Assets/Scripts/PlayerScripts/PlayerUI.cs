@@ -146,6 +146,26 @@ public class PlayerUI : MonoBehaviour
         slots[index].ToggleOff();
     }
     
+    public void ShowDeathBlur()
+    {
+        if (transform.Find("DeathBlur") != null) return;
+
+        GameObject blurObj = new GameObject("DeathBlur");
+        blurObj.transform.SetParent(transform, false);
+
+        Image blurImage = blurObj.AddComponent<Image>();
+        blurImage.raycastTarget = false;
+        blurImage.color = ColorScheme.HexToRGB("#292121");
+        Sprite[] blurSprites = Resources.LoadAll<Sprite>("Textures/Blur");
+        if (blurSprites.Length > 0) blurImage.sprite = blurSprites[0];
+
+        RectTransform blurRect = blurObj.GetComponent<RectTransform>();
+        blurRect.anchorMin = Vector2.zero;
+        blurRect.anchorMax = Vector2.one;
+        blurRect.offsetMin = Vector2.zero;
+        blurRect.offsetMax = Vector2.zero;
+    }
+
     public void TitleText(string text)
     {
         GameObject textObj = new GameObject("Text");
@@ -153,6 +173,7 @@ public class PlayerUI : MonoBehaviour
         TextMeshProUGUI textComponent = textObj.AddComponent<TextMeshProUGUI>();
         textComponent.text = text;
         textComponent.fontSize = 100;
+        textComponent.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/Saira_Condensed-Bold SDF");
         textComponent.enableVertexGradient = true;
         textComponent.colorGradient = new VertexGradient(new Color(156, 31, 56));
         textComponent.color = new Color(156, 31, 56);
@@ -174,6 +195,7 @@ public class PlayerUI : MonoBehaviour
         TextMeshProUGUI textComponent = textObj.AddComponent<TextMeshProUGUI>();
         textComponent.text = text;
         textComponent.fontSize = 90;
+        textComponent.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/Saira_Condensed-Regular SDF");
         textComponent.enableVertexGradient = true;
         textComponent.colorGradient = new VertexGradient(new Color(156, 31, 56));
         textComponent.color = new Color(156, 31, 56);

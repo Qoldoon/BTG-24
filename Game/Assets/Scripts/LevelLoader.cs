@@ -1,6 +1,7 @@
 using System.IO;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
 public class LevelLoader : MonoBehaviour
@@ -46,6 +47,8 @@ public class LevelLoader : MonoBehaviour
 
     void Awake()
     {
+        EnsureEventSystem();
+
         if (!string.IsNullOrEmpty(LevelSession.levelFile))
             levelFileName = LevelSession.levelFile;
 
@@ -80,7 +83,17 @@ public class LevelLoader : MonoBehaviour
 
         SpawnEntities(data);
     }
-    
+
+    // UI buttons (e.g. the pause menu on the player canvas) need an EventSystem
+    // to receive clicks. JSON levels load into a bare scene with none, so add one.
+    void EnsureEventSystem()
+    {
+        if (FindAnyObjectByType<EventSystem>() != null) return;
+        var go = new GameObject("EventSystem");
+        go.AddComponent<EventSystem>();
+        go.AddComponent<StandaloneInputModule>();
+    }
+
     // Floor
     void BuildFloor(LevelData data)
     {

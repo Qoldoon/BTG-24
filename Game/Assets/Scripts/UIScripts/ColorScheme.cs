@@ -4,12 +4,12 @@ using UnityEngine;
 
 public static class ColorScheme
 {
-    public static Color PrimaryColor = HexToRGB("#8e44ad");
-    public static Color SecondaryColor = HexToRGB("#16a085");
-    public static Color TertiaryColor = HexToRGB("#2c3e50");
+    public static Color PrimaryColor = HexToRGB("#34b4d6");
+    public static Color SecondaryColor = HexToRGB("#3f8125");
+    public static Color TertiaryColor = HexToRGB("#1d2028");
 
-    public static Color PrimaryAccentColor = HexToRGB("#c0392b");
-    public static Color SecondaryAccentColor = HexToRGB("#ecf0f1");
+    public static Color PrimaryAccentColor = HexToRGB("#a8463f");
+    public static Color SecondaryAccentColor = HexToRGB("#ececec");
 
     public enum ColorOption
     {
