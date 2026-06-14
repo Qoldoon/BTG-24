@@ -164,6 +164,31 @@ public class PlayerUI : MonoBehaviour
         blurRect.anchorMax = Vector2.one;
         blurRect.offsetMin = Vector2.zero;
         blurRect.offsetMax = Vector2.zero;
+        blurRect.pivot = new Vector2(0.5f, 0.5f);
+
+        StartCoroutine(PopInBlur(blurRect, blurImage));
+    }
+
+    private IEnumerator PopInBlur(RectTransform rect, Image image)
+    {
+        const float duration = 0.20f;
+        const float startScale = 1.15f;
+        float elapsed = 0f;
+        Color targetColor = image.color;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            float ease = 1f - Mathf.Pow(1f - t, 3f);
+            float scale = Mathf.Lerp(startScale, 1f, ease);
+            rect.localScale = new Vector3(scale, scale, 1f);
+            image.color = targetColor.MultiplyAlpha(ease);
+            yield return null;
+        }
+
+        rect.localScale = Vector3.one;
+        image.color = targetColor;
     }
 
     public void TitleText(string text)
